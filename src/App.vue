@@ -1,19 +1,23 @@
 <template>
-  <div class="app">
-    <header>
-      <h1>📸 Photo Studio Price Calculator</h1>
-      <p>Select products to add to your cart</p>
+  <div class="min-h-screen">
+    <header class="text-center mb-8 pb-4 border-b-2 border-primary">
+      <h1 class="text-4xl mb-2 text-primary font-bold">📸 Photo Studio Price Calculator</h1>
+      <p class="text-lg opacity-80">Select products to add to your cart</p>
     </header>
 
-    <div class="main-content">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-8">
       <!-- Products Section -->
-      <section class="products-section">
-        <h2>Available Products</h2>
+      <section>
+        <h2 class="text-3xl mb-6">Available Products</h2>
         
         <!-- Category Filter -->
-        <div class="filter-section">
-          <label for="category-filter">Filter by category:</label>
-          <select id="category-filter" v-model="selectedCategory">
+        <div class="mb-6 p-4 bg-primary/10 rounded-lg">
+          <label for="category-filter" class="block mb-2 font-semibold">Filter by category:</label>
+          <select 
+            id="category-filter" 
+            v-model="selectedCategory"
+            class="w-full p-2.5 text-base rounded-md border border-primary bg-inherit text-inherit cursor-pointer"
+          >
             <option value="">All Categories</option>
             <option v-for="category in categories" :key="category" :value="category">
               {{ category }}
@@ -22,32 +26,35 @@
         </div>
 
         <!-- Products List -->
-        <div class="products-grid">
+        <div class="grid gap-6" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
           <div 
             v-for="product in filteredProducts" 
             :key="product.id" 
-            class="product-card"
+            class="border border-primary/30 rounded-xl p-6 transition-all duration-200 bg-primary/5 hover:-translate-y-1 hover:shadow-[0_8px_16px_rgba(100,108,255,0.2)]"
           >
-            <div class="product-header">
-              <span class="category-badge">{{ product.category }}</span>
+            <div class="mb-4">
+              <span class="inline-block py-1.5 px-3 bg-primary text-white rounded-full text-sm font-semibold">{{ product.category }}</span>
             </div>
-            <h3>{{ product.name }}</h3>
-            <p class="description">{{ product.description }}</p>
-            <div class="product-details">
-              <div class="detail-item">
-                <span class="label">Photos:</span>
-                <span class="value">{{ product.photoCount }}</span>
+            <h3 class="text-xl mb-3 text-primary">{{ product.name }}</h3>
+            <p class="mb-4 opacity-80 leading-6">{{ product.description }}</p>
+            <div class="mb-4 p-4 bg-primary/10 rounded-lg">
+              <div class="flex justify-between mb-2">
+                <span class="font-semibold">Photos:</span>
+                <span class="font-medium">{{ product.photoCount }}</span>
               </div>
-              <div class="detail-item">
-                <span class="label">Price:</span>
-                <span class="value price">${{ product.price }}</span>
+              <div class="flex justify-between mb-2">
+                <span class="font-semibold">Price:</span>
+                <span class="font-medium text-success text-lg">${{ product.price }}</span>
               </div>
-              <div v-if="product.variation" class="detail-item variation">
-                <span class="label">Variation:</span>
-                <span class="value">{{ product.variation }}</span>
+              <div v-if="product.variation" class="flex justify-between mt-2 pt-2 border-t border-primary/20">
+                <span class="font-semibold">Variation:</span>
+                <span class="font-medium">{{ product.variation }}</span>
               </div>
             </div>
-            <button @click="addToCart(product)" class="add-to-cart-btn">
+            <button 
+              @click="addToCart(product)" 
+              class="w-full bg-primary text-white border-none py-3 font-semibold rounded-lg transition-colors duration-200 hover:bg-primary-hover"
+            >
               Add to Cart
             </button>
           </div>
@@ -55,47 +62,53 @@
       </section>
 
       <!-- Cart Section -->
-      <aside class="cart-section">
-        <h2>🛒 Shopping Cart</h2>
+      <aside class="sticky top-8 h-fit border-2 border-primary rounded-xl p-6 bg-primary/5">
+        <h2 class="text-3xl mb-6 text-center">🛒 Shopping Cart</h2>
         
-        <div v-if="cart.length === 0" class="empty-cart">
+        <div v-if="cart.length === 0" class="text-center py-8 opacity-60">
           <p>Your cart is empty</p>
         </div>
 
         <div v-else>
-          <div class="cart-items">
+          <div class="max-h-96 overflow-y-auto mb-6">
             <div 
               v-for="(item, index) in cart" 
               :key="index" 
-              class="cart-item"
+              class="flex justify-between items-start p-4 mb-4 bg-primary/10 rounded-lg border border-primary/20"
             >
-              <div class="cart-item-info">
-                <h4>{{ item.name }}</h4>
-                <p class="cart-item-category">{{ item.category }}</p>
-                <div class="cart-item-details">
+              <div class="flex-1">
+                <h4 class="text-base mb-1">{{ item.name }}</h4>
+                <p class="text-sm opacity-70 mb-2">{{ item.category }}</p>
+                <div class="flex justify-between text-sm">
                   <span>{{ item.photoCount }} photos</span>
-                  <span class="cart-item-price">${{ item.price }}</span>
+                  <span class="text-success font-semibold">${{ item.price }}</span>
                 </div>
               </div>
-              <button @click="removeFromCart(index)" class="remove-btn">
+              <button 
+                @click="removeFromCart(index)" 
+                class="bg-danger text-white border-none w-7 h-7 rounded-full cursor-pointer p-0 ml-2 hover:bg-danger-hover transition-colors duration-200"
+              >
                 ✕
               </button>
             </div>
           </div>
 
           <!-- Totals -->
-          <div class="cart-totals">
-            <div class="total-row">
-              <span class="total-label">Total Photos:</span>
-              <span class="total-value">{{ totalPhotoCount }}</span>
+          <div class="border-t-2 border-primary pt-4 mb-4">
+            <div class="flex justify-between py-2 text-lg">
+              <span>Total Photos:</span>
+              <span>{{ totalPhotoCount }}</span>
             </div>
-            <div class="total-row total-price-row">
-              <span class="total-label">Total Price:</span>
-              <span class="total-value">${{ totalPrice }}</span>
+            <div class="flex justify-between py-2 text-xl font-bold text-success">
+              <span>Total Price:</span>
+              <span>${{ totalPrice }}</span>
             </div>
           </div>
 
-          <button @click="clearCart" class="clear-cart-btn">
+          <button 
+            @click="clearCart" 
+            class="w-full bg-danger text-white border-none py-3 font-semibold rounded-lg transition-colors duration-200 hover:bg-danger-hover"
+          >
             Clear Cart
           </button>
         </div>
@@ -147,277 +160,3 @@ const clearCart = () => {
   cart.value = []
 }
 </script>
-
-<style scoped>
-.app {
-  min-height: 100vh;
-}
-
-header {
-  text-align: center;
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid #646cff;
-}
-
-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  color: #646cff;
-}
-
-header p {
-  font-size: 1.1rem;
-  opacity: 0.8;
-}
-
-.main-content {
-  display: grid;
-  grid-template-columns: 1fr 400px;
-  gap: 2rem;
-}
-
-@media (max-width: 1024px) {
-  .main-content {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Products Section */
-.products-section h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-}
-
-.filter-section {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: rgba(100, 108, 255, 0.1);
-  border-radius: 8px;
-}
-
-.filter-section label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-}
-
-.filter-section select {
-  width: 100%;
-  padding: 0.6rem;
-  font-size: 1rem;
-  border-radius: 6px;
-  border: 1px solid #646cff;
-  background-color: inherit;
-  color: inherit;
-  cursor: pointer;
-}
-
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-}
-
-.product-card {
-  border: 1px solid rgba(100, 108, 255, 0.3);
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: transform 0.2s, box-shadow 0.2s;
-  background: rgba(100, 108, 255, 0.05);
-}
-
-.product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(100, 108, 255, 0.2);
-}
-
-.product-header {
-  margin-bottom: 1rem;
-}
-
-.category-badge {
-  display: inline-block;
-  padding: 0.3rem 0.8rem;
-  background-color: #646cff;
-  color: white;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-.product-card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 0.8rem;
-  color: #646cff;
-}
-
-.description {
-  margin-bottom: 1rem;
-  opacity: 0.8;
-  line-height: 1.5;
-}
-
-.product-details {
-  margin-bottom: 1rem;
-  padding: 1rem;
-  background: rgba(100, 108, 255, 0.1);
-  border-radius: 8px;
-}
-
-.detail-item {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.5rem;
-}
-
-.detail-item:last-child {
-  margin-bottom: 0;
-}
-
-.detail-item .label {
-  font-weight: 600;
-}
-
-.detail-item .value {
-  font-weight: 500;
-}
-
-.detail-item.variation {
-  margin-top: 0.5rem;
-  padding-top: 0.5rem;
-  border-top: 1px solid rgba(100, 108, 255, 0.2);
-}
-
-.price {
-  color: #42b983;
-  font-size: 1.1rem;
-}
-
-.add-to-cart-btn {
-  width: 100%;
-  background-color: #646cff;
-  color: white;
-  border: none;
-  padding: 0.8rem;
-  font-weight: 600;
-}
-
-.add-to-cart-btn:hover {
-  background-color: #535bf2;
-}
-
-/* Cart Section */
-.cart-section {
-  position: sticky;
-  top: 2rem;
-  height: fit-content;
-  border: 2px solid #646cff;
-  border-radius: 12px;
-  padding: 1.5rem;
-  background: rgba(100, 108, 255, 0.05);
-}
-
-.cart-section h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.empty-cart {
-  text-align: center;
-  padding: 2rem;
-  opacity: 0.6;
-}
-
-.cart-items {
-  max-height: 400px;
-  overflow-y: auto;
-  margin-bottom: 1.5rem;
-}
-
-.cart-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  background: rgba(100, 108, 255, 0.1);
-  border-radius: 8px;
-  border: 1px solid rgba(100, 108, 255, 0.2);
-}
-
-.cart-item-info {
-  flex: 1;
-}
-
-.cart-item-info h4 {
-  font-size: 1rem;
-  margin-bottom: 0.3rem;
-}
-
-.cart-item-category {
-  font-size: 0.85rem;
-  opacity: 0.7;
-  margin-bottom: 0.5rem;
-}
-
-.cart-item-details {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.9rem;
-}
-
-.cart-item-price {
-  color: #42b983;
-  font-weight: 600;
-}
-
-.remove-btn {
-  background-color: #f44336;
-  color: white;
-  border: none;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  cursor: pointer;
-  padding: 0;
-  margin-left: 0.5rem;
-}
-
-.remove-btn:hover {
-  background-color: #d32f2f;
-}
-
-.cart-totals {
-  border-top: 2px solid #646cff;
-  padding-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-.total-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5rem 0;
-  font-size: 1.1rem;
-}
-
-.total-price-row {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #42b983;
-}
-
-.clear-cart-btn {
-  width: 100%;
-  background-color: #f44336;
-  color: white;
-  border: none;
-  padding: 0.8rem;
-  font-weight: 600;
-}
-
-.clear-cart-btn:hover {
-  background-color: #d32f2f;
-}
-</style>
