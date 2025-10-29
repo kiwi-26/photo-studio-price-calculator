@@ -35,8 +35,8 @@ Visit the live application: [https://kiwi-26.github.io/photo-studio-price-calcul
 
 - Vue 3 (Composition API)
 - Vite
+- Tailwind CSS
 - JavaScript
-- CSS
 
 ## Getting Started
 
@@ -99,11 +99,22 @@ photo-studio-price-calculator/
 │   │   └── products.json      # Product data
 │   ├── App.vue                # Main application component
 │   ├── main.js                # Application entry point
-│   └── style.css              # Global styles
+│   └── style.css              # Tailwind CSS imports and custom styles
 ├── index.html                 # HTML template
 ├── vite.config.js            # Vite configuration
+├── tailwind.config.js        # Tailwind CSS configuration
+├── postcss.config.js         # PostCSS configuration
 └── package.json              # Dependencies and scripts
 ```
+
+## Styling
+
+This project uses **Tailwind CSS** for styling, providing:
+- Utility-first CSS framework
+- Responsive design with mobile-first approach
+- Dark/light mode support based on system preferences
+- Custom color palette matching the original design
+- Optimized build size with unused CSS purging
 
 ## Usage
 
