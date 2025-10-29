@@ -44,7 +44,7 @@
               </div>
               <div class="flex justify-between mb-2">
                 <span class="font-semibold">Price:</span>
-                <span class="font-medium text-success text-lg">${{ product.price }}</span>
+                <span class="font-medium text-success text-lg">¥{{ product.price }}</span>
               </div>
               <div v-if="product.variation" class="flex justify-between mt-2 pt-2 border-t border-primary/20">
                 <span class="font-semibold">Variation:</span>
@@ -81,7 +81,7 @@
                 <p class="text-sm opacity-70 mb-2">{{ item.category }}</p>
                 <div class="flex justify-between text-sm">
                   <span>{{ item.photoCount }} photos</span>
-                  <span class="text-success font-semibold">${{ item.price }}</span>
+                  <span class="text-success font-semibold">¥{{ item.price }}</span>
                 </div>
               </div>
               <button 
@@ -101,7 +101,7 @@
             </div>
             <div class="flex justify-between py-2 text-xl font-bold text-success">
               <span>Total Price:</span>
-              <span>${{ totalPrice }}</span>
+              <span>¥{{ totalPrice }}</span>
             </div>
           </div>
 
