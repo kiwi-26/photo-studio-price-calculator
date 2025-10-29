@@ -1,0 +1,1 @@
+# photo-studio-price-calculator
