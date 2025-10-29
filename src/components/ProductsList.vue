@@ -1,0 +1,56 @@
+<template>
+  <section>
+    <h2 class="text-3xl mb-6">Available Products</h2>
+    
+    <!-- Category Filter -->
+    <CategoryFilter 
+      :categories="categories"
+      :selected-category="selectedCategory"
+      @update:selected-category="$emit('update:selectedCategory', $event)"
+    />
+
+    <!-- Products List -->
+    <div class="grid gap-6" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+      <ProductCard 
+        v-for="product in filteredProducts" 
+        :key="product.id" 
+        :product="product"
+        @add-to-cart="$emit('add-to-cart', $event)"
+      />
+    </div>
+  </section>
+</template>
+
+<script setup>
+import { computed } from 'vue'
+import CategoryFilter from './CategoryFilter.vue'
+import ProductCard from './ProductCard.vue'
+
+// Props
+const props = defineProps({
+  products: {
+    type: Array,
+    required: true
+  },
+  selectedCategory: {
+    type: String,
+    default: ''
+  }
+})
+
+// Emits
+defineEmits(['add-to-cart', 'update:selectedCategory'])
+
+// Computed properties
+const categories = computed(() => {
+  const uniqueCategories = [...new Set(props.products.map(p => p.category))]
+  return uniqueCategories.sort()
+})
+
+const filteredProducts = computed(() => {
+  if (!props.selectedCategory) {
+    return props.products
+  }
+  return props.products.filter(p => p.category === props.selectedCategory)
+})
+</script>
