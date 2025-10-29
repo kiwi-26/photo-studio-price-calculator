@@ -1,1 +1,105 @@
-# photo-studio-price-calculator
+# 📸 Photo Studio Price Calculator
+
+A Vue 3 SPA application for calculating photo studio service prices. Users can browse products, filter by category, add items to cart, and see real-time price and photo count calculations.
+
+## Features
+
+- **Product Catalog**: 12 photo studio products across 6 categories
+  - Portrait Photography
+  - Wedding Photography
+  - Event Photography
+  - Product Photography
+  - Family Photography
+  - Real Estate Photography
+
+- **Product Information**: Each product displays:
+  - Category badge
+  - Name and description
+  - Photo count
+  - Price
+  - Optional variation details
+
+- **Category Filter**: Filter products by category using dropdown
+
+- **Shopping Cart**:
+  - Add products to cart
+  - Remove individual items
+  - Clear entire cart
+  - Real-time totals for photo count and price
+
+## Tech Stack
+
+- Vue 3 (Composition API)
+- Vite
+- JavaScript
+- CSS
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v20 or higher)
+- npm
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/kiwi-26/photo-studio-price-calculator.git
+cd photo-studio-price-calculator
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Run the development server:
+```bash
+npm run dev
+```
+
+4. Open your browser and navigate to `http://localhost:5173`
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+The built files will be in the `dist` directory.
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+## Project Structure
+
+```
+photo-studio-price-calculator/
+├── src/
+│   ├── assets/
+│   │   └── products.json      # Product data
+│   ├── App.vue                # Main application component
+│   ├── main.js                # Application entry point
+│   └── style.css              # Global styles
+├── index.html                 # HTML template
+├── vite.config.js            # Vite configuration
+└── package.json              # Dependencies and scripts
+```
+
+## Usage
+
+1. **Browse Products**: View all available photo studio services
+2. **Filter by Category**: Use the dropdown to filter products by category
+3. **Add to Cart**: Click "Add to Cart" button on any product
+4. **View Cart**: See selected items in the shopping cart sidebar
+5. **Remove Items**: Click the "✕" button to remove individual items
+6. **Clear Cart**: Click "Clear Cart" to remove all items at once
+7. **View Totals**: See real-time calculations of total photos and total price
+
+## License
+
+MIT
