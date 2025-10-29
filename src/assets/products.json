@@ -1,0 +1,103 @@
+[
+  {
+    "id": 1,
+    "category": "Portrait Photography",
+    "name": "Basic Portrait Session",
+    "description": "Professional portrait photography session with basic retouching",
+    "photoCount": 10,
+    "price": 150
+  },
+  {
+    "id": 2,
+    "category": "Portrait Photography",
+    "name": "Premium Portrait Session",
+    "description": "Extended portrait photography session with advanced retouching and styling",
+    "photoCount": 25,
+    "price": 350
+  },
+  {
+    "id": 3,
+    "category": "Wedding Photography",
+    "name": "Wedding Package - Basic",
+    "description": "Full day wedding coverage with edited photos",
+    "photoCount": 100,
+    "price": 1200
+  },
+  {
+    "id": 4,
+    "category": "Wedding Photography",
+    "name": "Wedding Package - Premium",
+    "description": "Full day wedding coverage with two photographers, edited photos and album",
+    "photoCount": 200,
+    "price": 2500,
+    "variation": "Includes album"
+  },
+  {
+    "id": 5,
+    "category": "Event Photography",
+    "name": "Corporate Event",
+    "description": "Professional coverage of corporate events, conferences, and gatherings",
+    "photoCount": 50,
+    "price": 500
+  },
+  {
+    "id": 6,
+    "category": "Event Photography",
+    "name": "Birthday Party",
+    "description": "Fun and candid photography for birthday celebrations",
+    "photoCount": 30,
+    "price": 300
+  },
+  {
+    "id": 7,
+    "category": "Product Photography",
+    "name": "E-commerce Product Shoot",
+    "description": "Clean, white background product photography for online stores",
+    "photoCount": 20,
+    "price": 200,
+    "variation": "Per 20 products"
+  },
+  {
+    "id": 8,
+    "category": "Product Photography",
+    "name": "Lifestyle Product Shoot",
+    "description": "Styled product photography with props and lifestyle settings",
+    "photoCount": 15,
+    "price": 300,
+    "variation": "Per 15 products"
+  },
+  {
+    "id": 9,
+    "category": "Family Photography",
+    "name": "Family Session",
+    "description": "Outdoor family photography session capturing precious moments",
+    "photoCount": 20,
+    "price": 250
+  },
+  {
+    "id": 10,
+    "category": "Family Photography",
+    "name": "Newborn Photography",
+    "description": "Delicate and creative newborn photography with props",
+    "photoCount": 15,
+    "price": 350,
+    "variation": "Includes props"
+  },
+  {
+    "id": 11,
+    "category": "Real Estate Photography",
+    "name": "Interior Photography",
+    "description": "Professional interior photography for real estate listings",
+    "photoCount": 25,
+    "price": 200
+  },
+  {
+    "id": 12,
+    "category": "Real Estate Photography",
+    "name": "Aerial Drone Photography",
+    "description": "Stunning aerial views of property and surroundings",
+    "photoCount": 10,
+    "price": 400,
+    "variation": "Drone included"
+  }
+]
