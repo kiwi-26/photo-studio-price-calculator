@@ -2,6 +2,10 @@
 
 A Vue 3 SPA application for calculating photo studio service prices. Users can browse products, filter by category, add items to cart, and see real-time price and photo count calculations.
 
+## 🚀 Live Demo
+
+Visit the live application: [https://kiwi-26.github.io/photo-studio-price-calculator/](https://kiwi-26.github.io/photo-studio-price-calculator/)
+
 ## Features
 
 - **Product Catalog**: 12 photo studio products across 6 categories
@@ -68,6 +72,17 @@ npm run build
 ```
 
 The built files will be in the `dist` directory.
+
+### Deploy to GitHub Pages
+
+This project is automatically deployed to GitHub Pages using GitHub Actions. The deployment happens automatically when you push to the `main` branch.
+
+To set up GitHub Pages for your fork:
+
+1. Go to your repository settings
+2. Navigate to "Pages" in the left sidebar
+3. Under "Source", select "GitHub Actions"
+4. The workflow will automatically deploy your site on the next push to `main`
 
 ### Preview Production Build
 
