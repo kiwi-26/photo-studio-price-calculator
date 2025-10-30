@@ -16,6 +16,7 @@
         <ShoppingCart 
           :cart="cart"
           @remove-from-cart="removeFromCart"
+          @update-quantity="updateQuantity"
           @clear-cart="clearCart"
         />
       </div>
@@ -25,6 +26,7 @@
     <StickyCartFooter 
       :cart="cart"
       @remove-from-cart="removeFromCart"
+      @update-quantity="updateQuantity"
       @clear-cart="clearCart"
     />
   </div>
@@ -45,11 +47,30 @@ const selectedCategory = ref('')
 
 // Methods
 const addToCart = (product) => {
-  cart.value.push({ ...product })
+  // Check if product already exists in cart
+  const existingItemIndex = cart.value.findIndex(item => item.id === product.id)
+  
+  if (existingItemIndex !== -1) {
+    // Product exists, increment quantity
+    cart.value[existingItemIndex].quantity += 1
+  } else {
+    // Product doesn't exist, add new item with quantity 1
+    cart.value.push({ ...product, quantity: 1 })
+  }
 }
 
 const removeFromCart = (index) => {
   cart.value.splice(index, 1)
+}
+
+const updateQuantity = (index, newQuantity) => {
+  if (newQuantity <= 0) {
+    // Remove item if quantity is 0 or less
+    removeFromCart(index)
+  } else {
+    // Update quantity
+    cart.value[index].quantity = newQuantity
+  }
 }
 
 const clearCart = () => {
