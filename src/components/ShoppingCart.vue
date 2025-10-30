@@ -1,6 +1,9 @@
 <template>
   <aside class="sticky top-8 h-fit border-2 border-primary rounded-xl p-6 bg-primary/5">
-    <h2 class="text-3xl mb-6 text-center">🛒 Shopping Cart</h2>
+    <h2 class="text-3xl mb-6 text-center flex items-center justify-center gap-1">
+      <ShoppingCartIcon class="w-8 h-8 mr-2" />
+      <span>Shopping Cart</span>
+    </h2>
     
     <div v-if="cart.length === 0" class="text-center py-8 opacity-60">
       <p>Your cart is empty</p>
@@ -37,6 +40,7 @@
 import { computed } from 'vue'
 import CartItem from './CartItem.vue'
 import CartSummary from './CartSummary.vue'
+import { ShoppingCartIcon } from '@heroicons/vue/24/solid'
 
 // Props
 const props = defineProps({
