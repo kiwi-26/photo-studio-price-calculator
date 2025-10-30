@@ -6,7 +6,7 @@
     </div>
     <div class="flex justify-between py-2 text-xl font-bold text-success">
       <span>Total Price:</span>
-      <span>¥{{ totalPrice }}</span>
+      <span>¥{{ totalPrice.toLocaleString() }}</span>
     </div>
   </div>
 </template>

@@ -14,7 +14,7 @@
       </div>
       <div class="flex justify-between mb-2">
         <span class="font-semibold">Price:</span>
-        <span class="font-medium text-success text-lg">¥{{ product.price }}</span>
+        <span class="font-medium text-success text-lg">¥{{ product.price.toLocaleString() }}</span>
       </div>
       <div v-if="product.variation" class="flex justify-between mt-2 pt-2 border-t border-primary/20">
         <span class="font-semibold">Variation:</span>
