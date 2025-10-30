@@ -8,13 +8,11 @@ Visit the live application: [https://kiwi-26.github.io/photo-studio-price-calcul
 
 ## Features
 
-- **Product Catalog**: 12 photo studio products across 6 categories
-  - Portrait Photography
-  - Wedding Photography
-  - Event Photography
-  - Product Photography
-  - Family Photography
-  - Real Estate Photography
+- **Product Catalog**: 43 photo studio products across 4 categories
+  - プリント (Print)
+  - アルバム (Album)
+  - アルバムプリント 増えデジ (Album Print - Masudegi)
+  - アルバムプリント ベーシック (Album Print - Basic)
 
 - **Product Information**: Each product displays:
   - Category badge
