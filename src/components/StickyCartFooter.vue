@@ -10,7 +10,7 @@
       <div class="flex items-center gap-4">
         <ShoppingCartIcon class="w-6 h-6 text-primary" />
         <div class="flex items-center gap-4 text-sm">
-          <span class="font-medium">{{ totalPhotoCount }} photos</span>
+          <span class="font-medium">{{ totalPhotoCount }} ポーズ</span>
           <span class="font-bold text-success">¥{{ totalPrice.toLocaleString() }}</span>
         </div>
       </div>
@@ -40,7 +40,7 @@
             :item="item"
             :index="index"
             @remove-item="$emit('remove-from-cart', $event)"
-            @update-quantity="(index, quantity) => $emit('update-quantity', index, quantity)"
+            @update-quantity="(index: number, quantity: number) => $emit('update-quantity', index, quantity)"
             class="mb-2 last:mb-0"
           />
         </div>
@@ -68,37 +68,33 @@
   </div>
 </template>
 
-<script setup>
-import { ref, computed } from 'vue'
-import CartItem from './CartItem.vue'
-import CartSummary from './CartSummary.vue'
-import { ShoppingCartIcon, ChevronUpIcon } from '@heroicons/vue/24/solid'
+<script setup lang="ts">
+import { ref, computed } from 'vue';
+import CartItem from './CartItem.vue';
+import CartSummary from './CartSummary.vue';
+import { ShoppingCartIcon, ChevronUpIcon } from '@heroicons/vue/24/solid';
+import type { CartItemType } from '../types';
 
-// Props
-const props = defineProps({
-  cart: {
-    type: Array,
-    required: true
-  }
-})
+const props = defineProps<{
+  cart: CartItemType[];
+}>();
 
-// Emits
-defineEmits(['remove-from-cart', 'update-quantity', 'clear-cart'])
+const emit = defineEmits<{
+  (e: 'remove-from-cart', index: number): void;
+  (e: 'update-quantity', index: number, quantity: number): void;
+  (e: 'clear-cart'): void;
+}>();
 
-// State
-const isExpanded = ref(false)
-
-// Methods
+const isExpanded = ref(false);
 const toggleExpanded = () => {
-  isExpanded.value = !isExpanded.value
-}
+  isExpanded.value = !isExpanded.value;
+};
 
-// Computed properties
 const totalPrice = computed(() => {
-  return props.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0)
-})
+  return props.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+});
 
 const totalPhotoCount = computed(() => {
-  return props.cart.reduce((sum, item) => sum + (item.photoCount * item.quantity), 0)
-})
+  return props.cart.reduce((sum, item) => sum + (item.photoCount * item.quantity), 0);
+});
 </script>

@@ -23,57 +23,54 @@
     </div>
 
     <!-- Sticky Cart Footer - Always visible -->
-    <StickyCartFooter 
-      :cart="cart"
-      @remove-from-cart="removeFromCart"
-      @update-quantity="updateQuantity"
-      @clear-cart="clearCart"
-    />
+    <div class="lg:hidden">
+      <StickyCartFooter 
+        :cart="cart"
+        @remove-from-cart="removeFromCart"
+        @update-quantity="updateQuantity"
+        @clear-cart="clearCart"
+      />
+    </div>
   </div>
 </template>
 
-<script setup>
-import { ref } from 'vue'
-import productsData from './assets/products.json'
-import AppHeader from './components/AppHeader.vue'
-import ProductsList from './components/ProductsList.vue'
-import ShoppingCart from './components/ShoppingCart.vue'
-import StickyCartFooter from './components/StickyCartFooter.vue'
+<script setup lang="ts">
+import { ref } from 'vue';
+import { products as productsData } from './assets/products';
+import AppHeader from './components/AppHeader.vue';
+import ProductsList from './components/ProductsList.vue';
+import ShoppingCart from './components/ShoppingCart.vue';
+import StickyCartFooter from './components/StickyCartFooter.vue';
+import type { ProductType, CartItemType } from './types';
 
 // State
-const products = ref(productsData)
-const cart = ref([])
-const selectedCategory = ref('')
+const products = ref<ProductType[]>(productsData as ProductType[]);
+const cart = ref<CartItemType[]>([]);
+const selectedCategory = ref<string>('');
 
 // Methods
-const addToCart = (product) => {
-  // Check if product already exists in cart
-  const existingItemIndex = cart.value.findIndex(item => item.id === product.id)
-  
-  if (existingItemIndex !== -1) {
-    // Product exists, increment quantity
-    cart.value[existingItemIndex].quantity += 1
+const addToCart = (product: ProductType) => {
+  const existingItemIndex = cart.value.findIndex(item => item.id === product.id);
+  if (existingItemIndex !== -1 && cart.value[existingItemIndex]) {
+    cart.value[existingItemIndex].quantity += 1;
   } else {
-    // Product doesn't exist, add new item with quantity 1
-    cart.value.push({ ...product, quantity: 1 })
+    cart.value.push({ ...product, quantity: 1 });
   }
-}
+};
 
-const removeFromCart = (index) => {
-  cart.value.splice(index, 1)
-}
+const removeFromCart = (index: number) => {
+  cart.value.splice(index, 1);
+};
 
-const updateQuantity = (index, newQuantity) => {
+const updateQuantity = (index: number, newQuantity: number) => {
   if (newQuantity <= 0) {
-    // Remove item if quantity is 0 or less
-    removeFromCart(index)
-  } else {
-    // Update quantity
-    cart.value[index].quantity = newQuantity
+    removeFromCart(index);
+  } else if (cart.value[index]) {
+    cart.value[index].quantity = newQuantity;
   }
-}
+};
 
 const clearCart = () => {
-  cart.value = []
-}
+  cart.value = [];
+};
 </script>

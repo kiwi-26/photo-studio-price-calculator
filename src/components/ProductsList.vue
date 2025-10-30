@@ -21,36 +21,31 @@
   </section>
 </template>
 
-<script setup>
-import { computed } from 'vue'
-import CategoryFilter from './CategoryFilter.vue'
-import ProductCard from './ProductCard.vue'
+<script setup lang="ts">
+import { computed } from 'vue';
+import CategoryFilter from './CategoryFilter.vue';
+import ProductCard from './ProductCard.vue';
+import type { ProductType } from '../types';
 
-// Props
-const props = defineProps({
-  products: {
-    type: Array,
-    required: true
-  },
-  selectedCategory: {
-    type: String,
-    default: ''
-  }
-})
+const props = defineProps<{
+  products: ProductType[];
+  selectedCategory?: string;
+}>();
 
-// Emits
-defineEmits(['add-to-cart', 'update:selectedCategory'])
+const emit = defineEmits<{
+  (e: 'add-to-cart', product: ProductType): void;
+  (e: 'update:selectedCategory', value: string): void;
+}>();
 
-// Computed properties
 const categories = computed(() => {
-  const uniqueCategories = [...new Set(props.products.map(p => p.category))]
-  return uniqueCategories.sort()
-})
+  const uniqueCategories = [...new Set(props.products.map(p => p.category))];
+  return uniqueCategories.sort();
+});
 
 const filteredProducts = computed(() => {
   if (!props.selectedCategory) {
-    return props.products
+    return props.products;
   }
-  return props.products.filter(p => p.category === props.selectedCategory)
-})
+  return props.products.filter(p => p.category === props.selectedCategory);
+});
 </script>
