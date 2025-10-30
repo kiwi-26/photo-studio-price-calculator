@@ -17,7 +17,7 @@
       </div>
       <div class="flex justify-between mb-2">
         <span class="font-semibold inline-flex items-center">
-          <CurrencyJpyIcon class="w-5 h-5 inline-block mr-1 mb-0.5" />
+          <CurrencyYenIcon class="w-5 h-5 inline-block mr-1 mb-0.5" />
           価格
         </span>
         <span class="font-medium text-success text-lg">¥{{ product.price.toLocaleString() }}</span>
@@ -37,7 +37,7 @@
 </template>
 
 <script setup>
-import { CameraIcon, CurrencyJpyIcon } from '@heroicons/vue/24/solid';
+import { CameraIcon, CurrencyYenIcon } from '@heroicons/vue/24/solid';
 
 // Props
 defineProps({
