@@ -31,7 +31,7 @@
       @click="$emit('add-to-cart', product)" 
       class="w-full bg-primary text-white border-none py-3 font-semibold rounded-lg transition-colors duration-200 hover:bg-primary-hover"
     >
-      Add to Cart
+      カートに追加
     </button>
   </div>
 </template>

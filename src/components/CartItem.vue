@@ -4,7 +4,7 @@
       <h4 class="text-base mb-1">{{ item.name }}</h4>
       <p class="text-sm opacity-70 mb-2">{{ item.category }}</p>
       <div class="flex justify-between text-sm">
-        <span>{{ item.photoCount }} photos</span>
+        <span>{{ item.photoCount }} ポーズ</span>
         <span class="text-success font-semibold">¥{{ item.price.toLocaleString() }}</span>
       </div>
     </div>
