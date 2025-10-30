@@ -10,7 +10,7 @@
       <div class="flex items-center gap-4">
         <ShoppingCartIcon class="w-6 h-6 text-primary" />
         <div class="flex items-center gap-4 text-sm">
-          <span class="font-medium">{{ totalPhotoCount }} photos</span>
+          <span class="font-medium">{{ totalPhotoCount }} ポーズ</span>
           <span class="font-bold text-success">¥{{ totalPrice.toLocaleString() }}</span>
         </div>
       </div>

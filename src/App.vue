@@ -23,12 +23,14 @@
     </div>
 
     <!-- Sticky Cart Footer - Always visible -->
-    <StickyCartFooter 
-      :cart="cart"
-      @remove-from-cart="removeFromCart"
-      @update-quantity="updateQuantity"
-      @clear-cart="clearCart"
-    />
+    <div class="lg:hidden">
+      <StickyCartFooter 
+        :cart="cart"
+        @remove-from-cart="removeFromCart"
+        @update-quantity="updateQuantity"
+        @clear-cart="clearCart"
+      />
+    </div>
   </div>
 </template>
 

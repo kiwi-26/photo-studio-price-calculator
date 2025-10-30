@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="border border-primary/30 rounded-xl p-6 transition-all duration-200 bg-primary/5 hover:-translate-y-1 hover:shadow-[0_8px_16px_rgba(100,108,255,0.2)]"
+    class="border border-primary/30 rounded-xl p-4 transition-all duration-200 bg-primary/5"
   >
     <div class="mb-4">
       <span class="inline-block py-1.5 px-3 bg-primary text-white rounded-full text-sm font-semibold">{{ product.category }}</span>
@@ -15,7 +15,7 @@
         </span>
         <span class="font-medium">{{ product.photoCount }}</span>
       </div>
-      <div class="flex justify-between mb-2">
+      <div class="flex justify-between">
         <span class="font-semibold inline-flex items-center">
           <CurrencyYenIcon class="w-5 h-5 inline-block mr-1 mb-0.5" />
           価格
