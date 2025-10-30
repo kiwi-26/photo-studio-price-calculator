@@ -40,28 +40,25 @@
   </div>
 </template>
 
-<script setup>
-// Props
-const props = defineProps({
-  item: {
-    type: Object,
-    required: true
-  },
-  index: {
-    type: Number,
-    required: true
-  }
-})
+<script setup lang="ts">
+import { defineProps, defineEmits } from 'vue';
+import type { CartItemType } from '../types';
 
-// Emits
-const emit = defineEmits(['remove-item', 'update-quantity'])
+const props = defineProps<{
+  item: CartItemType;
+  index: number;
+}>();
 
-// Methods
+const emit = defineEmits<{
+  (e: 'remove-item', index: number): void;
+  (e: 'update-quantity', index: number, quantity: number): void;
+}>();
+
 const increaseQuantity = () => {
-  emit('update-quantity', props.index, props.item.quantity + 1)
-}
+  emit('update-quantity', props.index, props.item.quantity + 1);
+};
 
 const decreaseQuantity = () => {
-  emit('update-quantity', props.index, props.item.quantity - 1)
-}
+  emit('update-quantity', props.index, props.item.quantity - 1);
+};
 </script>

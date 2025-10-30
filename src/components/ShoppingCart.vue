@@ -17,7 +17,7 @@
           :item="item"
           :index="index"
           @remove-item="$emit('remove-from-cart', $event)"
-          @update-quantity="(index, quantity) => $emit('update-quantity', index, quantity)"
+          @update-quantity="(index: number, quantity: number) => $emit('update-quantity', index, quantity)"
         />
       </div>
 
@@ -37,29 +37,29 @@
   </aside>
 </template>
 
-<script setup>
-import { computed } from 'vue'
-import CartItem from './CartItem.vue'
-import CartSummary from './CartSummary.vue'
-import { ShoppingCartIcon } from '@heroicons/vue/24/solid'
-
-// Props
-const props = defineProps({
-  cart: {
-    type: Array,
-    required: true
-  }
-})
-
-// Emits
 defineEmits(['remove-from-cart', 'update-quantity', 'clear-cart'])
+<script setup lang="ts">
+import { computed } from 'vue';
+import CartItem from './CartItem.vue';
+import CartSummary from './CartSummary.vue';
+import { ShoppingCartIcon } from '@heroicons/vue/24/solid';
+import type { CartItemType } from '../types';
 
-// Computed properties
+const props = defineProps<{
+  cart: CartItemType[];
+}>();
+
+const emit = defineEmits<{
+  (e: 'remove-from-cart', index: number): void;
+  (e: 'update-quantity', index: number, quantity: number): void;
+  (e: 'clear-cart'): void;
+}>();
+
 const totalPrice = computed(() => {
-  return props.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0)
-})
+  return props.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+});
 
 const totalPhotoCount = computed(() => {
-  return props.cart.reduce((sum, item) => sum + (item.photoCount * item.quantity), 0)
-})
+  return props.cart.reduce((sum, item) => sum + (item.photoCount * item.quantity), 0);
+});
 </script>

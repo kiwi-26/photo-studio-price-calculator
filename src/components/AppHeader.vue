@@ -4,6 +4,6 @@
   </header>
 </template>
 
-<script setup>
+<script setup lang="ts">
 // This component is purely presentational and doesn't need any props or logic
 </script>

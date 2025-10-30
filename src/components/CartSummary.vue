@@ -11,16 +11,9 @@
   </div>
 </template>
 
-<script setup>
-// Props
-defineProps({
-  totalPrice: {
-    type: Number,
-    required: true
-  },
-  totalPhotoCount: {
-    type: Number,
-    required: true
-  }
-})
+<script setup lang="ts">
+defineProps<{
+  totalPrice: number;
+  totalPhotoCount: number;
+}>();
 </script>

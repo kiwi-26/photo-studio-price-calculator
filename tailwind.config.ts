@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+const config = {
   content: [
     "./index.html",
     "./src/**/*.{vue,js,ts,jsx,tsx}",
@@ -21,5 +21,6 @@ export default {
     },
   },
   plugins: [],
-  darkMode: 'media', // Use system preference for dark mode
-}
+  darkMode: 'media',
+};
+export default config;

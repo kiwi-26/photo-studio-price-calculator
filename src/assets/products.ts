@@ -1,4 +1,6 @@
-[
+import type { ProductType } from "@/types.ts";
+
+export const products: ProductType[] = [
   {
     "id": 1,
     "category": "プリント",
@@ -337,4 +339,4 @@
     "photoCount": 12,
     "price": 51480
   }
-]
+];

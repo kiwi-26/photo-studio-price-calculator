@@ -36,17 +36,10 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { CameraIcon, CurrencyYenIcon } from '@heroicons/vue/24/solid';
+import type { ProductType } from '../types';
 
-// Props
-defineProps({
-  product: {
-    type: Object,
-    required: true
-  }
-})
-
-// Emits
-defineEmits(['add-to-cart'])
+defineProps<{ product: ProductType }>();
+defineEmits<{ (e: 'add-to-cart', product: ProductType): void }>();
 </script>
