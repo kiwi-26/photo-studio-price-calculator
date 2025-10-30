@@ -36,10 +36,11 @@
         <div class="max-h-64 overflow-y-auto p-2">
           <CartItem 
             v-for="(item, index) in cart" 
-            :key="index" 
+            :key="item.id" 
             :item="item"
             :index="index"
             @remove-item="$emit('remove-from-cart', $event)"
+            @update-quantity="(index, quantity) => $emit('update-quantity', index, quantity)"
             class="mb-2 last:mb-0"
           />
         </div>
@@ -82,7 +83,7 @@ const props = defineProps({
 })
 
 // Emits
-defineEmits(['remove-from-cart', 'clear-cart'])
+defineEmits(['remove-from-cart', 'update-quantity', 'clear-cart'])
 
 // State
 const isExpanded = ref(false)
@@ -94,10 +95,10 @@ const toggleExpanded = () => {
 
 // Computed properties
 const totalPrice = computed(() => {
-  return props.cart.reduce((sum, item) => sum + item.price, 0)
+  return props.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0)
 })
 
 const totalPhotoCount = computed(() => {
-  return props.cart.reduce((sum, item) => sum + item.photoCount, 0)
+  return props.cart.reduce((sum, item) => sum + (item.photoCount * item.quantity), 0)
 })
 </script>

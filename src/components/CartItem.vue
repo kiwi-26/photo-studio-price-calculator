@@ -3,9 +3,32 @@
     <div class="flex-1">
       <h4 class="text-base mb-1">{{ item.name }}</h4>
       <p class="text-sm opacity-70 mb-2">{{ item.category }}</p>
-      <div class="flex justify-between text-sm">
+      <div class="flex justify-between text-sm mb-2">
         <span>{{ item.photoCount }} ポーズ</span>
         <span class="text-success font-semibold">¥{{ item.price.toLocaleString() }}</span>
+      </div>
+      
+      <!-- Quantity Controls -->
+      <div class="flex items-center gap-3">
+        <span class="text-sm font-medium">数量:</span>
+        <div class="flex items-center gap-2">
+          <button 
+            @click="decreaseQuantity"
+            class="bg-gray-200 hover:bg-gray-300 text-gray-700 border-none w-8 h-8 rounded-full cursor-pointer p-0 flex items-center justify-center transition-colors duration-200"
+          >
+            −
+          </button>
+          <span class="min-w-[2rem] text-center font-medium">{{ item.quantity }}</span>
+          <button 
+            @click="increaseQuantity"
+            class="bg-primary hover:bg-primary-hover text-white border-none w-8 h-8 rounded-full cursor-pointer p-0 flex items-center justify-center transition-colors duration-200"
+          >
+            +
+          </button>
+        </div>
+        <span class="text-sm text-gray-600 ml-auto">
+          小計: ¥{{ (item.price * item.quantity).toLocaleString() }}
+        </span>
       </div>
     </div>
     <button 
@@ -19,7 +42,7 @@
 
 <script setup>
 // Props
-defineProps({
+const props = defineProps({
   item: {
     type: Object,
     required: true
@@ -31,5 +54,14 @@ defineProps({
 })
 
 // Emits
-defineEmits(['remove-item'])
+const emit = defineEmits(['remove-item', 'update-quantity'])
+
+// Methods
+const increaseQuantity = () => {
+  emit('update-quantity', props.index, props.item.quantity + 1)
+}
+
+const decreaseQuantity = () => {
+  emit('update-quantity', props.index, props.item.quantity - 1)
+}
 </script>
