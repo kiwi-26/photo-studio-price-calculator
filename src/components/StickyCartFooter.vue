@@ -1,10 +1,10 @@
 <template>
   <!-- Only show the footer if there are items in the cart -->
-  <div v-if="cart.length > 0" class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t-2 border-primary shadow-lg">
+  <div v-if="cart.length > 0" class="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-gray-950 border-t-2 border-primary shadow-lg">
     <!-- Collapsed Footer - Always Visible -->
     <div 
       @click="toggleExpanded"
-      class="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50 transition-colors duration-200"
+      class="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors duration-200"
     >
       <!-- Cart Summary -->
       <div class="flex items-center gap-4">
@@ -31,7 +31,7 @@
         isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
       ]"
     >
-      <div class="border-t border-gray-200 bg-gray-50">
+      <div class="border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-950">
         <!-- Cart Items -->
         <div class="max-h-64 overflow-y-auto p-2">
           <CartItem 
@@ -45,25 +45,20 @@
         </div>
 
         <!-- Cart Actions -->
-        <div class="p-4 border-t border-gray-200 bg-white">
+        <div class="p-4 border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950">
           <div class="mb-4">
             <CartSummary 
               :total-price="totalPrice"
               :total-photo-count="totalPhotoCount"
             />
           </div>
-          
-          <div class="flex gap-2">
+
+          <div class="flex justify-end gap-2">
             <button 
               @click="$emit('clear-cart')" 
-              class="flex-1 bg-danger text-white border-none py-3 font-semibold rounded-lg transition-colors duration-200 hover:bg-danger-hover"
+              class="bg-danger text-white border-none px-4 py-2 font-semibold rounded-lg transition-colors duration-200 hover:bg-danger-hover"
             >
-              Clear Cart
-            </button>
-            <button 
-              class="flex-1 bg-primary text-white border-none py-3 font-semibold rounded-lg transition-colors duration-200 hover:bg-primary-hover"
-            >
-              Checkout
+              リセット
             </button>
           </div>
         </div>

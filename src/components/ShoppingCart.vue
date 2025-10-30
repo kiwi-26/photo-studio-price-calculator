@@ -2,7 +2,7 @@
   <aside class="sticky top-8 h-fit border-2 border-primary rounded-xl p-6 bg-primary/5">
     <h2 class="text-3xl mb-6 text-center flex items-center justify-center gap-1">
       <ShoppingCartIcon class="w-8 h-8 mr-2" />
-      <span>Shopping Cart</span>
+      <span>カート</span>
     </h2>
     
     <div v-if="cart.length === 0" class="text-center py-8 opacity-60">

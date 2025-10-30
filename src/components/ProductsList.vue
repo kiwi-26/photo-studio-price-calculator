@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h2 class="text-3xl mb-6">Available Products</h2>
+    <h2 class="text-2xl mb-6">商品一覧</h2>
     
     <!-- Category Filter -->
     <CategoryFilter 
