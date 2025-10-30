@@ -9,11 +9,17 @@
     <p class="mb-4 opacity-80 leading-6">{{ product.description }}</p>
     <div class="mb-4 p-4 bg-primary/10 rounded-lg">
       <div class="flex justify-between mb-2">
-        <span class="font-semibold">Photos:</span>
+        <span class="font-semibold inline-flex items-center">
+          <CameraIcon class="w-5 h-5 inline-block mr-1 mb-0.5" />
+          ポーズ数
+        </span>
         <span class="font-medium">{{ product.photoCount }}</span>
       </div>
       <div class="flex justify-between mb-2">
-        <span class="font-semibold">Price:</span>
+        <span class="font-semibold inline-flex items-center">
+          <CurrencyJpyIcon class="w-5 h-5 inline-block mr-1 mb-0.5" />
+          価格
+        </span>
         <span class="font-medium text-success text-lg">¥{{ product.price.toLocaleString() }}</span>
       </div>
       <div v-if="product.variation" class="flex justify-between mt-2 pt-2 border-t border-primary/20">
@@ -31,6 +37,8 @@
 </template>
 
 <script setup>
+import { CameraIcon, CurrencyJpyIcon } from '@heroicons/vue/24/solid';
+
 // Props
 defineProps({
   product: {
