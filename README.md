@@ -28,6 +28,7 @@ Visit the live application: [https://kiwi-26.github.io/photo-studio-price-calcul
   - Remove individual items
   - Clear entire cart
   - Real-time totals for photo count and price
+  - **Sticky Footer Cart Summary**: Fixed footer showing cart summary (photo count and total price) with expandable cart view
 
 ## Tech Stack
 

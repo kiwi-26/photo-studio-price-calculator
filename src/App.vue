@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen">
+  <div class="min-h-screen pb-20">
     <AppHeader />
 
     <div class="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-8">
@@ -11,13 +11,22 @@
         @update:selected-category="selectedCategory = $event"
       />
 
-      <!-- Cart Section -->
-      <ShoppingCart 
-        :cart="cart"
-        @remove-from-cart="removeFromCart"
-        @clear-cart="clearCart"
-      />
+      <!-- Cart Section - Hidden on mobile, visible on desktop -->
+      <div class="hidden lg:block">
+        <ShoppingCart 
+          :cart="cart"
+          @remove-from-cart="removeFromCart"
+          @clear-cart="clearCart"
+        />
+      </div>
     </div>
+
+    <!-- Sticky Cart Footer - Always visible -->
+    <StickyCartFooter 
+      :cart="cart"
+      @remove-from-cart="removeFromCart"
+      @clear-cart="clearCart"
+    />
   </div>
 </template>
 
@@ -27,6 +36,7 @@ import productsData from './assets/products.json'
 import AppHeader from './components/AppHeader.vue'
 import ProductsList from './components/ProductsList.vue'
 import ShoppingCart from './components/ShoppingCart.vue'
+import StickyCartFooter from './components/StickyCartFooter.vue'
 
 // State
 const products = ref(productsData)
