@@ -13,7 +13,7 @@
 
   body {
     @apply min-w-80 min-h-screen;
-    @apply text-white/87 bg-gray-900;
+    @apply text-white bg-gray-900;
   }
 
   #app {
