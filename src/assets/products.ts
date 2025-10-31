@@ -225,238 +225,31 @@ export const products: ProductType[] = [
     "photoCount": 12,
     "price": 54890
   },
-  {
-    "id": 30,
-    "category": "アルバムプリント ベーシック",
-    "name": "四切 1枚",
-    "description": "四切サイズ 1枚のアルバムプリント",
-    "photoCount": 1,
-    "price": 6490,
-    "variation": "1枚～6枚は単価×枚数"
-  },
-  {
-    "id": 31,
-    "category": "アルバムプリント ベーシック",
-    "name": "六切 1枚",
-    "description": "六切サイズ 1枚のアルバムプリント",
-    "photoCount": 1,
-    "price": 5390,
-    "variation": "1枚～6枚は単価×枚数"
-  },
-  {
-    "id": 32,
-    "category": "アルバムプリント ベーシック",
-    "name": "四切 7枚",
-    "description": "四切サイズ 7枚のアルバムプリント",
-    "photoCount": 7,
-    "price": 42130
-  },
-  {
-    "id": 33,
-    "category": "アルバムプリント ベーシック",
-    "name": "六切 7枚",
-    "description": "六切サイズ 7枚のアルバムプリント",
-    "photoCount": 7,
-    "price": 35530
-  },
-  {
-    "id": 34,
-    "category": "アルバムプリント ベーシック",
-    "name": "四切 8枚",
-    "description": "四切サイズ 8枚のアルバムプリント",
-    "photoCount": 8,
-    "price": 45320
-  },
-  {
-    "id": 35,
-    "category": "アルバムプリント ベーシック",
-    "name": "六切 8枚",
-    "description": "六切サイズ 8枚のアルバムプリント",
-    "photoCount": 8,
-    "price": 38720
-  },
-  {
-    "id": 36,
-    "category": "アルバムプリント ベーシック",
-    "name": "四切 9枚",
-    "description": "四切サイズ 9枚のアルバムプリント",
-    "photoCount": 9,
-    "price": 48510
-  },
-  {
-    "id": 37,
-    "category": "アルバムプリント ベーシック",
-    "name": "六切 9枚",
-    "description": "六切サイズ 9枚のアルバムプリント",
-    "photoCount": 9,
-    "price": 41910
-  },
-  {
-    "id": 38,
-    "category": "アルバムプリント ベーシック",
-    "name": "四切 10枚",
-    "description": "四切サイズ 10枚のアルバムプリント",
-    "photoCount": 10,
-    "price": 51700
-  },
-  {
-    "id": 39,
-    "category": "アルバムプリント ベーシック",
-    "name": "六切 10枚",
-    "description": "六切サイズ 10枚のアルバムプリント",
-    "photoCount": 10,
-    "price": 45100
-  },
-  {
-    "id": 40,
-    "category": "アルバムプリント ベーシック",
-    "name": "四切 11枚",
-    "description": "四切サイズ 11枚のアルバムプリント",
-    "photoCount": 11,
-    "price": 54890
-  },
-  {
-    "id": 41,
-    "category": "アルバムプリント ベーシック",
-    "name": "六切 11枚",
-    "description": "六切サイズ 11枚のアルバムプリント",
-    "photoCount": 11,
-    "price": 48290
-  },
-  {
-    "id": 42,
-    "category": "アルバムプリント ベーシック",
-    "name": "四切 12枚",
-    "description": "四切サイズ 12枚のアルバムプリント",
-    "photoCount": 12,
-    "price": 58080
-  },
-  {
-    "id": 43,
-    "category": "アルバムプリント ベーシック",
-    "name": "六切 12枚",
-    "description": "六切サイズ 12枚のアルバムプリント",
-    "photoCount": 12,
-    "price": 51480
-  },
-  {
-    "id": 44,
-    "category": "写真集",
-    "name": "マイフォトコレクションスマイル 2ページ3カット＋表紙2カット",
-    "description": "マイフォトコレクションスマイル 2ページ3カット＋表紙2カット",
-    "photoCount": 5,
-    "price": 26290
-  },
-  {
-    "id": 45,
-    "category": "写真集",
-    "name": "マイフォトコレクションスマイル 4ページ5カット＋表紙2カット",
-    "description": "マイフォトコレクションスマイル 4ページ5カット＋表紙2カット",
-    "photoCount": 7,
-    "price": 31790
-  },
-  {
-    "id": 46,
-    "category": "写真集",
-    "name": "マイフォトコレクションスマイル 6ページ9カット＋表紙2カット",
-    "description": "マイフォトコレクションスマイル 6ページ9カット＋表紙2カット",
-    "photoCount": 11,
-    "price": 36190
-  },
-  {
-    "id": 47,
-    "category": "写真集",
-    "name": "マイフォトコレクションスマイル 8ページ12カット＋表紙2カット",
-    "description": "マイフォトコレクションスマイル 8ページ12カット＋表紙2カット",
-    "photoCount": 14,
-    "price": 40590
-  },
-  {
-    "id": 48,
-    "category": "写真集",
-    "name": "マイフォトコレクションスマイル 10ページ15カット＋表紙2カット",
-    "description": "マイフォトコレクションスマイル 10ページ15カット＋表紙2カット",
-    "photoCount": 17,
-    "price": 43890
-  },
-  {
-    "id": 49,
-    "category": "写真集",
-    "name": "マイフォトコレクションスマイル 14ページ22カット＋表紙2カット",
-    "description": "マイフォトコレクションスマイル 14ページ22カット＋表紙2カット",
-    "photoCount": 24,
-    "price": 63690
-  },
-  {
-    "id": 50,
-    "category": "写真集",
-    "name": "マイフォトコレクションスマイル 18ページ30カット＋表紙2カット",
-    "description": "マイフォトコレクションスマイル 18ページ30カット＋表紙2カット",
-    "photoCount": 32,
-    "price": 71390
-  },
-  {
-    "id": 51,
-    "category": "写真集",
-    "name": "マイフォトコレクション 2ページ3カット",
-    "description": "マイフォトコレクション 2ページ3カット",
-    "photoCount": 3,
-    "price": 20790
-  },
-  {
-    "id": 52,
-    "category": "写真集",
-    "name": "マイフォトコレクション 4ページ5カット",
-    "description": "マイフォトコレクション 4ページ5カット",
-    "photoCount": 5,
-    "price": 26290
-  },
-  {
-    "id": 53,
-    "category": "写真集",
-    "name": "マイフォトコレクション 6ページ9カット",
-    "description": "マイフォトコレクション 6ページ9カット",
-    "photoCount": 9,
-    "price": 30690
-  },
-  {
-    "id": 54,
-    "category": "写真集",
-    "name": "マイフォトコレクション 8ページ12カット",
-    "description": "マイフォトコレクション 8ページ12カット",
-    "photoCount": 12,
-    "price": 35090
-  },
-  {
-    "id": 55,
-    "category": "写真集",
-    "name": "マイフォトコレクション 10ページ15カット",
-    "description": "マイフォトコレクション 10ページ15カット",
-    "photoCount": 15,
-    "price": 38390
-  },
-  {
-    "id": 56,
-    "category": "写真集",
-    "name": "マイフォトコレクション 14ページ22カット",
-    "description": "マイフォトコレクション 14ページ22カット",
-    "photoCount": 22,
-    "price": 58190
-  },
-  {
-    "id": 57,
-    "category": "写真集",
-    "name": "マイフォトコレクション 18ページ30カット",
-    "description": "マイフォトコレクション 18ページ30カット",
-    "photoCount": 30,
-    "price": 65890
-  },
-  {
-    "id": 58,
-    "category": "写真集",
-    "name": "絵本コレクション 3カット",
-    "description": "絵本コレクション 3カット",
-    "photoCount": 3,
-    "price": 14080
-  }
-];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
