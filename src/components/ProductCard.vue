@@ -1,43 +1,47 @@
 <template>
   <div 
-    class="border border-primary/30 rounded-xl p-4 transition-all duration-200 bg-primary/5"
+    class="border border-primary/30 rounded-lg p-2 sm:p-3 transition-all duration-200 bg-primary/5 flex flex-col h-full"
   >
-    <div class="mb-4">
-      <span class="inline-block py-1.5 px-3 bg-primary text-white rounded-full text-sm font-semibold">{{ product.category }}</span>
+    <!-- Category Badge -->
+    <div class="mb-2">
+      <span class="inline-block py-0.5 px-2 bg-primary text-white rounded-full text-xs font-semibold">{{ product.category }}</span>
     </div>
-    <h3 class="text-xl mb-3 text-primary">{{ product.name }}</h3>
-    <p class="mb-4 opacity-80 leading-6">{{ product.description }}</p>
-    <div class="mb-4 p-4 bg-primary/10 rounded-lg">
-      <div class="flex justify-between mb-2">
-        <span class="font-semibold inline-flex items-center">
-          <CameraIcon class="w-5 h-5 inline-block mr-1 mb-0.5" />
-          ポーズ数
+    
+    <!-- Product Name -->
+    <h3 class="text-sm sm:text-base font-semibold mb-2 text-primary line-clamp-2 flex-grow">{{ product.name }}</h3>
+    
+    <!-- Description - Hidden on mobile, shown on larger screens -->
+    <p class="hidden sm:block text-xs opacity-80 mb-2 line-clamp-2">{{ product.description }}</p>
+    
+    <!-- Compact Info Section -->
+    <div class="mb-2 p-2 bg-primary/10 rounded text-xs">
+      <!-- Photo Count and Price in one row -->
+      <div class="flex justify-between items-center mb-1">
+        <span class="flex items-center">
+          <CameraIcon class="w-3 h-3 mr-1" />
+          {{ product.photoCount }}
         </span>
-        <span class="font-medium">{{ product.photoCount }}</span>
+        <span class="font-semibold text-success">¥{{ product.price.toLocaleString() }}</span>
       </div>
-      <div class="flex justify-between">
-        <span class="font-semibold inline-flex items-center">
-          <CurrencyYenIcon class="w-5 h-5 inline-block mr-1 mb-0.5" />
-          価格
-        </span>
-        <span class="font-medium text-success text-lg">¥{{ product.price.toLocaleString() }}</span>
-      </div>
-      <div v-if="product.variation" class="flex justify-between mt-2 pt-2 border-t border-primary/20">
-        <span class="font-semibold">Variation:</span>
-        <span class="font-medium">{{ product.variation }}</span>
+      
+      <!-- Variation if exists -->
+      <div v-if="product.variation" class="text-center pt-1 border-t border-primary/20">
+        <span class="text-xs opacity-75">{{ product.variation }}</span>
       </div>
     </div>
+    
+    <!-- Compact Add Button -->
     <button 
       @click="$emit('add-to-cart', product)" 
-      class="w-full bg-primary text-white border-none py-3 font-semibold rounded-lg transition-colors duration-200 hover:bg-primary-hover"
+      class="w-full bg-primary text-white border-none py-1.5 sm:py-2 text-xs sm:text-sm font-semibold rounded transition-colors duration-200 hover:bg-primary-hover"
     >
-      カートに追加
+      追加
     </button>
   </div>
 </template>
 
 <script setup lang="ts">
-import { CameraIcon, CurrencyYenIcon } from '@heroicons/vue/24/solid';
+import { CameraIcon } from '@heroicons/vue/24/solid';
 import type { ProductType } from '../types';
 
 defineProps<{ product: ProductType }>();
