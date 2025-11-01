@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h2 class="text-2xl mb-6">商品一覧</h2>
+    <h2 class="text-lg sm:text-xl lg:text-2xl mb-4 sm:mb-6">商品一覧</h2>
     
     <!-- Category Filter -->
     <CategoryFilter 
@@ -10,7 +10,7 @@
     />
 
     <!-- Products List -->
-    <div class="grid gap-6" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+    <div class="grid gap-3 sm:gap-4 md:gap-6 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
       <ProductCard 
         v-for="product in filteredProducts" 
         :key="product.id" 
