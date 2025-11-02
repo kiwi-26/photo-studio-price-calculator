@@ -459,9 +459,11 @@ export const products: ProductType[] = [
     "photoCount": 3,
     "price": 14080
   },
+  // 写真台紙 カテゴリ
+  // プレミア台紙
   {
     "id": 59,
-    "category": "写真台紙 プレミア",
+    "category": "写真台紙",
     "name": "プレミア台紙 1面",
     "description": "プレミア台紙 1面（写真代は別途必要、写真数にはカウントしない）",
     "photoCount": 0,
@@ -469,7 +471,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 60,
-    "category": "写真台紙 プレミア",
+    "category": "写真台紙",
     "name": "プレミア台紙 2面",
     "description": "プレミア台紙 2面（写真代は別途必要、写真数にはカウントしない）",
     "photoCount": 0,
@@ -477,7 +479,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 61,
-    "category": "写真台紙 プレミア",
+    "category": "写真台紙",
     "name": "プレミア台紙 3面",
     "description": "プレミア台紙 3面（写真代は別途必要、写真数にはカウントしない）",
     "photoCount": 0,
@@ -485,7 +487,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 62,
-    "category": "写真台紙 プレミア",
+    "category": "写真台紙",
     "name": "プレミア台紙 4面",
     "description": "プレミア台紙 4面（写真代は別途必要、写真数にはカウントしない）",
     "photoCount": 0,
@@ -493,7 +495,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 63,
-    "category": "写真台紙 プレミア",
+    "category": "写真台紙",
     "name": "プレミア台紙 5面",
     "description": "プレミア台紙 5面（写真代は別途必要、写真数にはカウントしない）",
     "photoCount": 0,
@@ -501,15 +503,16 @@ export const products: ProductType[] = [
   },
   {
     "id": 64,
-    "category": "写真台紙 プレミア",
+    "category": "写真台紙",
     "name": "プレミア台紙 6面",
     "description": "プレミア台紙 6面（写真代は別途必要、写真数にはカウントしない）",
     "photoCount": 0,
     "price": 2420
   },
+  // プレミア台紙 キャラクター
   {
     "id": 65,
-    "category": "写真台紙 プレミア キャラクター",
+    "category": "写真台紙",
     "name": "プレミア台紙 キャラクター 1面",
     "description": "プレミア台紙 キャラクター 1面（写真代は別途必要、写真数にはカウントしない）",
     "photoCount": 0,
@@ -517,7 +520,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 66,
-    "category": "写真台紙 プレミア キャラクター",
+    "category": "写真台紙",
     "name": "プレミア台紙 キャラクター 2面",
     "description": "プレミア台紙 キャラクター 2面（写真代は別途必要、写真数にはカウントしない）",
     "photoCount": 0,
@@ -525,7 +528,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 67,
-    "category": "写真台紙 プレミア キャラクター",
+    "category": "写真台紙",
     "name": "プレミア台紙 キャラクター 3面",
     "description": "プレミア台紙 キャラクター 3面（写真代は別途必要、写真数にはカウントしない）",
     "photoCount": 0,
@@ -533,7 +536,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 68,
-    "category": "写真台紙 プレミア キャラクター",
+    "category": "写真台紙",
     "name": "プレミア台紙 キャラクター 4面",
     "description": "プレミア台紙 キャラクター 4面（写真代は別途必要、写真数にはカウントしない）",
     "photoCount": 0,
@@ -541,7 +544,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 69,
-    "category": "写真台紙 プレミア キャラクター",
+    "category": "写真台紙",
     "name": "プレミア台紙 キャラクター 5面",
     "description": "プレミア台紙 キャラクター 5面（写真代は別途必要、写真数にはカウントしない）",
     "photoCount": 0,
@@ -549,34 +552,115 @@ export const products: ProductType[] = [
   },
   {
     "id": 70,
-    "category": "写真台紙 プレミア キャラクター",
+    "category": "写真台紙",
     "name": "プレミア台紙 キャラクター 6面",
     "description": "プレミア台紙 キャラクター 6面（写真代は別途必要、写真数にはカウントしない）",
     "photoCount": 0,
     "price": 2860
   },
+  // ギフト台紙
   {
     "id": 71,
-    "category": "写真台紙 ギフト",
+    "category": "写真台紙",
     "name": "ギフト台紙 2面",
     "description": "ギフト台紙 2面",
     "photoCount": 2,
     "price": 12980
   },
+  // デザイン台紙 ポエム付き
   {
     "id": 72,
-    "category": "写真台紙 デザイン ポエム付き",
-    "name": "デザイン台紙 ポエム付き 2ページ/2カット+１名ポエム",
-    "description": "デザイン台紙 ポエム付き 2ページ/2カット+１名ポエム",
+    "category": "写真台紙",
+    "name": "デザイン台紙 ポエム付き 2ページ/2カット+1名ポエム",
+    "description": "デザイン台紙 ポエム付き 2ページ/2カット+1名ポエム",
     "photoCount": 2,
     "price": 19580
   },
   {
     "id": 73,
-    "category": "写真台紙 デザイン ポエム付き",
+    "category": "写真台紙",
     "name": "デザイン台紙 ポエム付き 2ページ/2カット+2名ポエム",
     "description": "デザイン台紙 ポエム付き 2ページ/2カット+2名ポエム",
     "photoCount": 2,
     "price": 21780
+  },
+  // ディスプレイアイテム カテゴリ
+  // フォトパネ 1カット
+  {
+    "id": 74,
+    "category": "ディスプレイアイテム",
+    "name": "フォトパネ キャビネ 1カット",
+    "description": "フォトパネ キャビネ 1カット",
+    "photoCount": 1,
+    "price": 7700
+  },
+  {
+    "id": 75,
+    "category": "ディスプレイアイテム",
+    "name": "フォトパネ 半切 1カット",
+    "description": "フォトパネ 半切 1カット",
+    "photoCount": 1,
+    "price": 15400
+  },
+  {
+    "id": 76,
+    "category": "ディスプレイアイテム",
+    "name": "フォトパネ 全紙 1カット",
+    "description": "フォトパネ 全紙 1カット",
+    "photoCount": 1,
+    "price": 20900
+  },
+  // フォトパネ 3カット
+  {
+    "id": 77,
+    "category": "ディスプレイアイテム",
+    "name": "フォトパネ ワイド 3カット",
+    "description": "フォトパネ ワイド 3カット",
+    "photoCount": 3,
+    "price": 15400
+  },
+  {
+    "id": 78,
+    "category": "ディスプレイアイテム",
+    "name": "フォトパネ 半切 3カット",
+    "description": "フォトパネ 半切 3カット",
+    "photoCount": 3,
+    "price": 20900
+  },
+  {
+    "id": 79,
+    "category": "ディスプレイアイテム",
+    "name": "フォトパネ 全紙 3カット",
+    "description": "フォトパネ 全紙 3カット",
+    "photoCount": 3,
+    "price": 28600
+  },
+  // フォトパネ 七五三専用
+  {
+    "id": 80,
+    "category": "ディスプレイアイテム",
+    "name": "フォトパネ 七五三専用 17カット 手形付き",
+    "description": "フォトパネ 七五三専用 17カット 手形付き",
+    "photoCount": 17,
+    "price": 41800
+  },
+  // フォトパネ 赤ちゃん専用（足形付き）
+  {
+    "id": 81,
+    "category": "ディスプレイアイテム",
+    "name": "フォトパネ 赤ちゃん専用 ワイド 3カット 足形付き",
+    "description": "フォトパネ 赤ちゃん専用 ワイド 3カット 足形付き",
+    "photoCount": 3,
+    "price": 15400
+  {
+    "id": 82,
+    "category": "ディスプレイアイテム",
+    "name": "フォトパネ 赤ちゃん専用 半切 3カット 足形付き",
+    "description": "フォトパネ 赤ちゃん専用 半切 3カット 足形付き",
+    "photoCount": 3,
+    "price": 20900
   }
 ];
+  },
+
+
