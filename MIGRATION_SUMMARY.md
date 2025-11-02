@@ -1,7 +1,7 @@
 # Migration Summary: Scratch CSS to Tailwind CSS
 
 ## Overview
-Successfully migrated the Photo Studio Price Calculator from custom CSS to Tailwind CSS while maintaining identical visual appearance and functionality.
+Successfully migrated the 白うさぎの写真計算機 from custom CSS to Tailwind CSS while maintaining identical visual appearance and functionality.
 
 ## Changes Made
 

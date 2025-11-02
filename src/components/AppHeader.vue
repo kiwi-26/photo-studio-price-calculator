@@ -1,6 +1,6 @@
 <template>
   <header class="mb-4 sm:mb-6 lg:mb-8 pb-4 border-b-2 border-primary">
-    <h1 class="text-lg sm:text-xl lg:text-2xl mb-2 text-primary font-bold">📸 写真スタジオ 見積もりツール</h1>
+    <h1 class="text-lg sm:text-xl lg:text-2xl mb-2 text-primary font-bold">白うさぎの写真計算機</h1>
   </header>
 </template>
 

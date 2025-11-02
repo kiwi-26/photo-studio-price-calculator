@@ -1,4 +1,4 @@
-# 📸 Photo Studio Price Calculator
+# 白うさぎの写真計算機
 
 A Vue 3 SPA application for calculating photo studio service prices. Users can browse products, filter by category, add items to cart, and see real-time price and photo count calculations.
 
