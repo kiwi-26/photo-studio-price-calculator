@@ -563,20 +563,6 @@ export const products: ProductType[] = [
     "photoCount": 2,
     "price": 12980
   },
-  {
-    "id": 72,
-    "category": "写真台紙 デザイン ポエム付き",
-    "name": "デザイン台紙 ポエム付き 2ページ/2カット+１名ポエム",
-    "description": "デザイン台紙 ポエム付き 2ページ/2カット+１名ポエム",
-    "photoCount": 2,
-    "price": 19580
-  },
-  {
-    "id": 73,
-    "category": "写真台紙 デザイン ポエム付き",
-    "name": "デザイン台紙 ポエム付き 2ページ/2カット+2名ポエム",
-    "description": "デザイン台紙 ポエム付き 2ページ/2カット+2名ポエム",
-    "photoCount": 2,
-    "price": 21780
-  }
-];
+
+
+
