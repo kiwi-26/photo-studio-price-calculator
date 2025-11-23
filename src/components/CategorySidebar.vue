@@ -24,18 +24,18 @@
           <!-- Category Buttons -->
           <button
             v-for="category in categories"
-            :key="category"
-            @click="selectCategory(category)"
+            :key="category.id"
+            @click="selectCategory(category.id)"
             :class="[
               'w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors',
-              selectedCategory === category 
+              selectedCategory === category.id 
                 ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200' 
                 : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
             ]"
           >
             <span class="flex items-center">
-              <component :is="getCategoryIcon(category)" class="w-5 h-5 mr-2" />
-              <span class="truncate">{{ category }}</span>
+              <component :is="category.icon" class="w-5 h-5 mr-2" />
+              <span class="truncate">{{ category.name }}</span>
             </span>
           </button>
         </nav>
@@ -63,18 +63,18 @@
           <!-- Category Buttons -->
           <button
             v-for="category in categories"
-            :key="category"
-            @click="selectCategory(category)"
+            :key="category.id"
+            @click="selectCategory(category.id)"
             :class="[
               'w-full flex flex-col items-center px-0.5 py-2 rounded-md text-[10px] font-medium transition-colors',
-              selectedCategory === category 
+              selectedCategory === category.id 
                 ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200' 
                 : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
             ]"
-            :title="category"
+            :title="category.name"
           >
-            <component :is="getCategoryIcon(category)" class="w-6 h-6 mb-1" />
-            <span class="text-center leading-tight">{{ getShortCategoryName(category) }}</span>
+            <component :is="category.icon" class="w-6 h-6 mb-1" />
+            <span class="text-center leading-tight">{{ category.shortName }}</span>
           </button>
         </nav>
       </div>
@@ -83,20 +83,17 @@
 </template>
 
 <script setup lang="ts">
-import {
-  QueueListIcon,
-  PhotoIcon,
-  BookOpenIcon,
-  DocumentTextIcon,
-  NewspaperIcon,
-  PaintBrushIcon,
-  FaceSmileIcon,
-  GiftIcon,
-  SparklesIcon
-} from '@heroicons/vue/24/outline';
+import { QueueListIcon } from '@heroicons/vue/24/outline';
+
+interface CategoryDisplay {
+  id: string;
+  name: string;
+  icon: any;
+  shortName: string;
+}
 
 const props = defineProps<{
-  categories: string[];
+  categories: CategoryDisplay[];
   selectedCategory?: string;
 }>();
 
@@ -104,37 +101,7 @@ const emit = defineEmits<{
   (e: 'update:selectedCategory', value: string): void;
 }>();
 
-const selectCategory = (category: string) => {
-  emit('update:selectedCategory', category);
-};
-
-const getCategoryIcon = (category: string) => {
-  const iconMap: Record<string, any> = {
-    'プリント': PhotoIcon,
-    'アルバム': BookOpenIcon,
-    'アルバムプリント 増えデジ': BookOpenIcon,
-    'アルバムプリント ベーシック': BookOpenIcon,
-    '写真集': BookOpenIcon,
-    '写真台紙 プレミア': PaintBrushIcon,
-    '写真台紙 プレミア キャラクター': FaceSmileIcon,
-    '写真台紙 ギフト': GiftIcon,
-    '写真台紙 デザイン ポエム付き': SparklesIcon
-  };
-  return iconMap[category] || DocumentTextIcon;
-};
-
-const getShortCategoryName = (category: string): string => {
-  const shortNameMap: Record<string, string> = {
-    'プリント': 'プリント',
-    'アルバム': 'アルバム',
-    'アルバムプリント 増えデジ': '増えデジ',
-    'アルバムプリント ベーシック': 'ベーシック',
-    '写真集': '写真集',
-    '写真台紙 プレミア': 'プレミア',
-    '写真台紙 プレミア キャラクター': 'キャラ',
-    '写真台紙 ギフト': 'ギフト',
-    '写真台紙 デザイン ポエム付き': 'ポエム'
-  };
-  return shortNameMap[category] || category.slice(0, 4);
+const selectCategory = (categoryId: string) => {
+  emit('update:selectedCategory', categoryId);
 };
 </script>

@@ -1,7 +1,7 @@
 export interface ProductType {
   id: number | string;
   name: string;
-  category: string;
+  categoryId: string;
   description: string;
   photoCount: number;
   price: number;

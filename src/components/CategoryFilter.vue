@@ -8,16 +8,23 @@
       class="w-full p-2.5 text-base rounded-md border border-primary bg-inherit text-inherit cursor-pointer"
     >
       <option value="">すべて</option>
-      <option v-for="category in categories" :key="category" :value="category">
-        {{ category }}
+      <option v-for="category in categories" :key="category.id" :value="category.id">
+        {{ category.name }}
       </option>
     </select>
   </div>
 </template>
 
 <script setup lang="ts">
+interface CategoryDisplay {
+  id: string;
+  name: string;
+  icon: any;
+  shortName: string;
+}
+
 const props = defineProps<{
-  categories: string[];
+  categories: CategoryDisplay[];
   selectedCategory?: string;
 }>();
 

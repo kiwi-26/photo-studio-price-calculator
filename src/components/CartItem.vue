@@ -2,7 +2,7 @@
   <div class="flex justify-between items-start p-4 mb-4 bg-primary/10 rounded-lg border border-primary/20">
     <div class="flex-1">
       <h4 class="text-base mb-1">{{ item.name }}</h4>
-      <p class="text-sm opacity-70 mb-2">{{ item.category }}</p>
+      <p class="text-sm opacity-70 mb-2">{{ getCategoryDisplayName(item.categoryId) }}</p>
       <div class="flex justify-between text-sm mb-2">
         <span>{{ item.photoCount }} ポーズ</span>
         <span class="text-success font-semibold">¥{{ item.price.toLocaleString() }}</span>
@@ -42,6 +42,7 @@
 
 <script setup lang="ts">
 import { defineProps, defineEmits } from 'vue';
+import { getCategoryDisplayName } from '../assets/categories';
 import type { CartItemType } from '../types';
 
 const props = defineProps<{

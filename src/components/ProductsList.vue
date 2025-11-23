@@ -33,6 +33,6 @@ const filteredProducts = computed(() => {
   if (!props.selectedCategory) {
     return props.products;
   }
-  return props.products.filter(p => p.category === props.selectedCategory);
+  return props.products.filter(p => p.categoryId === props.selectedCategory);
 });
 </script>
