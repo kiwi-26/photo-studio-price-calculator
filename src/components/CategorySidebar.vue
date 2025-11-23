@@ -44,13 +44,13 @@
 
     <!-- Mobile Compact Sidebar -->
     <div class="md:hidden w-16 h-full overflow-y-auto">
-      <div class="p-2">
-        <nav class="space-y-3">
+      <div class="p-1">
+        <nav class="space-y-1">
           <!-- All Categories Option -->
           <button
             @click="selectCategory('')"
             :class="[
-              'w-full flex flex-col items-center px-2 py-3 rounded-md text-xs font-medium transition-colors',
+              'w-full flex flex-col items-center px-0.5 py-2 rounded-md text-[10px] font-medium transition-colors',
               selectedCategory === '' 
                 ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200' 
                 : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
@@ -66,7 +66,7 @@
             :key="category"
             @click="selectCategory(category)"
             :class="[
-              'w-full flex flex-col items-center px-2 py-3 rounded-md text-xs font-medium transition-colors',
+              'w-full flex flex-col items-center px-0.5 py-2 rounded-md text-[10px] font-medium transition-colors',
               selectedCategory === category 
                 ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200' 
                 : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
@@ -112,8 +112,8 @@ const getCategoryIcon = (category: string) => {
   const iconMap: Record<string, any> = {
     'プリント': PhotoIcon,
     'アルバム': BookOpenIcon,
-    'アルバムプリント 増えデジ': DocumentTextIcon,
-    'アルバムプリント ベーシック': NewspaperIcon,
+    'アルバムプリント 増えデジ': BookOpenIcon,
+    'アルバムプリント ベーシック': BookOpenIcon,
     '写真集': BookOpenIcon,
     '写真台紙 プレミア': PaintBrushIcon,
     '写真台紙 プレミア キャラクター': FaceSmileIcon,
