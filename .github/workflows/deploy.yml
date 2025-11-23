@@ -41,14 +41,14 @@ jobs:
         mkdir -p ~/.ssh
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+        ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
         
     - name: Test SSH connection
       run: |
-        ssh -o ConnectTimeout=10 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "echo 'SSH connection successful'"
+        ssh -p ${{ secrets.SSH_PORT }} -o ConnectTimeout=10 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "echo 'SSH connection successful'"
         
     - name: Deploy to rental server
       run: |
         echo "Deploying to ${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_PATH }}"
-        rsync -avz --delete --progress dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_PATH }}
+        rsync -avz --delete --progress -e "ssh -p ${{ secrets.SSH_PORT }}" dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_PATH }}
         echo "Deployment completed successfully"
