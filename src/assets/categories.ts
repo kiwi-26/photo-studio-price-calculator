@@ -148,35 +148,28 @@ export const getCategoryShortName = (categoryId: string): string => {
   return subCategory?.shortName || category?.shortName || categoryId.slice(0, 4);
 };
 
-// Get all categories for display (includes both main categories and subcategories)
+// Get all parent categories for display (excludes subcategories from sidebar)
 export const getAllCategoriesForDisplay = (): Array<{ id: string, name: string, icon: any, shortName: string }> => {
   const result: Array<{ id: string, name: string, icon: any, shortName: string }> = [];
   
-  // Add main categories that don't have subcategories
+  // Add all main categories (both those with and without subcategories)
   for (const [id, category] of categories) {
-    const hasSubCategories = Array.from(subCategories.values()).some(sub => sub.parentCategoryId === id);
-    if (!hasSubCategories) {
-      result.push({
-        id: category.id,
-        name: category.name,
-        icon: category.icon,
-        shortName: category.shortName
-      });
-    }
-  }
-  
-  // Add subcategories with their full display names
-  for (const [id, subCategory] of subCategories) {
-    const parentCategory = getCategoryById(subCategory.parentCategoryId);
     result.push({
-      id: subCategory.id,
-      name: `${parentCategory?.name} ${subCategory.name}`,
-      icon: subCategory.icon,
-      shortName: subCategory.shortName
+      id: category.id,
+      name: category.name,
+      icon: category.icon,
+      shortName: category.shortName
     });
   }
   
   return result.sort((a, b) => a.name.localeCompare(b.name));
+};
+
+// Get all subcategory IDs for a given parent category
+export const getSubCategoryIds = (parentCategoryId: string): string[] => {
+  return Array.from(subCategories.values())
+    .filter(sub => sub.parentCategoryId === parentCategoryId)
+    .map(sub => sub.id);
 };
 
 // Mapping from old category strings to new category IDs
