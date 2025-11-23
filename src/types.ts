@@ -11,3 +11,10 @@ export interface ProductType {
 export interface CartItemType extends ProductType {
   quantity: number;
 }
+
+// Character design fee configuration
+export interface DesignFeeConfig {
+  enabled: boolean;
+  feePerItem: number;
+  eligibleCategories: string[];
+}
