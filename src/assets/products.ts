@@ -3,7 +3,7 @@ import type { ProductType } from "@/types.ts";
 export const products: ProductType[] = [
   {
     "id": 1,
-    "category": "プリント",
+    "categoryId": "print",
     "name": "四切り",
     "description": "四切りサイズのプリント",
     "photoCount": 1,
@@ -11,7 +11,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 2,
-    "category": "プリント",
+    "categoryId": "print",
     "name": "六切り",
     "description": "六切りサイズのプリント",
     "photoCount": 1,
@@ -19,7 +19,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 3,
-    "category": "プリント",
+    "categoryId": "print",
     "name": "キャビネ",
     "description": "キャビネサイズのプリント",
     "photoCount": 1,
@@ -27,7 +27,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 4,
-    "category": "プリント",
+    "categoryId": "print",
     "name": "ハーフキャビネ",
     "description": "ハーフキャビネサイズのプリント",
     "photoCount": 1,
@@ -35,7 +35,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 5,
-    "category": "アルバム",
+    "categoryId": "album",
     "name": "コンビネーション本体 オリジナル",
     "description": "コンビネーション本体 オリジナルデザイン",
     "photoCount": 0,
@@ -43,7 +43,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 6,
-    "category": "アルバム",
+    "categoryId": "album",
     "name": "コンビネーション本体 ページ少",
     "description": "コンビネーション本体 ページ少タイプ",
     "photoCount": 0,
@@ -51,7 +51,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 7,
-    "category": "アルバム",
+    "categoryId": "album",
     "name": "コンビネーション本体 キャラクター",
     "description": "コンビネーション本体 キャラクターデザイン",
     "photoCount": 0,
@@ -59,7 +59,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 8,
-    "category": "アルバム",
+    "categoryId": "album",
     "name": "増えデジアルバム本体 オリジナル",
     "description": "増えデジアルバム本体 オリジナルデザイン",
     "photoCount": 0,
@@ -67,7 +67,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 9,
-    "category": "アルバム",
+    "categoryId": "album",
     "name": "増えデジアルバム本体 キャラクター",
     "description": "増えデジアルバム本体 キャラクターデザイン",
     "photoCount": 0,
@@ -75,7 +75,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 11,
-    "category": "アルバム",
+    "categoryId": "album",
     "name": "増えデジアルバム本体 コンパクト",
     "description": "増えデジアルバム本体 コンパクトサイズ",
     "photoCount": 0,
@@ -83,7 +83,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 12,
-    "category": "アルバム",
+    "categoryId": "album",
     "name": "増えデジアルバム本体 コンパクト キャラクター",
     "description": "増えデジアルバム本体 コンパクト キャラクターデザイン",
     "photoCount": 0,
@@ -91,7 +91,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 13,
-    "category": "アルバムプリント 増えデジ",
+    "categoryId": "album-print-masudegi",
     "name": "1ポーズタイプ",
     "description": "1ポーズタイプのアルバムプリント",
     "photoCount": 1,
@@ -99,7 +99,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 14,
-    "category": "アルバムプリント 増えデジ",
+    "categoryId": "album-print-masudegi",
     "name": "2ポーズAタイプ",
     "description": "2ポーズAタイプのアルバムプリント",
     "photoCount": 2,
@@ -107,7 +107,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 15,
-    "category": "アルバムプリント 増えデジ",
+    "categoryId": "album-print-masudegi",
     "name": "2ポーズBタイプ",
     "description": "2ポーズBタイプのアルバムプリント",
     "photoCount": 2,
@@ -115,7 +115,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 16,
-    "category": "アルバムプリント 増えデジ",
+    "categoryId": "album-print-masudegi",
     "name": "3ポーズAタイプ",
     "description": "3ポーズAタイプのアルバムプリント",
     "photoCount": 3,
@@ -123,7 +123,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 17,
-    "category": "アルバムプリント 増えデジ",
+    "categoryId": "album-print-masudegi",
     "name": "3ポーズBタイプ",
     "description": "3ポーズBタイプのアルバムプリント",
     "photoCount": 3,
@@ -131,7 +131,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 18,
-    "category": "アルバムプリント 増えデジ",
+    "categoryId": "album-print-masudegi",
     "name": "4ポーズAタイプ",
     "description": "4ポーズAタイプのアルバムプリント",
     "photoCount": 4,
@@ -139,7 +139,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 19,
-    "category": "アルバムプリント 増えデジ",
+    "categoryId": "album-print-masudegi",
     "name": "4ポーズBタイプ",
     "description": "4ポーズBタイプのアルバムプリント",
     "photoCount": 4,
@@ -147,7 +147,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 20,
-    "category": "アルバムプリント 増えデジ",
+    "categoryId": "album-print-masudegi",
     "name": "5ポーズAタイプ",
     "description": "5ポーズAタイプのアルバムプリント",
     "photoCount": 5,
@@ -155,7 +155,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 21,
-    "category": "アルバムプリント 増えデジ",
+    "categoryId": "album-print-masudegi",
     "name": "5ポーズBタイプ",
     "description": "5ポーズBタイプのアルバムプリント",
     "photoCount": 5,
@@ -163,7 +163,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 22,
-    "category": "アルバムプリント 増えデジ",
+    "categoryId": "album-print-masudegi",
     "name": "6ポーズAタイプ",
     "description": "6ポーズAタイプのアルバムプリント",
     "photoCount": 6,
@@ -171,7 +171,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 23,
-    "category": "アルバムプリント 増えデジ",
+    "categoryId": "album-print-masudegi",
     "name": "6ポーズBタイプ",
     "description": "6ポーズBタイプのアルバムプリント",
     "photoCount": 6,
@@ -179,7 +179,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 24,
-    "category": "アルバムプリント 増えデジ",
+    "categoryId": "album-print-masudegi",
     "name": "7ポーズAタイプ",
     "description": "7ポーズAタイプのアルバムプリント",
     "photoCount": 7,
@@ -187,7 +187,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 25,
-    "category": "アルバムプリント 増えデジ",
+    "categoryId": "album-print-masudegi",
     "name": "8ポーズAタイプ",
     "description": "8ポーズAタイプのアルバムプリント",
     "photoCount": 8,
@@ -195,7 +195,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 26,
-    "category": "アルバムプリント 増えデジ",
+    "categoryId": "album-print-masudegi",
     "name": "9ポーズAタイプ",
     "description": "9ポーズAタイプのアルバムプリント",
     "photoCount": 9,
@@ -203,7 +203,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 27,
-    "category": "アルバムプリント 増えデジ",
+    "categoryId": "album-print-masudegi",
     "name": "10ポーズAタイプ",
     "description": "10ポーズAタイプのアルバムプリント",
     "photoCount": 10,
@@ -211,7 +211,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 28,
-    "category": "アルバムプリント 増えデジ",
+    "categoryId": "album-print-masudegi",
     "name": "11ポーズAタイプ",
     "description": "11ポーズAタイプのアルバムプリント",
     "photoCount": 11,
@@ -219,7 +219,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 29,
-    "category": "アルバムプリント 増えデジ",
+    "categoryId": "album-print-masudegi",
     "name": "12ポーズAタイプ",
     "description": "12ポーズAタイプのアルバムプリント",
     "photoCount": 12,
@@ -227,7 +227,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 30,
-    "category": "アルバムプリント ベーシック",
+    "categoryId": "album-print-basic",
     "name": "四切 1枚",
     "description": "四切サイズ 1枚のアルバムプリント",
     "photoCount": 1,
@@ -236,7 +236,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 31,
-    "category": "アルバムプリント ベーシック",
+    "categoryId": "album-print-basic",
     "name": "六切 1枚",
     "description": "六切サイズ 1枚のアルバムプリント",
     "photoCount": 1,
@@ -245,7 +245,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 32,
-    "category": "アルバムプリント ベーシック",
+    "categoryId": "album-print-basic",
     "name": "四切 7枚",
     "description": "四切サイズ 7枚のアルバムプリント",
     "photoCount": 7,
@@ -253,7 +253,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 33,
-    "category": "アルバムプリント ベーシック",
+    "categoryId": "album-print-basic",
     "name": "六切 7枚",
     "description": "六切サイズ 7枚のアルバムプリント",
     "photoCount": 7,
@@ -261,7 +261,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 34,
-    "category": "アルバムプリント ベーシック",
+    "categoryId": "album-print-basic",
     "name": "四切 8枚",
     "description": "四切サイズ 8枚のアルバムプリント",
     "photoCount": 8,
@@ -269,7 +269,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 35,
-    "category": "アルバムプリント ベーシック",
+    "categoryId": "album-print-basic",
     "name": "六切 8枚",
     "description": "六切サイズ 8枚のアルバムプリント",
     "photoCount": 8,
@@ -277,7 +277,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 36,
-    "category": "アルバムプリント ベーシック",
+    "categoryId": "album-print-basic",
     "name": "四切 9枚",
     "description": "四切サイズ 9枚のアルバムプリント",
     "photoCount": 9,
@@ -285,7 +285,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 37,
-    "category": "アルバムプリント ベーシック",
+    "categoryId": "album-print-basic",
     "name": "六切 9枚",
     "description": "六切サイズ 9枚のアルバムプリント",
     "photoCount": 9,
@@ -293,7 +293,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 38,
-    "category": "アルバムプリント ベーシック",
+    "categoryId": "album-print-basic",
     "name": "四切 10枚",
     "description": "四切サイズ 10枚のアルバムプリント",
     "photoCount": 10,
@@ -301,7 +301,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 39,
-    "category": "アルバムプリント ベーシック",
+    "categoryId": "album-print-basic",
     "name": "六切 10枚",
     "description": "六切サイズ 10枚のアルバムプリント",
     "photoCount": 10,
@@ -309,7 +309,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 40,
-    "category": "アルバムプリント ベーシック",
+    "categoryId": "album-print-basic",
     "name": "四切 11枚",
     "description": "四切サイズ 11枚のアルバムプリント",
     "photoCount": 11,
@@ -317,7 +317,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 41,
-    "category": "アルバムプリント ベーシック",
+    "categoryId": "album-print-basic",
     "name": "六切 11枚",
     "description": "六切サイズ 11枚のアルバムプリント",
     "photoCount": 11,
@@ -325,7 +325,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 42,
-    "category": "アルバムプリント ベーシック",
+    "categoryId": "album-print-basic",
     "name": "四切 12枚",
     "description": "四切サイズ 12枚のアルバムプリント",
     "photoCount": 12,
@@ -333,7 +333,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 43,
-    "category": "アルバムプリント ベーシック",
+    "categoryId": "album-print-basic",
     "name": "六切 12枚",
     "description": "六切サイズ 12枚のアルバムプリント",
     "photoCount": 12,
@@ -341,7 +341,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 44,
-    "category": "写真集",
+    "categoryId": "photo-book",
     "name": "マイフォトコレクションスマイル 2ページ3カット＋表紙2カット",
     "description": "マイフォトコレクションスマイル 2ページ3カット＋表紙2カット",
     "photoCount": 5,
@@ -349,7 +349,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 45,
-    "category": "写真集",
+    "categoryId": "photo-book",
     "name": "マイフォトコレクションスマイル 4ページ5カット＋表紙2カット",
     "description": "マイフォトコレクションスマイル 4ページ5カット＋表紙2カット",
     "photoCount": 7,
@@ -357,7 +357,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 46,
-    "category": "写真集",
+    "categoryId": "photo-book",
     "name": "マイフォトコレクションスマイル 6ページ9カット＋表紙2カット",
     "description": "マイフォトコレクションスマイル 6ページ9カット＋表紙2カット",
     "photoCount": 11,
@@ -365,7 +365,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 47,
-    "category": "写真集",
+    "categoryId": "photo-book",
     "name": "マイフォトコレクションスマイル 8ページ12カット＋表紙2カット",
     "description": "マイフォトコレクションスマイル 8ページ12カット＋表紙2カット",
     "photoCount": 14,
@@ -373,7 +373,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 48,
-    "category": "写真集",
+    "categoryId": "photo-book",
     "name": "マイフォトコレクションスマイル 10ページ15カット＋表紙2カット",
     "description": "マイフォトコレクションスマイル 10ページ15カット＋表紙2カット",
     "photoCount": 17,
@@ -381,7 +381,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 49,
-    "category": "写真集",
+    "categoryId": "photo-book",
     "name": "マイフォトコレクションスマイル 14ページ22カット＋表紙2カット",
     "description": "マイフォトコレクションスマイル 14ページ22カット＋表紙2カット",
     "photoCount": 24,
@@ -389,7 +389,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 50,
-    "category": "写真集",
+    "categoryId": "photo-book",
     "name": "マイフォトコレクションスマイル 18ページ30カット＋表紙2カット",
     "description": "マイフォトコレクションスマイル 18ページ30カット＋表紙2カット",
     "photoCount": 32,
@@ -397,7 +397,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 51,
-    "category": "写真集",
+    "categoryId": "photo-book",
     "name": "マイフォトコレクション 2ページ3カット",
     "description": "マイフォトコレクション 2ページ3カット",
     "photoCount": 3,
@@ -405,7 +405,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 52,
-    "category": "写真集",
+    "categoryId": "photo-book",
     "name": "マイフォトコレクション 4ページ5カット",
     "description": "マイフォトコレクション 4ページ5カット",
     "photoCount": 5,
@@ -413,7 +413,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 53,
-    "category": "写真集",
+    "categoryId": "photo-book",
     "name": "マイフォトコレクション 6ページ9カット",
     "description": "マイフォトコレクション 6ページ9カット",
     "photoCount": 9,
@@ -421,7 +421,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 54,
-    "category": "写真集",
+    "categoryId": "photo-book",
     "name": "マイフォトコレクション 8ページ12カット",
     "description": "マイフォトコレクション 8ページ12カット",
     "photoCount": 12,
@@ -429,7 +429,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 55,
-    "category": "写真集",
+    "categoryId": "photo-book",
     "name": "マイフォトコレクション 10ページ15カット",
     "description": "マイフォトコレクション 10ページ15カット",
     "photoCount": 15,
@@ -437,7 +437,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 56,
-    "category": "写真集",
+    "categoryId": "photo-book",
     "name": "マイフォトコレクション 14ページ22カット",
     "description": "マイフォトコレクション 14ページ22カット",
     "photoCount": 22,
@@ -445,7 +445,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 57,
-    "category": "写真集",
+    "categoryId": "photo-book",
     "name": "マイフォトコレクション 18ページ30カット",
     "description": "マイフォトコレクション 18ページ30カット",
     "photoCount": 30,
@@ -453,7 +453,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 58,
-    "category": "写真集",
+    "categoryId": "photo-book",
     "name": "絵本コレクション 3カット",
     "description": "絵本コレクション 3カット",
     "photoCount": 3,
@@ -461,7 +461,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 59,
-    "category": "写真台紙 プレミア",
+    "categoryId": "photo-mount-premium",
     "name": "プレミア台紙 1面",
     "description": "プレミア台紙 1面（写真代は別途必要、写真数にはカウントしない）",
     "photoCount": 0,
@@ -469,7 +469,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 60,
-    "category": "写真台紙 プレミア",
+    "categoryId": "photo-mount-premium",
     "name": "プレミア台紙 2面",
     "description": "プレミア台紙 2面（写真代は別途必要、写真数にはカウントしない）",
     "photoCount": 0,
@@ -477,7 +477,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 61,
-    "category": "写真台紙 プレミア",
+    "categoryId": "photo-mount-premium",
     "name": "プレミア台紙 3面",
     "description": "プレミア台紙 3面（写真代は別途必要、写真数にはカウントしない）",
     "photoCount": 0,
@@ -485,7 +485,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 62,
-    "category": "写真台紙 プレミア",
+    "categoryId": "photo-mount-premium",
     "name": "プレミア台紙 4面",
     "description": "プレミア台紙 4面（写真代は別途必要、写真数にはカウントしない）",
     "photoCount": 0,
@@ -493,7 +493,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 63,
-    "category": "写真台紙 プレミア",
+    "categoryId": "photo-mount-premium",
     "name": "プレミア台紙 5面",
     "description": "プレミア台紙 5面（写真代は別途必要、写真数にはカウントしない）",
     "photoCount": 0,
@@ -501,7 +501,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 64,
-    "category": "写真台紙 プレミア",
+    "categoryId": "photo-mount-premium",
     "name": "プレミア台紙 6面",
     "description": "プレミア台紙 6面（写真代は別途必要、写真数にはカウントしない）",
     "photoCount": 0,
@@ -509,7 +509,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 65,
-    "category": "写真台紙 プレミア キャラクター",
+    "categoryId": "photo-mount-premium-character",
     "name": "プレミア台紙 キャラクター 1面",
     "description": "プレミア台紙 キャラクター 1面（写真代は別途必要、写真数にはカウントしない）",
     "photoCount": 0,
@@ -517,7 +517,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 66,
-    "category": "写真台紙 プレミア キャラクター",
+    "categoryId": "photo-mount-premium-character",
     "name": "プレミア台紙 キャラクター 2面",
     "description": "プレミア台紙 キャラクター 2面（写真代は別途必要、写真数にはカウントしない）",
     "photoCount": 0,
@@ -525,7 +525,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 67,
-    "category": "写真台紙 プレミア キャラクター",
+    "categoryId": "photo-mount-premium-character",
     "name": "プレミア台紙 キャラクター 3面",
     "description": "プレミア台紙 キャラクター 3面（写真代は別途必要、写真数にはカウントしない）",
     "photoCount": 0,
@@ -533,7 +533,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 68,
-    "category": "写真台紙 プレミア キャラクター",
+    "categoryId": "photo-mount-premium-character",
     "name": "プレミア台紙 キャラクター 4面",
     "description": "プレミア台紙 キャラクター 4面（写真代は別途必要、写真数にはカウントしない）",
     "photoCount": 0,
@@ -541,7 +541,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 69,
-    "category": "写真台紙 プレミア キャラクター",
+    "categoryId": "photo-mount-premium-character",
     "name": "プレミア台紙 キャラクター 5面",
     "description": "プレミア台紙 キャラクター 5面（写真代は別途必要、写真数にはカウントしない）",
     "photoCount": 0,
@@ -549,7 +549,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 70,
-    "category": "写真台紙 プレミア キャラクター",
+    "categoryId": "photo-mount-premium-character",
     "name": "プレミア台紙 キャラクター 6面",
     "description": "プレミア台紙 キャラクター 6面（写真代は別途必要、写真数にはカウントしない）",
     "photoCount": 0,
@@ -557,7 +557,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 71,
-    "category": "写真台紙 ギフト",
+    "categoryId": "photo-mount-gift",
     "name": "ギフト台紙 2面",
     "description": "ギフト台紙 2面",
     "photoCount": 2,
@@ -565,7 +565,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 72,
-    "category": "写真台紙 デザイン ポエム付き",
+    "categoryId": "photo-mount-design-poem",
     "name": "デザイン台紙 ポエム付き 2ページ/2カット+１名ポエム",
     "description": "デザイン台紙 ポエム付き 2ページ/2カット+１名ポエム",
     "photoCount": 2,
@@ -573,7 +573,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 73,
-    "category": "写真台紙 デザイン ポエム付き",
+    "categoryId": "photo-mount-design-poem",
     "name": "デザイン台紙 ポエム付き 2ページ/2カット+2名ポエム",
     "description": "デザイン台紙 ポエム付き 2ページ/2カット+2名ポエム",
     "photoCount": 2,
