@@ -60,8 +60,8 @@ export const categories: Map<string, Category> = new Map([
 
 // Subcategories
 export const subCategories: Map<string, SubCategory> = new Map([
-  ['album-print-masudegi', {
-    id: 'album-print-masudegi',
+  ['album-print-fuedegi', {
+    id: 'album-print-fuedegi',
     name: '増えデジ',
     parentCategoryId: 'album-print',
     icon: BookOpenIcon,
@@ -183,7 +183,7 @@ export const getAllCategoriesForDisplay = (): Array<{ id: string, name: string, 
 export const categoryStringToIdMap: Record<string, string> = {
   'プリント': 'print',
   'アルバム': 'album',
-  'アルバムプリント 増えデジ': 'album-print-masudegi',
+  'アルバムプリント 増えデジ': 'album-print-fuedegi',
   'アルバムプリント ベーシック': 'album-print-basic',
   '写真集': 'photo-book',
   '写真台紙 プレミア': 'photo-mount-premium',

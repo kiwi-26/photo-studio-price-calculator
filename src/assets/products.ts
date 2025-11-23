@@ -91,7 +91,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 13,
-    "categoryId": "album-print-masudegi",
+    "categoryId": "album-print-fuedegi",
     "name": "1ポーズタイプ",
     "description": "1ポーズタイプのアルバムプリント",
     "photoCount": 1,
@@ -99,7 +99,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 14,
-    "categoryId": "album-print-masudegi",
+    "categoryId": "album-print-fuedegi",
     "name": "2ポーズAタイプ",
     "description": "2ポーズAタイプのアルバムプリント",
     "photoCount": 2,
@@ -107,7 +107,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 15,
-    "categoryId": "album-print-masudegi",
+    "categoryId": "album-print-fuedegi",
     "name": "2ポーズBタイプ",
     "description": "2ポーズBタイプのアルバムプリント",
     "photoCount": 2,
@@ -115,7 +115,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 16,
-    "categoryId": "album-print-masudegi",
+    "categoryId": "album-print-fuedegi",
     "name": "3ポーズAタイプ",
     "description": "3ポーズAタイプのアルバムプリント",
     "photoCount": 3,
@@ -123,7 +123,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 17,
-    "categoryId": "album-print-masudegi",
+    "categoryId": "album-print-fuedegi",
     "name": "3ポーズBタイプ",
     "description": "3ポーズBタイプのアルバムプリント",
     "photoCount": 3,
@@ -131,7 +131,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 18,
-    "categoryId": "album-print-masudegi",
+    "categoryId": "album-print-fuedegi",
     "name": "4ポーズAタイプ",
     "description": "4ポーズAタイプのアルバムプリント",
     "photoCount": 4,
@@ -139,7 +139,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 19,
-    "categoryId": "album-print-masudegi",
+    "categoryId": "album-print-fuedegi",
     "name": "4ポーズBタイプ",
     "description": "4ポーズBタイプのアルバムプリント",
     "photoCount": 4,
@@ -147,7 +147,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 20,
-    "categoryId": "album-print-masudegi",
+    "categoryId": "album-print-fuedegi",
     "name": "5ポーズAタイプ",
     "description": "5ポーズAタイプのアルバムプリント",
     "photoCount": 5,
@@ -155,7 +155,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 21,
-    "categoryId": "album-print-masudegi",
+    "categoryId": "album-print-fuedegi",
     "name": "5ポーズBタイプ",
     "description": "5ポーズBタイプのアルバムプリント",
     "photoCount": 5,
@@ -163,7 +163,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 22,
-    "categoryId": "album-print-masudegi",
+    "categoryId": "album-print-fuedegi",
     "name": "6ポーズAタイプ",
     "description": "6ポーズAタイプのアルバムプリント",
     "photoCount": 6,
@@ -171,7 +171,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 23,
-    "categoryId": "album-print-masudegi",
+    "categoryId": "album-print-fuedegi",
     "name": "6ポーズBタイプ",
     "description": "6ポーズBタイプのアルバムプリント",
     "photoCount": 6,
@@ -179,7 +179,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 24,
-    "categoryId": "album-print-masudegi",
+    "categoryId": "album-print-fuedegi",
     "name": "7ポーズAタイプ",
     "description": "7ポーズAタイプのアルバムプリント",
     "photoCount": 7,
@@ -187,7 +187,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 25,
-    "categoryId": "album-print-masudegi",
+    "categoryId": "album-print-fuedegi",
     "name": "8ポーズAタイプ",
     "description": "8ポーズAタイプのアルバムプリント",
     "photoCount": 8,
@@ -195,7 +195,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 26,
-    "categoryId": "album-print-masudegi",
+    "categoryId": "album-print-fuedegi",
     "name": "9ポーズAタイプ",
     "description": "9ポーズAタイプのアルバムプリント",
     "photoCount": 9,
@@ -203,7 +203,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 27,
-    "categoryId": "album-print-masudegi",
+    "categoryId": "album-print-fuedegi",
     "name": "10ポーズAタイプ",
     "description": "10ポーズAタイプのアルバムプリント",
     "photoCount": 10,
@@ -211,7 +211,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 28,
-    "categoryId": "album-print-masudegi",
+    "categoryId": "album-print-fuedegi",
     "name": "11ポーズAタイプ",
     "description": "11ポーズAタイプのアルバムプリント",
     "photoCount": 11,
@@ -219,7 +219,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 29,
-    "categoryId": "album-print-masudegi",
+    "categoryId": "album-print-fuedegi",
     "name": "12ポーズAタイプ",
     "description": "12ポーズAタイプのアルバムプリント",
     "photoCount": 12,
