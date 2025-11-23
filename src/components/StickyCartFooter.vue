@@ -47,10 +47,26 @@
 
         <!-- Cart Actions -->
         <div class="p-4 border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950">
+          <!-- Character Design Checkbox -->
+          <div class="mb-4">
+            <label class="flex items-center gap-2 text-sm cursor-pointer">
+              <input 
+                type="checkbox" 
+                :checked="includeCharacterDesign"
+                @change="emit('update:includeCharacterDesign', ($event.target as HTMLInputElement).checked)"
+                class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              />
+              <span class="text-gray-700 dark:text-gray-300">キャラクターデザインの衣装を含む</span>
+            </label>
+          </div>
+
           <div class="mb-4">
             <CartSummary 
-              :total-price="totalPrice"
-              :total-photo-count="totalPhotoCount"
+              :basePrice="basePrice"
+              :characterDesignFee="characterDesignFee"
+              :totalPrice="totalPrice"
+              :totalPhotoCount="totalPhotoCount"
+              :includeCharacterDesign="includeCharacterDesign"
             />
           </div>
 
@@ -77,12 +93,14 @@ import type { CartItemType } from '../types';
 
 const props = defineProps<{
   cart: CartItemType[];
+  includeCharacterDesign: boolean;
 }>();
 
 const emit = defineEmits<{
   (e: 'remove-from-cart', index: number): void;
   (e: 'update-quantity', index: number, quantity: number): void;
   (e: 'clear-cart'): void;
+  (e: 'update:includeCharacterDesign', value: boolean): void;
 }>();
 
 const isExpanded = ref(false);
@@ -90,8 +108,41 @@ const toggleExpanded = () => {
   isExpanded.value = !isExpanded.value;
 };
 
-const totalPrice = computed(() => {
+// Helper function to determine if a product is eligible for character design fee
+const isEligibleForCharacterDesign = (item: CartItemType): boolean => {
+  // Products in "print" category are eligible
+  if (item.categoryId === 'print') {
+    return true;
+  }
+  
+  // Products that already have "キャラクター" in their name are not eligible for additional fees
+  if (item.name.includes('キャラクター') || item.description.includes('キャラクター')) {
+    return false;
+  }
+  
+  // Other products with photoCount > 0 might be eligible
+  return item.photoCount > 0;
+};
+
+const basePrice = computed(() => {
   return props.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+});
+
+const characterDesignFee = computed(() => {
+  if (!props.includeCharacterDesign) {
+    return 0;
+  }
+  
+  return props.cart.reduce((sum, item) => {
+    if (isEligibleForCharacterDesign(item)) {
+      return sum + (item.photoCount * item.quantity * 1000);
+    }
+    return sum;
+  }, 0);
+});
+
+const totalPrice = computed(() => {
+  return basePrice.value + characterDesignFee.value;
 });
 
 const totalPhotoCount = computed(() => {

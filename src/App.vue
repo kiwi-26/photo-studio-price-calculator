@@ -25,9 +25,11 @@
       <div class="">
         <StickyCartFooter 
           :cart="cart"
+          :includeCharacterDesign="includeCharacterDesign"
           @remove-from-cart="removeFromCart"
           @update-quantity="updateQuantity"
           @clear-cart="clearCart"
+          @update:includeCharacterDesign="includeCharacterDesign = $event"
         />
       </div>
     </div>
@@ -49,6 +51,7 @@ import type { ProductType, CartItemType } from './types';
 const products = ref<ProductType[]>(productsData as ProductType[]);
 const cart = ref<CartItemType[]>([]);
 const selectedCategory = ref<string>('');
+const includeCharacterDesign = ref<boolean>(false);
 
 // Computed
 const categories = computed(() => {
