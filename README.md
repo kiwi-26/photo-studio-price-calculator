@@ -83,6 +83,25 @@ To set up GitHub Pages for your fork:
 3. Under "Source", select "GitHub Actions"
 4. The workflow will automatically deploy your site on the next push to `main`
 
+### Deploy to Rental Server
+
+This project also supports automatic deployment to rental servers via SSH. When you push to the `main` branch, the GitHub Actions workflow will:
+
+1. Build the project using Node.js and npm
+2. Copy the built files to your rental server via SSH
+
+To set up rental server deployment:
+
+1. Configure the required GitHub Secrets (see [DEPLOYMENT.md](./DEPLOYMENT.md) for details):
+   - `SSH_PRIVATE_KEY`: Your SSH private key
+   - `SSH_HOST`: Server hostname or IP address
+   - `SSH_USER`: SSH username
+   - `DEPLOY_PATH`: Target directory on the server
+
+2. The deployment will automatically trigger on every push to `main`
+
+For detailed setup instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md).
+
 ### Preview Production Build
 
 ```bash
