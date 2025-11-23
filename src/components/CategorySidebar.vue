@@ -16,7 +16,7 @@
             ]"
           >
             <span class="flex items-center">
-              <QueueListIcon class="w-5 h-5 mr-3" />
+              <QueueListIcon class="w-5 h-5 mr-2" />
               すべて
             </span>
           </button>
@@ -34,7 +34,7 @@
             ]"
           >
             <span class="flex items-center">
-              <component :is="getCategoryIcon(category)" class="w-5 h-5 mr-3" />
+              <component :is="getCategoryIcon(category)" class="w-5 h-5 mr-2" />
               <span class="truncate">{{ category }}</span>
             </span>
           </button>
