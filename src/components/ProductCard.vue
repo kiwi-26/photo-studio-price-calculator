@@ -42,6 +42,7 @@
 
 <script setup lang="ts">
 import { CameraIcon } from '@heroicons/vue/24/solid';
+import { getCategoryDisplayName } from '../assets/categories';
 import type { ProductType } from '../types';
 
 defineProps<{ product: ProductType }>();
