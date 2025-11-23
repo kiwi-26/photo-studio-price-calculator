@@ -11,7 +11,7 @@
     <div class="ml-16 md:ml-64">
       <AppHeader />
 
-      <div class="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-4 sm:gap-6 lg:gap-8">
+      <div class="grid grid-cols-1 gap-4 sm:gap-6 lg:gap-8">
         <!-- Products Section -->
         <ProductsList 
           :products="products"
@@ -19,20 +19,10 @@
           @add-to-cart="addToCart"
           @update:selected-category="selectedCategory = $event"
         />
-
-        <!-- Cart Section - Hidden on mobile, visible on desktop -->
-        <div class="hidden lg:block">
-          <ShoppingCart 
-            :cart="cart"
-            @remove-from-cart="removeFromCart"
-            @update-quantity="updateQuantity"
-            @clear-cart="clearCart"
-          />
-        </div>
       </div>
 
       <!-- Sticky Cart Footer - Always visible -->
-      <div class="lg:hidden">
+      <div class="">
         <StickyCartFooter 
           :cart="cart"
           @remove-from-cart="removeFromCart"

@@ -11,10 +11,10 @@
     <h3 class="text-sm sm:text-base font-semibold mb-2 text-primary line-clamp-2 flex-grow">{{ product.name }}</h3>
     
     <!-- Description - Hidden on mobile, shown on larger screens -->
-    <p class="hidden sm:block text-xs opacity-80 mb-2 line-clamp-2">{{ product.description }}</p>
+    <!-- <p class="hidden sm:block text-xs opacity-80 mb-2 line-clamp-2">{{ product.description }}</p> -->
     
     <!-- Compact Info Section -->
-    <div class="mb-2 p-2 bg-primary/10 rounded text-xs">
+    <div class="mb-2 p-2 bg-primary/10 rounded text-sm">
       <!-- Photo Count and Price in one row -->
       <div class="flex justify-between items-center mb-1">
         <span class="flex items-center">
@@ -26,7 +26,7 @@
       
       <!-- Variation if exists -->
       <div v-if="product.variation" class="text-center pt-1 border-t border-primary/20">
-        <span class="text-xs opacity-75">{{ product.variation }}</span>
+        <span class="text-sm opacity-75">{{ product.variation }}</span>
       </div>
     </div>
     
