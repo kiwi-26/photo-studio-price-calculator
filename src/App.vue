@@ -37,6 +37,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { products as productsData } from './assets/products';
+import { getAllCategoriesForDisplay } from './assets/categories';
 import AppHeader from './components/AppHeader.vue';
 import CategorySidebar from './components/CategorySidebar.vue';
 import ProductsList from './components/ProductsList.vue';
@@ -51,8 +52,7 @@ const selectedCategory = ref<string>('');
 
 // Computed
 const categories = computed(() => {
-  const uniqueCategories = [...new Set(products.value.map(p => p.category))];
-  return uniqueCategories.sort();
+  return getAllCategoriesForDisplay();
 });
 
 // Methods

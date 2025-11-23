@@ -4,7 +4,7 @@
   >
     <!-- Category Badge -->
     <div class="mb-2">
-      <span class="inline-block py-0.5 px-2 bg-primary text-white rounded-full text-xs font-semibold">{{ product.category }}</span>
+      <span class="inline-block py-0.5 px-2 bg-primary text-white rounded-full text-xs font-semibold">{{ getCategoryDisplayName(product.categoryId) }}</span>
     </div>
     
     <!-- Product Name -->
