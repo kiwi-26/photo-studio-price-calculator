@@ -25,9 +25,12 @@
       <div class="">
         <StickyCartFooter 
           :cart="cart"
+          :includes-character-design="includesCharacterDesign"
+          :design-fee-config="designFeeConfig"
           @remove-from-cart="removeFromCart"
           @update-quantity="updateQuantity"
           @clear-cart="clearCart"
+          @update:includes-character-design="includesCharacterDesign = $event"
         />
       </div>
     </div>
@@ -42,12 +45,20 @@ import CategorySidebar from './components/CategorySidebar.vue';
 import ProductsList from './components/ProductsList.vue';
 import ShoppingCart from './components/ShoppingCart.vue';
 import StickyCartFooter from './components/StickyCartFooter.vue';
-import type { ProductType, CartItemType } from './types';
+import type { ProductType, CartItemType, DesignFeeConfig } from './types';
 
 // State
 const products = ref<ProductType[]>(productsData as ProductType[]);
 const cart = ref<CartItemType[]>([]);
 const selectedCategory = ref<string>('');
+const includesCharacterDesign = ref<boolean>(false);
+
+// Character design fee configuration
+const designFeeConfig: DesignFeeConfig = {
+  enabled: true,
+  feePerItem: 1000,
+  eligibleCategories: ['プリント', 'アルバムプリント 増えデジ', 'アルバムプリント ベーシック']
+};
 
 // Computed
 const categories = computed(() => {

@@ -50,7 +50,13 @@
           <div class="mb-4">
             <CartSummary 
               :total-price="totalPrice"
+              :base-price="basePrice"
+              :character-design-fee="characterDesignFee"
               :total-photo-count="totalPhotoCount"
+              :includes-character-design="includesCharacterDesign"
+              :has-eligible-items="eligibleItemsForDesignFee.length > 0"
+              :design-fee-config="designFeeConfig"
+              @update:includes-character-design="$emit('update:includes-character-design', $event)"
             />
           </div>
 
@@ -73,16 +79,19 @@ import { ref, computed } from 'vue';
 import CartItem from './CartItem.vue';
 import CartSummary from './CartSummary.vue';
 import { ShoppingCartIcon, ChevronUpIcon } from '@heroicons/vue/24/solid';
-import type { CartItemType } from '../types';
+import type { CartItemType, DesignFeeConfig } from '../types';
 
 const props = defineProps<{
   cart: CartItemType[];
+  includesCharacterDesign: boolean;
+  designFeeConfig: DesignFeeConfig;
 }>();
 
 const emit = defineEmits<{
   (e: 'remove-from-cart', index: number): void;
   (e: 'update-quantity', index: number, quantity: number): void;
   (e: 'clear-cart'): void;
+  (e: 'update:includes-character-design', value: boolean): void;
 }>();
 
 const isExpanded = ref(false);
@@ -90,8 +99,28 @@ const toggleExpanded = () => {
   isExpanded.value = !isExpanded.value;
 };
 
-const totalPrice = computed(() => {
+// Calculate eligible items for character design fee
+const eligibleItemsForDesignFee = computed(() => {
+  if (!props.designFeeConfig.enabled) return [];
+  return props.cart.filter(item => 
+    props.designFeeConfig.eligibleCategories.includes(item.category)
+  );
+});
+
+// Calculate character design fee
+const characterDesignFee = computed(() => {
+  if (!props.includesCharacterDesign || !props.designFeeConfig.enabled) return 0;
+  return eligibleItemsForDesignFee.value.length * props.designFeeConfig.feePerItem;
+});
+
+// Calculate base price (without design fee)
+const basePrice = computed(() => {
   return props.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+});
+
+// Calculate total price (including design fee)
+const totalPrice = computed(() => {
+  return basePrice.value + characterDesignFee.value;
 });
 
 const totalPhotoCount = computed(() => {
