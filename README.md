@@ -4,7 +4,7 @@ A Vue 3 SPA application for calculating photo studio service prices. Users can b
 
 ## 🚀 Live Demo
 
-Visit the live application: [https://kiwi-26.github.io/photo-studio-price-calculator/](https://kiwi-26.github.io/photo-studio-price-calculator/)
+Visit the live application: [https://photo-calc.wiwi.pw/](https://photo-calc.wiwi.pw/)
 
 ## Features
 

@@ -35,3 +35,14 @@
     overflow: hidden;
   }
 }
+
+/* Ensure sidebar doesn't interfere with main content scrolling */
+@layer components {
+  .sidebar-layout {
+    @apply relative;
+  }
+  
+  .sidebar-layout .main-content {
+    @apply transition-all duration-300 ease-in-out;
+  }
+}
