@@ -42,25 +42,23 @@
 
         <!-- Pose Count Filter Section -->
         <div class="mt-6">
-          <h3 class="text-md font-semibold mb-3 text-gray-900 dark:text-white">ポーズ数</h3>
-          <nav class="space-y-2">
-            <button
+          <label for="pose-count-filter" class="block text-md font-semibold mb-3 text-gray-900 dark:text-white">
+            ポーズ数
+          </label>
+          <select
+            id="pose-count-filter"
+            :value="selectedPoseCountFilter"
+            @change="selectPoseCountFilter(($event.target as HTMLSelectElement).value)"
+            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+          >
+            <option
               v-for="poseFilter in poseCountFilters"
               :key="poseFilter.id"
-              @click="selectPoseCountFilter(poseFilter.id)"
-              :class="[
-                'w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors',
-                selectedPoseCountFilter === poseFilter.id 
-                  ? 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200' 
-                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-              ]"
+              :value="poseFilter.id"
             >
-              <span class="flex items-center">
-                <PhotoIcon class="w-5 h-5 mr-2" />
-                <span class="truncate">{{ poseFilter.name }}</span>
-              </span>
-            </button>
-          </nav>
+              {{ poseFilter.name }}
+            </option>
+          </select>
         </div>
       </div>
     </div>
@@ -103,23 +101,23 @@
 
         <!-- Mobile Pose Count Filter Section -->
         <div class="mt-2 border-t border-gray-200 dark:border-gray-700 pt-2">
-          <nav class="space-y-1">
-            <button
+          <label for="mobile-pose-count-filter" class="block text-[10px] font-semibold mb-1 text-gray-900 dark:text-white text-center">
+            ポーズ数
+          </label>
+          <select
+            id="mobile-pose-count-filter"
+            :value="selectedPoseCountFilter"
+            @change="selectPoseCountFilter(($event.target as HTMLSelectElement).value)"
+            class="w-full px-1 py-1 border border-gray-300 dark:border-gray-600 rounded text-[10px] bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+          >
+            <option
               v-for="poseFilter in poseCountFilters"
               :key="poseFilter.id"
-              @click="selectPoseCountFilter(poseFilter.id)"
-              :class="[
-                'w-full flex flex-col items-center px-0.5 py-2 rounded-md text-[10px] font-medium transition-colors',
-                selectedPoseCountFilter === poseFilter.id 
-                  ? 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200' 
-                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-              ]"
-              :title="poseFilter.name"
+              :value="poseFilter.id"
             >
-              <PhotoIcon class="w-6 h-6 mb-1" />
-              <span class="text-center leading-tight">{{ poseFilter.id === 'all' ? 'すべて' : poseFilter.id }}</span>
-            </button>
-          </nav>
+              {{ poseFilter.name }}
+            </option>
+          </select>
         </div>
       </div>
     </div>
@@ -127,7 +125,7 @@
 </template>
 
 <script setup lang="ts">
-import { QueueListIcon, PhotoIcon } from '@heroicons/vue/24/outline';
+import { QueueListIcon } from '@heroicons/vue/24/outline';
 import type { PoseCountFilter } from '../stores/products';
 
 interface CategoryDisplay {
