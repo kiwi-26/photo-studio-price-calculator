@@ -32,7 +32,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import ProductCard from './ProductCard.vue';
-import { getSubCategoryIds, getCategoryDisplayName } from '../assets/categories';
+import { getCategoryDisplayName } from '../assets/categories';
 import type { ProductType } from '../types';
 
 const props = defineProps<{
@@ -45,22 +45,9 @@ const emit = defineEmits<{
   (e: 'update:selectedCategory', value: string): void;
 }>();
 
-const filteredProducts = computed(() => {
-  if (!props.selectedCategory) {
-    return props.products;
-  }
-  
-  // Get subcategory IDs for the selected parent category
-  const subCategoryIds = getSubCategoryIds(props.selectedCategory);
-  
-  // Filter products that match the selected category OR its subcategories
-  return props.products.filter(p => 
-    p.categoryId === props.selectedCategory || subCategoryIds.includes(p.categoryId)
-  );
-});
-
 const groupedProducts = computed(() => {
-  const products = filteredProducts.value;
+  // Use the products passed as props (which are already filtered by the store)
+  const products = props.products;
   
   // Group products by their categoryId
   const groups = new Map<string, ProductType[]>();
