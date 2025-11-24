@@ -17,6 +17,7 @@
             :key="product.id" 
             :product="product"
             @add-to-cart="$emit('add-to-cart', $event)"
+            @show-detail="handleShowDetail"
           />
         </div>
       </div>
@@ -43,6 +44,7 @@ const props = defineProps<{
 const emit = defineEmits<{
   (e: 'add-to-cart', product: ProductType): void;
   (e: 'update:selectedCategory', value: string): void;
+  (e: 'show-detail', data: { product: ProductType; productList: ProductType[] }): void;
 }>();
 
 const groupedProducts = computed(() => {
@@ -70,4 +72,12 @@ const groupedProducts = computed(() => {
   // Sort by category name
   return result.sort((a, b) => a.categoryName.localeCompare(b.categoryName));
 });
+
+// Methods
+const handleShowDetail = (product: ProductType) => {
+  emit('show-detail', { 
+    product, 
+    productList: props.products 
+  });
+};
 </script>

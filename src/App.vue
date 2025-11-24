@@ -18,6 +18,7 @@
           :selected-category="productsStore.selectedCategory"
           @add-to-cart="cartStore.addToCart"
           @update:selected-category="productsStore.setSelectedCategory"
+          @show-detail="handleShowDetail"
         />
       </div>
 
@@ -31,18 +32,54 @@
         />
       </div>
     </div>
+
+    <!-- Product Detail Modal -->
+    <ProductDetailModal
+      :is-open="modalState.isOpen"
+      :product-id="modalState.productId"
+      :product-list="modalState.productList"
+      @close="closeModal"
+      @update:product-id="updateModalProductId"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import AppHeader from './components/AppHeader.vue';
 import CategorySidebar from './components/CategorySidebar.vue';
 import ProductsList from './components/ProductsList.vue';
 import ShoppingCart from './components/ShoppingCart.vue';
 import StickyCartFooter from './components/StickyCartFooter.vue';
+import ProductDetailModal from './components/ProductDetailModal.vue';
 import { useProductsStore, useCartStore } from './stores';
+import type { ProductType } from './types';
 
 // Initialize stores
 const productsStore = useProductsStore();
 const cartStore = useCartStore();
+
+// Modal state management
+const modalState = ref({
+  isOpen: false,
+  productId: null as string | number | null,
+  productList: [] as ProductType[]
+});
+
+// Modal methods
+const handleShowDetail = (data: { product: ProductType; productList: ProductType[] }) => {
+  modalState.value = {
+    isOpen: true,
+    productId: data.product.id,
+    productList: data.productList
+  };
+};
+
+const closeModal = () => {
+  modalState.value.isOpen = false;
+};
+
+const updateModalProductId = (productId: string | number) => {
+  modalState.value.productId = productId;
+};
 </script>
