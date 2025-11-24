@@ -39,6 +39,29 @@
             </span>
           </button>
         </nav>
+
+        <!-- Pose Count Filter Section -->
+        <div class="mt-6">
+          <h3 class="text-md font-semibold mb-3 text-gray-900 dark:text-white">ポーズ数</h3>
+          <nav class="space-y-2">
+            <button
+              v-for="poseFilter in poseCountFilters"
+              :key="poseFilter.id"
+              @click="selectPoseCountFilter(poseFilter.id)"
+              :class="[
+                'w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors',
+                selectedPoseCountFilter === poseFilter.id 
+                  ? 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200' 
+                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+              ]"
+            >
+              <span class="flex items-center">
+                <PhotoIcon class="w-5 h-5 mr-2" />
+                <span class="truncate">{{ poseFilter.name }}</span>
+              </span>
+            </button>
+          </nav>
+        </div>
       </div>
     </div>
 
@@ -77,13 +100,35 @@
             <span class="text-center leading-tight">{{ category.shortName }}</span>
           </button>
         </nav>
+
+        <!-- Mobile Pose Count Filter Section -->
+        <div class="mt-2 border-t border-gray-200 dark:border-gray-700 pt-2">
+          <nav class="space-y-1">
+            <button
+              v-for="poseFilter in poseCountFilters"
+              :key="poseFilter.id"
+              @click="selectPoseCountFilter(poseFilter.id)"
+              :class="[
+                'w-full flex flex-col items-center px-0.5 py-2 rounded-md text-[10px] font-medium transition-colors',
+                selectedPoseCountFilter === poseFilter.id 
+                  ? 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200' 
+                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+              ]"
+              :title="poseFilter.name"
+            >
+              <PhotoIcon class="w-6 h-6 mb-1" />
+              <span class="text-center leading-tight">{{ poseFilter.id === 'all' ? 'すべて' : poseFilter.id }}</span>
+            </button>
+          </nav>
+        </div>
       </div>
     </div>
   </aside>
 </template>
 
 <script setup lang="ts">
-import { QueueListIcon } from '@heroicons/vue/24/outline';
+import { QueueListIcon, PhotoIcon } from '@heroicons/vue/24/outline';
+import type { PoseCountFilter } from '../stores/products';
 
 interface CategoryDisplay {
   id: string;
@@ -95,13 +140,20 @@ interface CategoryDisplay {
 const props = defineProps<{
   categories: CategoryDisplay[];
   selectedCategory?: string;
+  poseCountFilters: PoseCountFilter[];
+  selectedPoseCountFilter?: string;
 }>();
 
 const emit = defineEmits<{
   (e: 'update:selectedCategory', value: string): void;
+  (e: 'update:selectedPoseCountFilter', value: string): void;
 }>();
 
 const selectCategory = (categoryId: string) => {
   emit('update:selectedCategory', categoryId);
+};
+
+const selectPoseCountFilter = (filterId: string) => {
+  emit('update:selectedPoseCountFilter', filterId);
 };
 </script>

@@ -4,7 +4,10 @@
     <CategorySidebar 
       :categories="productsStore.categories"
       :selected-category="productsStore.selectedCategory"
+      :pose-count-filters="productsStore.poseCountFilters"
+      :selected-pose-count-filter="productsStore.selectedPoseCountFilter"
       @update:selected-category="productsStore.setSelectedCategory"
+      @update:selected-pose-count-filter="productsStore.setSelectedPoseCountFilter"
     />
 
     <!-- Main Content with left margin for sidebar -->

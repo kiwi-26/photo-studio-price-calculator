@@ -1,6 +1,6 @@
 # 白うさぎの写真計算機
 
-A Vue 3 SPA application for calculating photo studio service prices. Users can browse products, filter by category, add items to cart, and see real-time price and photo count calculations.
+A Vue 3 SPA application for calculating photo studio service prices. Users can browse products, filter by category and pose count, add items to cart, and see real-time price and photo count calculations.
 
 ## 🚀 Live Demo
 
@@ -17,11 +17,14 @@ Visit the live application: [https://photo-calc.wiwi.pw/](https://photo-calc.wiw
 - **Product Information**: Each product displays:
   - Category badge
   - Name and description
-  - Photo count
+  - Photo count (pose count)
   - Price
   - Optional variation details
 
-- **Category Filter**: Filter products by category using dropdown
+- **Filtering System**:
+  - **Category Filter**: Filter products by category using sidebar
+  - **Pose Count Filter**: Filter products by number of poses (0, 1, 2-5, 6-10, 11+)
+  - **Combined Filtering**: Use both filters together for precise product selection
 
 - **Shopping Cart**:
   - Add products to cart
@@ -137,12 +140,14 @@ This project uses **Tailwind CSS** for styling, providing:
 ## Usage
 
 1. **Browse Products**: View all available photo studio services
-2. **Filter by Category**: Use the dropdown to filter products by category
-3. **Add to Cart**: Click "Add to Cart" button on any product
-4. **View Cart**: See selected items in the shopping cart sidebar
-5. **Remove Items**: Click the "✕" button to remove individual items
-6. **Clear Cart**: Click "Clear Cart" to remove all items at once
-7. **View Totals**: See real-time calculations of total photos and total price
+2. **Filter by Category**: Use the category buttons in the sidebar to filter products by category
+3. **Filter by Pose Count**: Use the pose count buttons in the sidebar to filter products by number of poses
+4. **Combined Filtering**: Select both category and pose count filters for precise product selection
+5. **Add to Cart**: Click "Add to Cart" button on any product
+6. **View Cart**: See selected items in the shopping cart sidebar
+7. **Remove Items**: Click the "✕" button to remove individual items
+8. **Clear Cart**: Click "Clear Cart" to remove all items at once
+9. **View Totals**: See real-time calculations of total photos and total price
 
 ## License
 
