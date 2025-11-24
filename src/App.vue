@@ -2,9 +2,9 @@
   <div class="min-h-screen pb-20">
     <!-- Category Sidebar -->
     <CategorySidebar 
-      :categories="categories"
-      :selected-category="selectedCategory"
-      @update:selected-category="selectedCategory = $event"
+      :categories="productsStore.categories"
+      :selected-category="productsStore.selectedCategory"
+      @update:selected-category="productsStore.setSelectedCategory"
     />
 
     <!-- Main Content with left margin for sidebar -->
@@ -14,20 +14,20 @@
       <div class="grid grid-cols-1 gap-4 sm:gap-6 lg:gap-8">
         <!-- Products Section -->
         <ProductsList 
-          :products="products"
-          :selected-category="selectedCategory"
-          @add-to-cart="addToCart"
-          @update:selected-category="selectedCategory = $event"
+          :products="productsStore.filteredProducts"
+          :selected-category="productsStore.selectedCategory"
+          @add-to-cart="cartStore.addToCart"
+          @update:selected-category="productsStore.setSelectedCategory"
         />
       </div>
 
       <!-- Sticky Cart Footer - Always visible -->
       <div class="">
         <StickyCartFooter 
-          :cart="cart"
-          @remove-from-cart="removeFromCart"
-          @update-quantity="updateQuantity"
-          @clear-cart="clearCart"
+          :cart="cartStore.cart"
+          @remove-from-cart="cartStore.removeFromCart"
+          @update-quantity="cartStore.updateQuantity"
+          @clear-cart="cartStore.clearCart"
         />
       </div>
     </div>
@@ -35,49 +35,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-import { products as productsData } from './assets/products';
-import { getAllCategoriesForDisplay } from './assets/categories';
 import AppHeader from './components/AppHeader.vue';
 import CategorySidebar from './components/CategorySidebar.vue';
 import ProductsList from './components/ProductsList.vue';
 import ShoppingCart from './components/ShoppingCart.vue';
 import StickyCartFooter from './components/StickyCartFooter.vue';
-import type { ProductType, CartItemType } from './types';
+import { useProductsStore, useCartStore } from './stores';
 
-// State
-const products = ref<ProductType[]>(productsData as ProductType[]);
-const cart = ref<CartItemType[]>([]);
-const selectedCategory = ref<string>('');
-
-// Computed
-const categories = computed(() => {
-  return getAllCategoriesForDisplay();
-});
-
-// Methods
-const addToCart = (product: ProductType) => {
-  const existingItemIndex = cart.value.findIndex(item => item.id === product.id);
-  if (existingItemIndex !== -1 && cart.value[existingItemIndex]) {
-    cart.value[existingItemIndex].quantity += 1;
-  } else {
-    cart.value.push({ ...product, quantity: 1 });
-  }
-};
-
-const removeFromCart = (index: number) => {
-  cart.value.splice(index, 1);
-};
-
-const updateQuantity = (index: number, newQuantity: number) => {
-  if (newQuantity <= 0) {
-    removeFromCart(index);
-  } else if (cart.value[index]) {
-    cart.value[index].quantity = newQuantity;
-  }
-};
-
-const clearCart = () => {
-  cart.value = [];
-};
+// Initialize stores
+const productsStore = useProductsStore();
+const cartStore = useCartStore();
 </script>
