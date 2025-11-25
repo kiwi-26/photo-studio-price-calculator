@@ -146,6 +146,7 @@ import {
 } from '@heroicons/vue/24/solid';
 import { getCategoryDisplayName } from '../assets/categories';
 import { useCartStore } from '../stores';
+import { Analytics } from '../utils';
 import type { ProductType } from '../types';
 
 const props = defineProps<{
@@ -212,6 +213,8 @@ const goToPrevious = () => {
   if (hasPrevious.value) {
     const prevProduct = props.productList[currentIndex.value - 1];
     emit('update:productId', prevProduct.id);
+    // Track view item event for navigation
+    Analytics.trackViewItem(prevProduct);
   }
 };
 
@@ -219,6 +222,8 @@ const goToNext = () => {
   if (hasNext.value) {
     const nextProduct = props.productList[currentIndex.value + 1];
     emit('update:productId', nextProduct.id);
+    // Track view item event for navigation
+    Analytics.trackViewItem(nextProduct);
   }
 };
 
@@ -252,4 +257,11 @@ watch(() => props.isOpen, (isOpen) => {
     document.removeEventListener('keydown', handleKeydown);
   }
 });
+
+// Watch for product changes to track view item events
+watch(() => currentProduct.value, (product) => {
+  if (product && props.isOpen) {
+    Analytics.trackViewItem(product);
+  }
+}, { immediate: true });
 </script>
