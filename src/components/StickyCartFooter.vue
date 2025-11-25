@@ -73,6 +73,7 @@ import { ref, computed } from 'vue';
 import CartItem from './CartItem.vue';
 import CartSummary from './CartSummary.vue';
 import { ShoppingCartIcon, ChevronUpIcon } from '@heroicons/vue/24/solid';
+import { Analytics } from '../utils';
 import type { CartItemType } from '../types';
 
 const props = defineProps<{
@@ -88,6 +89,11 @@ const emit = defineEmits<{
 const isExpanded = ref(false);
 const toggleExpanded = () => {
   isExpanded.value = !isExpanded.value;
+  
+  // Track view cart event when cart is expanded
+  if (isExpanded.value && props.cart.length > 0) {
+    Analytics.trackViewCart(props.cart);
+  }
 };
 
 const totalPrice = computed(() => {
