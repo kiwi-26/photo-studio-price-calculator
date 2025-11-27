@@ -1,5 +1,20 @@
 <template>
-  <div class="min-h-screen pb-20">
+  <!-- Product Editor Mode -->
+  <ProductEditor v-if="editorStore.isEditorMode" />
+  
+  <!-- Main Calculator App -->
+  <div v-else class="min-h-screen pb-20">
+    <!-- Editor Toggle Button (localhost only) -->
+    <div v-if="isLocalhost" class="fixed top-4 right-4 z-40">
+      <button
+        @click="editorStore.toggleEditorMode()"
+        class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-2 rounded-md text-sm font-medium shadow-lg"
+        title="商品編集ツール"
+      >
+        <PencilIcon class="h-4 w-4" />
+      </button>
+    </div>
+
     <!-- Category Sidebar -->
     <CategorySidebar 
       :categories="productsStore.categories"
@@ -48,19 +63,27 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import AppHeader from './components/AppHeader.vue';
 import CategorySidebar from './components/CategorySidebar.vue';
 import ProductsList from './components/ProductsList.vue';
 import ShoppingCart from './components/ShoppingCart.vue';
 import StickyCartFooter from './components/StickyCartFooter.vue';
 import ProductDetailModal from './components/ProductDetailModal.vue';
-import { useProductsStore, useCartStore } from './stores';
+import ProductEditor from './components/ProductEditor.vue';
+import { useProductsStore, useCartStore, useProductEditorStore } from './stores';
 import type { ProductType } from './types';
+import { PencilIcon } from '@heroicons/vue/24/outline';
 
 // Initialize stores
 const productsStore = useProductsStore();
 const cartStore = useCartStore();
+const editorStore = useProductEditorStore();
+
+// Check if running on localhost
+const isLocalhost = computed(() => {
+  return window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+});
 
 // Modal state management
 const modalState = ref({
