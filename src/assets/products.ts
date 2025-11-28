@@ -578,5 +578,53 @@ export const products: ProductType[] = [
     "description": "デザイン台紙 ポエム付き 2ページ/2カット+2名ポエム",
     "photoCount": 2,
     "price": 21780
+  },
+  {
+    "name": "フォトパネ 1カット キャビネ",
+    "categoryId": "display-item",
+    "description": "キャビネサイズのパネル",
+    "price": 7000,
+    "photoCount": 1,
+    "id": 74
+  },
+  {
+    "name": "フォトパネ 1カット 半切",
+    "categoryId": "display-item",
+    "description": "半切サイズのパネル",
+    "price": 14000,
+    "photoCount": 1,
+    "id": 75
+  },
+  {
+    "name": "フォトパネ 1カット 全紙",
+    "categoryId": "display-item",
+    "description": "全紙サイズのパネル",
+    "price": 19000,
+    "photoCount": 1,
+    "id": 76
+  },
+  {
+    "name": "フォトパネ 3カット ワイド",
+    "categoryId": "display-item",
+    "description": "ワイドサイズのパネル",
+    "price": 14000,
+    "photoCount": 3,
+    "id": 77
+  },
+  {
+    "name": "フォトパネ 3カット 半切",
+    "categoryId": "display-item",
+    "description": "半切サイズのパネル",
+    "price": 19000,
+    "photoCount": 3,
+    "id": 78
+  },
+  {
+    "name": "フォトパネ 3カット 全紙",
+    "categoryId": "display-item",
+    "description": "全紙サイズのパネル",
+    "price": 26000,
+    "photoCount": 3,
+    "id": 79
   }
 ];
