@@ -52,7 +52,6 @@ import { ref } from 'vue';
 import AppHeader from './components/AppHeader.vue';
 import CategorySidebar from './components/CategorySidebar.vue';
 import ProductsList from './components/ProductsList.vue';
-import ShoppingCart from './components/ShoppingCart.vue';
 import StickyCartFooter from './components/StickyCartFooter.vue';
 import ProductDetailModal from './components/ProductDetailModal.vue';
 import { useProductsStore, useCartStore } from './stores';
