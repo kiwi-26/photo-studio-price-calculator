@@ -6,7 +6,9 @@ import {
   PaintBrushIcon,
   FaceSmileIcon,
   GiftIcon,
-  SparklesIcon
+  SparklesIcon,
+  RectangleGroupIcon,
+  PrinterIcon
 } from '@heroicons/vue/24/outline';
 
 export interface Category {
@@ -29,7 +31,7 @@ export const categories: Map<string, Category> = new Map([
   ['print', {
     id: 'print',
     name: 'プリント',
-    icon: PhotoIcon,
+    icon: PrinterIcon,
     shortName: 'プリント'
   }],
   ['album', {
@@ -55,6 +57,12 @@ export const categories: Map<string, Category> = new Map([
     name: '写真台紙',
     icon: PaintBrushIcon,
     shortName: '写真台紙'
+  }],
+  ['display-item', {
+    id: 'display-item',
+    name: 'ディスプレイアイテム',
+    icon: RectangleGroupIcon,
+    shortName: 'ディスプレイ'
   }]
 ]);
 
