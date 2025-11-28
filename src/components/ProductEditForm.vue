@@ -149,6 +149,7 @@ import { XMarkIcon } from '@heroicons/vue/24/outline';
 
 interface Props {
   product?: ProductType | null;
+  duplicateProduct?: ProductType | null;
 }
 
 interface Emits {
@@ -276,6 +277,15 @@ onMounted(() => {
       price: props.product.price,
       photoCount: props.product.photoCount,
       variation: props.product.variation || ''
+    };
+  } else if (props.duplicateProduct) {
+    form.value = {
+      name: props.duplicateProduct.name,
+      categoryId: props.duplicateProduct.categoryId,
+      description: props.duplicateProduct.description,
+      price: props.duplicateProduct.price,
+      photoCount: props.duplicateProduct.photoCount,
+      variation: props.duplicateProduct.variation || ''
     };
   }
 });

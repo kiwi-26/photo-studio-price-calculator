@@ -188,6 +188,12 @@
                     編集
                   </button>
                   <button
+                    @click="editorStore.openDuplicateForm(product)"
+                    class="text-green-600 hover:text-green-900 mr-3"
+                  >
+                    複製
+                  </button>
+                  <button
                     @click="deleteProduct(product)"
                     class="text-red-600 hover:text-red-900"
                   >
@@ -205,6 +211,7 @@
     <ProductEditForm
       v-if="editorStore.isFormOpen"
       :product="editorStore.editingProduct"
+      :duplicate-product="editorStore.duplicatingProduct"
       @close="editorStore.closeForm()"
       @save="handleSaveProduct"
     />

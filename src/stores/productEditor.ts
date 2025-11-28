@@ -9,6 +9,7 @@ export const useProductEditorStore = defineStore('productEditor', () => {
   const products = ref<ProductType[]>([...originalProducts]);
   const isEditorMode = ref(false);
   const editingProduct = ref<ProductType | null>(null);
+  const duplicatingProduct = ref<ProductType | null>(null);
   const isFormOpen = ref(false);
 
   // Getters
@@ -69,16 +70,25 @@ export const products: ProductType[] = ${productsJson};`;
 
   const openAddForm = () => {
     editingProduct.value = null;
+    duplicatingProduct.value = null;
     isFormOpen.value = true;
   };
 
   const openEditForm = (product: ProductType) => {
     editingProduct.value = { ...product };
+    duplicatingProduct.value = null;
+    isFormOpen.value = true;
+  };
+
+  const openDuplicateForm = (product: ProductType) => {
+    duplicatingProduct.value = { ...product };
+    editingProduct.value = null;
     isFormOpen.value = true;
   };
 
   const closeForm = () => {
     editingProduct.value = null;
+    duplicatingProduct.value = null;
     isFormOpen.value = false;
   };
 
@@ -95,6 +105,7 @@ export const products: ProductType[] = ${productsJson};`;
     products,
     isEditorMode,
     editingProduct,
+    duplicatingProduct,
     isFormOpen,
     // Getters
     nextId,
@@ -107,6 +118,7 @@ export const products: ProductType[] = ${productsJson};`;
     deleteProduct,
     openAddForm,
     openEditForm,
+    openDuplicateForm,
     closeForm,
     resetToOriginal,
     getProductById
