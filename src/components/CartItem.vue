@@ -14,14 +14,14 @@
         <div class="flex items-center gap-2">
           <button 
             @click="decreaseQuantity"
-            class="bg-gray-200 hover:bg-gray-300 text-gray-700 border-none w-8 h-8 rounded-full cursor-pointer p-0 flex items-center justify-center transition-colors duration-200"
+            class="bg-gray-200 hover:bg-gray-300 text-gray-700 border-none w-8 h-8 rounded-full cursor-pointer p-0 flex items-center justify-center transition-colors duration-200 touch-manipulation"
           >
             −
           </button>
           <span class="min-w-[2rem] text-center font-medium">{{ item.quantity }}</span>
           <button 
             @click="increaseQuantity"
-            class="bg-primary hover:bg-primary-hover text-white border-none w-8 h-8 rounded-full cursor-pointer p-0 flex items-center justify-center transition-colors duration-200"
+            class="bg-primary hover:bg-primary-hover text-white border-none w-8 h-8 rounded-full cursor-pointer p-0 flex items-center justify-center transition-colors duration-200 touch-manipulation"
           >
             +
           </button>
@@ -33,7 +33,7 @@
     </div>
     <button 
       @click="$emit('remove-item', index)" 
-      class="bg-danger text-white border-none w-7 h-7 rounded-full cursor-pointer p-0 ml-2 hover:bg-danger-hover transition-colors duration-200"
+      class="bg-danger text-white border-none w-7 h-7 rounded-full cursor-pointer p-0 ml-2 hover:bg-danger-hover transition-colors duration-200 touch-manipulation"
     >
       ✕
     </button>

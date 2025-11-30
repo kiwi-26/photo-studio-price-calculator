@@ -17,7 +17,7 @@
         <h2 id="modal-title" class="text-lg font-semibold text-gray-900 dark:text-white">商品詳細</h2>
         <button 
           @click="closeModal"
-          class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+          class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors touch-manipulation"
         >
           <XMarkIcon class="w-6 h-6" />
         </button>
@@ -74,7 +74,7 @@
             <button 
               @click="decrementQuantity"
               :disabled="currentCartQuantity <= 0"
-              class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center"
+              class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center touch-manipulation"
             >
               <MinusIcon class="w-4 h-4" />
             </button>
@@ -85,7 +85,7 @@
             
             <button 
               @click="incrementQuantity"
-              class="w-10 h-10 rounded-full bg-primary text-white hover:bg-primary-hover transition-colors flex items-center justify-center"
+              class="w-10 h-10 rounded-full bg-primary text-white hover:bg-primary-hover transition-colors flex items-center justify-center touch-manipulation"
             >
               <PlusIcon class="w-4 h-4" />
             </button>
@@ -94,7 +94,7 @@
           <!-- Quick Add Button -->
           <button 
             @click="addToCart"
-            class="w-full mt-3 bg-primary text-white py-2 px-4 rounded-lg font-semibold hover:bg-primary-hover transition-colors"
+            class="w-full mt-3 bg-primary text-white py-2 px-4 rounded-lg font-semibold hover:bg-primary-hover transition-colors touch-manipulation"
           >
             カートに追加
           </button>
@@ -111,7 +111,7 @@
         <button 
           @click="goToPrevious"
           :disabled="!hasPrevious"
-          class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors touch-manipulation"
         >
           <ChevronLeftIcon class="w-4 h-4 mr-1" />
           前の商品
@@ -124,7 +124,7 @@
         <button 
           @click="goToNext"
           :disabled="!hasNext"
-          class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors touch-manipulation"
         >
           次の商品
           <ChevronRightIcon class="w-4 h-4 ml-1" />

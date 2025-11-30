@@ -9,7 +9,7 @@
           <button
             @click="selectCategory('')"
             :class="[
-              'w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors',
+              'w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors touch-manipulation',
               selectedCategory === '' 
                 ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200' 
                 : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
@@ -27,7 +27,7 @@
             :key="category.id"
             @click="selectCategory(category.id)"
             :class="[
-              'w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors',
+              'w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors touch-manipulation',
               selectedCategory === category.id 
                 ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200' 
                 : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
@@ -44,7 +44,7 @@
         <div class="mt-6">
           <button
             @click="openFilterModal"
-            class="w-full px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm font-medium transition-colors flex items-center justify-center"
+            class="w-full px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm font-medium transition-colors flex items-center justify-center touch-manipulation"
           >
             <AdjustmentsHorizontalIcon class="w-5 h-5 mr-2" />
             フィルター
@@ -67,7 +67,7 @@
           <button
             @click="selectCategory('')"
             :class="[
-              'w-full flex flex-col items-center px-0.5 py-2 rounded-md text-[10px] font-medium transition-colors',
+              'w-full flex flex-col items-center px-0.5 py-2 rounded-md text-[10px] font-medium transition-colors touch-manipulation',
               selectedCategory === '' 
                 ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200' 
                 : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
@@ -83,7 +83,7 @@
             :key="category.id"
             @click="selectCategory(category.id)"
             :class="[
-              'w-full flex flex-col items-center px-0.5 py-2 rounded-md text-[10px] font-medium transition-colors',
+              'w-full flex flex-col items-center px-0.5 py-2 rounded-md text-[10px] font-medium transition-colors touch-manipulation',
               selectedCategory === category.id 
                 ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200' 
                 : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
@@ -99,7 +99,7 @@
         <div class="mt-2 border-t border-gray-200 dark:border-gray-700 pt-2">
           <button
             @click="openFilterModal"
-            class="w-full px-1 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded text-[10px] font-medium transition-colors flex flex-col items-center relative"
+            class="w-full px-1 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded text-[10px] font-medium transition-colors flex flex-col items-center relative touch-manipulation"
           >
             <AdjustmentsHorizontalIcon class="w-4 h-4 mb-1" />
             <span>フィルター</span>

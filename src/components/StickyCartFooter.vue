@@ -4,7 +4,7 @@
     <!-- Collapsed Footer - Always Visible -->
     <div 
       @click="toggleExpanded"
-      class="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors duration-200"
+      class="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors duration-200 touch-manipulation"
     >
       <!-- Cart Summary -->
       <div class="flex items-center gap-4">
@@ -57,7 +57,7 @@
           <div class="flex justify-end gap-2">
             <button 
               @click="$emit('clear-cart')" 
-              class="bg-danger text-white border-none px-4 py-2 font-semibold rounded-lg transition-colors duration-200 hover:bg-danger-hover"
+              class="bg-danger text-white border-none px-4 py-2 font-semibold rounded-lg transition-colors duration-200 hover:bg-danger-hover touch-manipulation"
             >
               リセット
             </button>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Touch Action Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .test-button {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 10px;
+            background-color: #df306b;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+        
+        .test-button:hover {
+            background-color: #c6286b;
+        }
+        
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            touch-action: manipulation;
+            margin: 0 5px;
+        }
+        
+        .quantity-btn.minus {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        
+        .quantity-btn.plus {
+            background-color: #df306b;
+            color: white;
+        }
+        
+        .test-section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        .quantity-display {
+            display: inline-block;
+            min-width: 30px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Touch Action Test - Double-tap Zoom Prevention</h1>
+    
+    <div class="test-section">
+        <h2>Test Instructions</h2>
+        <p>On a mobile device, try double-tapping the buttons below. They should NOT trigger zoom.</p>
+        <p>However, you should still be able to pinch-to-zoom on this text content.</p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Product Card Style Buttons</h2>
+        <button class="test-button" onclick="alert('詳細 clicked!')">詳細</button>
+        <button class="test-button" onclick="alert('追加 clicked!')">追加</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Quantity Controls</h2>
+        <p>Quantity: 
+            <button class="quantity-btn minus" onclick="decreaseQuantity()">−</button>
+            <span class="quantity-display" id="quantity">1</span>
+            <button class="quantity-btn plus" onclick="increaseQuantity()">+</button>
+        </p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Expected Behavior</h2>
+        <ul>
+            <li>✅ Buttons should respond to single taps normally</li>
+            <li>✅ Double-tapping buttons should NOT zoom the page</li>
+            <li>✅ Pinch-to-zoom should still work on content areas</li>
+            <li>✅ All button functionality should remain intact</li>
+        </ul>
+    </div>
+
+    <script>
+        let quantity = 1;
+        
+        function increaseQuantity() {
+            quantity++;
+            document.getElementById('quantity').textContent = quantity;
+        }
+        
+        function decreaseQuantity() {
+            if (quantity > 1) {
+                quantity--;
+                document.getElementById('quantity').textContent = quantity;
+            }
+        }
+    </script>
+</body>
+</html>
