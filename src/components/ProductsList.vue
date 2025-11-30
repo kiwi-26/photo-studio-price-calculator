@@ -70,7 +70,7 @@ const groupedProducts = computed(() => {
   }));
   
   // Sort by category name
-  return result.sort((a, b) => a.categoryName.localeCompare(b.categoryName));
+  return result.sort((a, b) => a.categoryName.localeCompare(b.categoryName, 'ja'));
 });
 
 // Methods

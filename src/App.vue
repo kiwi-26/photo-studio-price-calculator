@@ -21,8 +21,16 @@
       :selected-category="productsStore.selectedCategory"
       :pose-count-filters="productsStore.poseCountFilters"
       :selected-pose-count-filter="productsStore.selectedPoseCountFilter"
+      :sort-options="productsStore.sortOptions"
+      :selected-sort-order="productsStore.selectedSortOrder"
+      :price-filters="productsStore.priceFilters"
+      :selected-price-filter="productsStore.selectedPriceFilter"
+      :character-design-fee="productsStore.characterDesignFee"
       @update:selected-category="productsStore.setSelectedCategory"
       @update:selected-pose-count-filter="productsStore.setSelectedPoseCountFilter"
+      @update:selected-sort-order="productsStore.setSelectedSortOrder"
+      @update:selected-price-filter="productsStore.setSelectedPriceFilter"
+      @update:character-design-fee="productsStore.setCharacterDesignFee"
     />
 
     <!-- Main Content with left margin for sidebar -->
