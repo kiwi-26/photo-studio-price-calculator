@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort Behavior Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .test-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .test-description {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        .expected-behavior {
+            background-color: #f0f8ff;
+            padding: 10px;
+            border-left: 4px solid #007bff;
+            margin: 10px 0;
+        }
+        .test-steps {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .test-steps ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .success-criteria {
+            background-color: #f0fff0;
+            padding: 10px;
+            border-left: 4px solid #28a745;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>ソート順変更時のカテゴリ別表示テスト</h1>
+    
+    <div class="test-section">
+        <div class="test-title">テスト1: デフォルト状態（商品掲載順）</div>
+        <div class="test-description">
+            アプリケーションを開いた時の初期状態をテストします。
+        </div>
+        <div class="expected-behavior">
+            <strong>期待される動作:</strong><br>
+            - ソート順が「商品掲載順」(id)に設定されている<br>
+            - 商品がカテゴリごとにグループ化されて表示される<br>
+            - 各カテゴリにヘッダーが表示される
+        </div>
+        <div class="test-steps">
+            <strong>テスト手順:</strong>
+            <ol>
+                <li>アプリケーションを開く</li>
+                <li>商品一覧の表示を確認する</li>
+                <li>カテゴリヘッダーが表示されていることを確認する</li>
+            </ol>
+        </div>
+        <div class="success-criteria">
+            <strong>成功基準:</strong> 商品がカテゴリごとに分けられて表示され、各カテゴリにヘッダーが表示される
+        </div>
+    </div>
+
+    <div class="test-section">
+        <div class="test-title">テスト2: 価格順ソートへの変更</div>
+        <div class="test-description">
+            ソート順を「価格順」に変更した時の動作をテストします。
+        </div>
+        <div class="expected-behavior">
+            <strong>期待される動作:</strong><br>
+            - 商品がカテゴリ別のグループ化をやめる<br>
+            - 商品が価格順にフラットに表示される<br>
+            - カテゴリヘッダーが表示されない
+        </div>
+        <div class="test-steps">
+            <strong>テスト手順:</strong>
+            <ol>
+                <li>フィルターモーダルを開く</li>
+                <li>ソート順を「価格順」に変更する</li>
+                <li>「反映」ボタンをクリックする</li>
+                <li>商品一覧の表示を確認する</li>
+            </ol>
+        </div>
+        <div class="success-criteria">
+            <strong>成功基準:</strong> 商品がカテゴリヘッダーなしでフラットに表示され、価格の昇順に並んでいる
+        </div>
+    </div>
+
+    <div class="test-section">
+        <div class="test-title">テスト3: ポーズ数順ソートへの変更</div>
+        <div class="test-description">
+            ソート順を「ポーズ数順」に変更した時の動作をテストします。
+        </div>
+        <div class="expected-behavior">
+            <strong>期待される動作:</strong><br>
+            - 商品がカテゴリ別のグループ化をやめる<br>
+            - 商品がポーズ数順にフラットに表示される<br>
+            - カテゴリヘッダーが表示されない
+        </div>
+        <div class="test-steps">
+            <strong>テスト手順:</strong>
+            <ol>
+                <li>フィルターモーダルを開く</li>
+                <li>ソート順を「ポーズ数順」に変更する</li>
+                <li>「反映」ボタンをクリックする</li>
+                <li>商品一覧の表示を確認する</li>
+            </ol>
+        </div>
+        <div class="success-criteria">
+            <strong>成功基準:</strong> 商品がカテゴリヘッダーなしでフラットに表示され、ポーズ数の昇順に並んでいる
+        </div>
+    </div>
+
+    <div class="test-section">
+        <div class="test-title">テスト4: 商品掲載順への復帰</div>
+        <div class="test-description">
+            他のソート順から「商品掲載順」に戻した時の動作をテストします。
+        </div>
+        <div class="expected-behavior">
+            <strong>期待される動作:</strong><br>
+            - 商品が再びカテゴリごとにグループ化される<br>
+            - カテゴリヘッダーが再表示される<br>
+            - 商品がID順に並ぶ
+        </div>
+        <div class="test-steps">
+            <strong>テスト手順:</strong>
+            <ol>
+                <li>価格順またはポーズ数順の状態から開始</li>
+                <li>フィルターモーダルを開く</li>
+                <li>ソート順を「商品掲載順」に変更する</li>
+                <li>「反映」ボタンをクリックする</li>
+                <li>商品一覧の表示を確認する</li>
+            </ol>
+        </div>
+        <div class="success-criteria">
+            <strong>成功基準:</strong> 商品が再びカテゴリごとに分けられて表示され、各カテゴリにヘッダーが表示される
+        </div>
+    </div>
+
+    <div class="test-section">
+        <div class="test-title">テスト5: 商品操作の一貫性</div>
+        <div class="test-description">
+            両方の表示モードで商品操作が正常に動作することをテストします。
+        </div>
+        <div class="expected-behavior">
+            <strong>期待される動作:</strong><br>
+            - カート追加機能が両方のモードで動作する<br>
+            - 商品詳細モーダルが両方のモードで動作する<br>
+            - 商品カードの表示が一貫している
+        </div>
+        <div class="test-steps">
+            <strong>テスト手順:</strong>
+            <ol>
+                <li>カテゴリ別表示モードで商品をカートに追加</li>
+                <li>商品詳細を開く</li>
+                <li>フラット表示モードに切り替え</li>
+                <li>同じ操作を繰り返す</li>
+                <li>動作が一貫していることを確認</li>
+            </ol>
+        </div>
+        <div class="success-criteria">
+            <strong>成功基準:</strong> 全ての商品操作が両方の表示モードで同じように動作する
+        </div>
+    </div>
+
+    <div class="test-section">
+        <div class="test-title">実装の詳細</div>
+        <div class="test-description">
+            <strong>変更されたファイル:</strong><br>
+            - <code>src/components/ProductsList.vue</code>: 条件付きレンダリングロジックを追加<br>
+            - <code>src/App.vue</code>: selectedSortOrderプロップを追加<br><br>
+            
+            <strong>キーとなる実装:</strong><br>
+            - <code>shouldGroupByCategory</code> computed property: ソート順が'id'の時のみtrue<br>
+            - テンプレートの条件分岐: <code>v-if="shouldGroupByCategory"</code><br>
+            - フラット表示用の別のテンプレートセクション
+        </div>
+    </div>
+</body>
+</html>
