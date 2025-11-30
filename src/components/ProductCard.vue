@@ -39,7 +39,7 @@
     <div class="flex gap-2">
       <button 
         @click="$emit('show-detail', product)" 
-        class="flex-1 bg-gray-100 dark:bg-gray-600 bg-opacity-90 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-500 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold rounded transition-colors duration-200 hover:bg-gray-200 dark:hover:bg-gray-500"
+        class="flex-1 bg-pink-100 dark:bg-pink-600 bg-opacity-50 text-gray-700 dark:text-gray-300 border border-pink-200 dark:border-pink-600 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold rounded transition-colors duration-200 hover:bg-pink-100 dark:hover:bg-pink-500"
       >
         詳細
       </button>
