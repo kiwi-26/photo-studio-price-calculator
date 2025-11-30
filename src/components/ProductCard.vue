@@ -21,7 +21,12 @@
           <CameraIcon class="w-3 h-3 mr-1" />
           {{ product.photoCount }}
         </span>
-        <span class="font-semibold text-success">¥{{ product.price.toLocaleString() }}</span>
+        <div class="text-right">
+          <span class="font-semibold text-success">¥{{ effectivePrice.toLocaleString() }}</span>
+          <div v-if="hasCharacterDesignFee" class="text-xs text-orange-600 dark:text-orange-400">
+            キャラデザ料込み
+          </div>
+        </div>
       </div>
       
       <!-- Variation if exists -->
@@ -49,13 +54,25 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
 import { CameraIcon } from '@heroicons/vue/24/solid';
 import { getCategoryDisplayName } from '../assets/categories';
+import { useProductsStore } from '../stores';
 import type { ProductType } from '../types';
 
-defineProps<{ product: ProductType }>();
+const props = defineProps<{ product: ProductType }>();
 defineEmits<{ 
   (e: 'add-to-cart', product: ProductType): void;
   (e: 'show-detail', product: ProductType): void;
 }>();
+
+const productsStore = useProductsStore();
+
+const effectivePrice = computed(() => {
+  return productsStore.getEffectivePrice(props.product);
+});
+
+const hasCharacterDesignFee = computed(() => {
+  return productsStore.characterDesignFee && productsStore.isCharacterDesignApplicable(props.product);
+});
 </script>

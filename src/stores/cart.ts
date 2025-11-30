@@ -2,6 +2,7 @@ import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 import type { ProductType, CartItemType } from '../types';
 import { Analytics } from '../utils';
+import { useProductsStore } from './products';
 
 export const useCartStore = defineStore('cart', () => {
   // State
@@ -22,13 +23,18 @@ export const useCartStore = defineStore('cart', () => {
 
   // Actions
   const addToCart = (product: ProductType) => {
+    const productsStore = useProductsStore();
+    const effectivePrice = productsStore.getEffectivePrice(product);
+    
     const existingItemIndex = cart.value.findIndex(item => item.id === product.id);
     if (existingItemIndex !== -1 && cart.value[existingItemIndex]) {
       cart.value[existingItemIndex].quantity += 1;
+      // Update the price in case character design fee setting has changed
+      cart.value[existingItemIndex].price = effectivePrice;
       // Track add to cart event for existing item
       Analytics.trackAddToCart(product, 1);
     } else {
-      cart.value.push({ ...product, quantity: 1 });
+      cart.value.push({ ...product, price: effectivePrice, quantity: 1 });
       // Track add to cart event for new item
       Analytics.trackAddToCart(product, 1);
     }
