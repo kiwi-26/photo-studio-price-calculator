@@ -40,83 +40,21 @@
           </button>
         </nav>
 
-        <!-- Pose Count Filter Section -->
+        <!-- Filter Button Section -->
         <div class="mt-6">
-          <label for="pose-count-filter" class="block text-md font-semibold mb-3 text-gray-900 dark:text-white">
-            ポーズ数
-          </label>
-          <select
-            id="pose-count-filter"
-            :value="selectedPoseCountFilter"
-            @change="selectPoseCountFilter(($event.target as HTMLSelectElement).value)"
-            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+          <button
+            @click="openFilterModal"
+            class="w-full px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm font-medium transition-colors flex items-center justify-center"
           >
-            <option
-              v-for="poseFilter in poseCountFilters"
-              :key="poseFilter.id"
-              :value="poseFilter.id"
-            >
-              {{ poseFilter.name }}
-            </option>
-          </select>
-        </div>
-
-        <!-- Sort Order Section -->
-        <div class="mt-6">
-          <label for="sort-order" class="block text-md font-semibold mb-3 text-gray-900 dark:text-white">
-            ソート順
-          </label>
-          <select
-            id="sort-order"
-            :value="selectedSortOrder"
-            @change="selectSortOrder(($event.target as HTMLSelectElement).value)"
-            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
-          >
-            <option
-              v-for="sortOption in sortOptions"
-              :key="sortOption.id"
-              :value="sortOption.id"
-            >
-              {{ sortOption.name }}
-            </option>
-          </select>
-        </div>
-
-        <!-- Price Filter Section -->
-        <div class="mt-6">
-          <label for="price-filter" class="block text-md font-semibold mb-3 text-gray-900 dark:text-white">
-            価格
-          </label>
-          <select
-            id="price-filter"
-            :value="selectedPriceFilter"
-            @change="selectPriceFilter(($event.target as HTMLSelectElement).value)"
-            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
-          >
-            <option
-              v-for="priceFilter in priceFilters"
-              :key="priceFilter.id"
-              :value="priceFilter.id"
-            >
-              {{ priceFilter.name }}
-            </option>
-          </select>
-        </div>
-
-        <!-- Character Design Fee Section -->
-        <div class="mt-6">
-          <label class="flex items-center">
-            <input
-              type="checkbox"
-              :checked="characterDesignFee"
-              @change="selectCharacterDesignFee(($event.target as HTMLInputElement).checked)"
-              class="rounded border-gray-300 dark:border-gray-600 text-blue-600 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 dark:bg-gray-700"
-            />
-            <span class="ml-2 text-sm text-gray-900 dark:text-white">
-              キャラクターデザイン衣装<br>
-              <span class="text-xs text-gray-600 dark:text-gray-400">(+1,000円)</span>
+            <AdjustmentsHorizontalIcon class="w-5 h-5 mr-2" />
+            フィルター
+            <span v-if="activeFiltersCount > 0" class="ml-2 bg-blue-800 text-xs px-2 py-1 rounded-full">
+              {{ activeFiltersCount }}
             </span>
-          </label>
+          </button>
+          <div v-if="filterSummary" class="mt-2 text-xs text-gray-600 dark:text-gray-400">
+            {{ filterSummary }}
+          </div>
         </div>
       </div>
     </div>
@@ -157,83 +95,18 @@
           </button>
         </nav>
 
-        <!-- Mobile Pose Count Filter Section -->
+        <!-- Mobile Filter Button Section -->
         <div class="mt-2 border-t border-gray-200 dark:border-gray-700 pt-2">
-          <label for="mobile-pose-count-filter" class="block text-[10px] font-semibold mb-1 text-gray-900 dark:text-white text-center">
-            ポーズ数
-          </label>
-          <select
-            id="mobile-pose-count-filter"
-            :value="selectedPoseCountFilter"
-            @change="selectPoseCountFilter(($event.target as HTMLSelectElement).value)"
-            class="w-full px-1 py-1 border border-gray-300 dark:border-gray-600 rounded text-[10px] bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+          <button
+            @click="openFilterModal"
+            class="w-full px-1 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded text-[10px] font-medium transition-colors flex flex-col items-center relative"
           >
-            <option
-              v-for="poseFilter in poseCountFilters"
-              :key="poseFilter.id"
-              :value="poseFilter.id"
-            >
-              {{ poseFilter.name }}
-            </option>
-          </select>
-        </div>
-
-        <!-- Mobile Sort Order Section -->
-        <div class="mt-2 border-t border-gray-200 dark:border-gray-700 pt-2">
-          <label for="mobile-sort-order" class="block text-[10px] font-semibold mb-1 text-gray-900 dark:text-white text-center">
-            ソート順
-          </label>
-          <select
-            id="mobile-sort-order"
-            :value="selectedSortOrder"
-            @change="selectSortOrder(($event.target as HTMLSelectElement).value)"
-            class="w-full px-1 py-1 border border-gray-300 dark:border-gray-600 rounded text-[10px] bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
-          >
-            <option
-              v-for="sortOption in sortOptions"
-              :key="sortOption.id"
-              :value="sortOption.id"
-            >
-              {{ sortOption.name }}
-            </option>
-          </select>
-        </div>
-
-        <!-- Mobile Price Filter Section -->
-        <div class="mt-2 border-t border-gray-200 dark:border-gray-700 pt-2">
-          <label for="mobile-price-filter" class="block text-[10px] font-semibold mb-1 text-gray-900 dark:text-white text-center">
-            価格
-          </label>
-          <select
-            id="mobile-price-filter"
-            :value="selectedPriceFilter"
-            @change="selectPriceFilter(($event.target as HTMLSelectElement).value)"
-            class="w-full px-1 py-1 border border-gray-300 dark:border-gray-600 rounded text-[10px] bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
-          >
-            <option
-              v-for="priceFilter in priceFilters"
-              :key="priceFilter.id"
-              :value="priceFilter.id"
-            >
-              {{ priceFilter.name }}
-            </option>
-          </select>
-        </div>
-
-        <!-- Mobile Character Design Fee Section -->
-        <div class="mt-2 border-t border-gray-200 dark:border-gray-700 pt-2">
-          <label class="flex flex-col items-center">
-            <input
-              type="checkbox"
-              :checked="characterDesignFee"
-              @change="selectCharacterDesignFee(($event.target as HTMLInputElement).checked)"
-              class="rounded border-gray-300 dark:border-gray-600 text-blue-600 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 dark:bg-gray-700 mb-1"
-            />
-            <span class="text-[10px] text-gray-900 dark:text-white text-center leading-tight">
-              キャラデザ<br>
-              <span class="text-[8px] text-gray-600 dark:text-gray-400">(+1,000円)</span>
+            <AdjustmentsHorizontalIcon class="w-4 h-4 mb-1" />
+            <span>フィルター</span>
+            <span v-if="activeFiltersCount > 0" class="absolute -top-1 -right-1 bg-red-500 text-white text-[8px] px-1 rounded-full min-w-[16px] h-4 flex items-center justify-center">
+              {{ activeFiltersCount }}
             </span>
-          </label>
+          </button>
         </div>
       </div>
     </div>
@@ -241,8 +114,8 @@
 </template>
 
 <script setup lang="ts">
-import { QueueListIcon } from '@heroicons/vue/24/outline';
-import type { PoseCountFilter, SortOption, PriceFilter } from '../stores/products';
+import { computed } from 'vue';
+import { QueueListIcon, AdjustmentsHorizontalIcon } from '@heroicons/vue/24/outline';
 
 interface CategoryDisplay {
   id: string;
@@ -254,40 +127,68 @@ interface CategoryDisplay {
 const props = defineProps<{
   categories: CategoryDisplay[];
   selectedCategory?: string;
-  poseCountFilters: PoseCountFilter[];
   selectedPoseCountFilter?: string;
-  sortOptions: SortOption[];
   selectedSortOrder?: string;
-  priceFilters: PriceFilter[];
   selectedPriceFilter?: string;
   characterDesignFee?: boolean;
 }>();
 
 const emit = defineEmits<{
   (e: 'update:selectedCategory', value: string): void;
-  (e: 'update:selectedPoseCountFilter', value: string): void;
-  (e: 'update:selectedSortOrder', value: string): void;
-  (e: 'update:selectedPriceFilter', value: string): void;
-  (e: 'update:characterDesignFee', value: boolean): void;
+  (e: 'open-filter-modal'): void;
 }>();
 
 const selectCategory = (categoryId: string) => {
   emit('update:selectedCategory', categoryId);
 };
 
-const selectPoseCountFilter = (filterId: string) => {
-  emit('update:selectedPoseCountFilter', filterId);
+const openFilterModal = () => {
+  emit('open-filter-modal');
 };
 
-const selectSortOrder = (sortId: string) => {
-  emit('update:selectedSortOrder', sortId);
-};
+// Compute active filters count for badge display
+const activeFiltersCount = computed(() => {
+  let count = 0;
+  
+  if (props.selectedPoseCountFilter && props.selectedPoseCountFilter !== 'all') {
+    count++;
+  }
+  
+  if (props.selectedSortOrder && props.selectedSortOrder !== 'id') {
+    count++;
+  }
+  
+  if (props.selectedPriceFilter && props.selectedPriceFilter !== 'all') {
+    count++;
+  }
+  
+  if (props.characterDesignFee) {
+    count++;
+  }
+  
+  return count;
+});
 
-const selectPriceFilter = (filterId: string) => {
-  emit('update:selectedPriceFilter', filterId);
-};
-
-const selectCharacterDesignFee = (enabled: boolean) => {
-  emit('update:characterDesignFee', enabled);
-};
+// Compute filter summary text
+const filterSummary = computed(() => {
+  const summaryParts: string[] = [];
+  
+  if (props.selectedPoseCountFilter && props.selectedPoseCountFilter !== 'all') {
+    summaryParts.push('ポーズ数');
+  }
+  
+  if (props.selectedSortOrder && props.selectedSortOrder !== 'id') {
+    summaryParts.push('ソート');
+  }
+  
+  if (props.selectedPriceFilter && props.selectedPriceFilter !== 'all') {
+    summaryParts.push('価格');
+  }
+  
+  if (props.characterDesignFee) {
+    summaryParts.push('キャラデザ');
+  }
+  
+  return summaryParts.length > 0 ? `適用中: ${summaryParts.join(', ')}` : '';
+});
 </script>

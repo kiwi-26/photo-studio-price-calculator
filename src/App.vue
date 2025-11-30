@@ -19,18 +19,12 @@
     <CategorySidebar 
       :categories="productsStore.categories"
       :selected-category="productsStore.selectedCategory"
-      :pose-count-filters="productsStore.poseCountFilters"
       :selected-pose-count-filter="productsStore.selectedPoseCountFilter"
-      :sort-options="productsStore.sortOptions"
       :selected-sort-order="productsStore.selectedSortOrder"
-      :price-filters="productsStore.priceFilters"
       :selected-price-filter="productsStore.selectedPriceFilter"
       :character-design-fee="productsStore.characterDesignFee"
       @update:selected-category="productsStore.setSelectedCategory"
-      @update:selected-pose-count-filter="productsStore.setSelectedPoseCountFilter"
-      @update:selected-sort-order="productsStore.setSelectedSortOrder"
-      @update:selected-price-filter="productsStore.setSelectedPriceFilter"
-      @update:character-design-fee="productsStore.setCharacterDesignFee"
+      @open-filter-modal="openFilterModal"
     />
 
     <!-- Main Content with left margin for sidebar -->
@@ -67,6 +61,20 @@
       @close="closeModal"
       @update:product-id="updateModalProductId"
     />
+
+    <!-- Product Filter Modal -->
+    <ProductFilterModal
+      :is-open="filterModalState.isOpen"
+      :pose-count-filters="productsStore.poseCountFilters"
+      :selected-pose-count-filter="productsStore.selectedPoseCountFilter"
+      :sort-options="productsStore.sortOptions"
+      :selected-sort-order="productsStore.selectedSortOrder"
+      :price-filters="productsStore.priceFilters"
+      :selected-price-filter="productsStore.selectedPriceFilter"
+      :character-design-fee="productsStore.characterDesignFee"
+      @close="closeFilterModal"
+      @apply-filters="applyFilters"
+    />
   </div>
 </template>
 
@@ -77,6 +85,7 @@ import CategorySidebar from './components/CategorySidebar.vue';
 import ProductsList from './components/ProductsList.vue';
 import StickyCartFooter from './components/StickyCartFooter.vue';
 import ProductDetailModal from './components/ProductDetailModal.vue';
+import ProductFilterModal from './components/ProductFilterModal.vue';
 import ProductEditor from './components/ProductEditor.vue';
 import { useProductsStore, useCartStore, useProductEditorStore } from './stores';
 import type { ProductType } from './types';
@@ -99,6 +108,11 @@ const modalState = ref({
   productList: [] as ProductType[]
 });
 
+// Filter modal state management
+const filterModalState = ref({
+  isOpen: false
+});
+
 // Modal methods
 const handleShowDetail = (data: { product: ProductType; productList: ProductType[] }) => {
   modalState.value = {
@@ -114,5 +128,27 @@ const closeModal = () => {
 
 const updateModalProductId = (productId: string | number) => {
   modalState.value.productId = productId;
+};
+
+// Filter modal methods
+const openFilterModal = () => {
+  filterModalState.value.isOpen = true;
+};
+
+const closeFilterModal = () => {
+  filterModalState.value.isOpen = false;
+};
+
+const applyFilters = (filters: {
+  poseCountFilter: string;
+  sortOrder: string;
+  priceFilter: string;
+  characterDesignFee: boolean;
+}) => {
+  // Apply all filters at once
+  productsStore.setSelectedPoseCountFilter(filters.poseCountFilter);
+  productsStore.setSelectedSortOrder(filters.sortOrder);
+  productsStore.setSelectedPriceFilter(filters.priceFilter);
+  productsStore.setCharacterDesignFee(filters.characterDesignFee);
 };
 </script>

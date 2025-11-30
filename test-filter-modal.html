@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Modal Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .success {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+        .info {
+            background-color: #d1ecf1;
+            border-color: #bee5eb;
+        }
+        .code {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>商品フィルターモーダル実装テスト</h1>
+        
+        <div class="test-section success">
+            <h3>✅ 実装完了項目</h3>
+            <ul>
+                <li><strong>ProductFilterModal.vue</strong> - 新しいフィルターモーダルコンポーネントを作成</li>
+                <li><strong>CategorySidebar.vue</strong> - カテゴリーのみ表示するように簡素化</li>
+                <li><strong>App.vue</strong> - モーダル状態管理とイベントハンドリングを追加</li>
+                <li><strong>フィルターボタン</strong> - アクティブなフィルター数を表示するバッジ付き</li>
+                <li><strong>レスポンシブ対応</strong> - デスクトップとモバイル両方に対応</li>
+            </ul>
+        </div>
+
+        <div class="test-section info">
+            <h3>📋 実装内容詳細</h3>
+            
+            <h4>1. ProductFilterModal コンポーネント</h4>
+            <div class="code">
+                - ポーズ数フィルター<br>
+                - ソート順<br>
+                - 価格フィルター<br>
+                - キャラクターデザイン衣装オプション<br>
+                - 反映ボタン（フィルター適用）<br>
+                - リセットボタン<br>
+                - キャンセルボタン
+            </div>
+
+            <h4>2. CategorySidebar の変更</h4>
+            <div class="code">
+                - フィルター関連のセクションを削除<br>
+                - フィルターボタンを追加<br>
+                - アクティブフィルター数のバッジ表示<br>
+                - フィルター概要テキスト表示
+            </div>
+
+            <h4>3. App.vue の変更</h4>
+            <div class="code">
+                - ProductFilterModal コンポーネントをインポート<br>
+                - フィルターモーダルの状態管理<br>
+                - フィルター適用ロジック（一括更新）<br>
+                - モーダル開閉イベントハンドリング
+            </div>
+        </div>
+
+        <div class="test-section info">
+            <h3>🎯 動作確認項目</h3>
+            <ol>
+                <li>サイドバーにカテゴリーとフィルターボタンのみ表示される</li>
+                <li>フィルターボタンをクリックするとモーダルが開く</li>
+                <li>モーダル内でフィルター条件を変更できる</li>
+                <li>「反映」ボタンでフィルターが適用される</li>
+                <li>「キャンセル」ボタンで変更を破棄してモーダルが閉じる</li>
+                <li>「リセット」ボタンで全フィルターがデフォルト値に戻る</li>
+                <li>アクティブなフィルター数がボタンにバッジ表示される</li>
+                <li>モバイル表示でも正常に動作する</li>
+            </ol>
+        </div>
+
+        <div class="test-section success">
+            <h3>🚀 テスト実行方法</h3>
+            <div class="code">
+                1. ターミナルで以下のコマンドを実行:<br>
+                   npm run dev<br><br>
+                2. ブラウザで http://localhost:5173 にアクセス<br><br>
+                3. サイドバーの「フィルター」ボタンをクリック<br><br>
+                4. モーダル内でフィルター条件を変更<br><br>
+                5. 「反映」ボタンをクリックして動作確認
+            </div>
+        </div>
+    </div>
+</body>
+</html>
