@@ -36,6 +36,7 @@
         <ProductsList 
           :products="productsStore.filteredProducts"
           :selected-category="productsStore.selectedCategory"
+          :selected-sort-order="productsStore.selectedSortOrder"
           @add-to-cart="cartStore.addToCart"
           @update:selected-category="productsStore.setSelectedCategory"
           @show-detail="handleShowDetail"
