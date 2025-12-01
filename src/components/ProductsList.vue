@@ -2,8 +2,8 @@
   <section>
     <h2 class="text-lg sm:text-xl lg:text-2xl mb-4 sm:mb-6">商品一覧</h2>
     
-    <!-- Products List grouped by category -->
-    <div v-if="groupedProducts.length > 0">
+    <!-- Products List grouped by category (when sort order is 'id') -->
+    <div v-if="shouldGroupByCategory && groupedProducts.length > 0">
       <div v-for="group in groupedProducts" :key="group.categoryId" class="mb-8">
         <!-- Category/Subcategory Header -->
         <h3 class="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-gray-800 dark:text-gray-200 border-b border-gray-200 dark:border-gray-700 pb-2">
@@ -23,6 +23,19 @@
       </div>
     </div>
     
+    <!-- Products List flat (when sort order is not 'id') -->
+    <div v-else-if="!shouldGroupByCategory && products.length > 0">
+      <div class="grid gap-3 sm:gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <ProductCard 
+          v-for="product in products" 
+          :key="product.id" 
+          :product="product"
+          @add-to-cart="$emit('add-to-cart', $event)"
+          @show-detail="handleShowDetail"
+        />
+      </div>
+    </div>
+    
     <!-- No products message -->
     <div v-else class="text-center py-8 text-gray-500 dark:text-gray-400">
       商品が見つかりませんでした。
@@ -39,6 +52,7 @@ import type { ProductType } from '../types';
 const props = defineProps<{
   products: ProductType[];
   selectedCategory?: string;
+  selectedSortOrder?: string;
 }>();
 
 const emit = defineEmits<{
@@ -46,6 +60,11 @@ const emit = defineEmits<{
   (e: 'update:selectedCategory', value: string): void;
   (e: 'show-detail', data: { product: ProductType; productList: ProductType[] }): void;
 }>();
+
+const shouldGroupByCategory = computed(() => {
+  // Group by category only when sort order is 'id' (商品掲載順) or not specified
+  return !props.selectedSortOrder || props.selectedSortOrder === 'id';
+});
 
 const groupedProducts = computed(() => {
   // Use the products passed as props (which are already filtered by the store)
