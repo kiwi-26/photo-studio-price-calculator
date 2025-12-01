@@ -626,5 +626,13 @@ export const products: ProductType[] = [
     "price": 26000,
     "photoCount": 3,
     "id": 79
+  },
+  {
+    "name": "フォトパネ 七五三専用 17カット 手形付き",
+    "categoryId": "display-item",
+    "description": "七五三専用 17カット 手形付き オリジナル全紙サイズのパネル",
+    "price": 38000,
+    "photoCount": 17,
+    "id": 80
   }
 ];
