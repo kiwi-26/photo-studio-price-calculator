@@ -62,6 +62,36 @@
           <span class="text-sm text-blue-700 dark:text-blue-300 font-medium">{{ currentProduct.variation }}</span>
         </div>
 
+        <!-- Variation Selector for products with multiple variations -->
+        <div v-if="hasMultipleVariations" class="mb-4">
+          <h4 class="text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">バリエーション選択</h4>
+          <div class="grid grid-cols-1 gap-2">
+            <button
+              v-for="variation in availableVariations"
+              :key="variation.id"
+              @click="selectVariation(variation.id)"
+              :class="[
+                'p-3 rounded-lg border text-left transition-colors duration-200',
+                currentProduct.id === variation.id
+                  ? 'border-primary bg-primary/10 text-primary'
+                  : 'border-gray-200 dark:border-gray-600 hover:border-primary/50 hover:bg-primary/5'
+              ]"
+            >
+              <div class="flex justify-between items-center">
+                <div>
+                  <div class="font-medium text-sm">{{ variation.variation }}</div>
+                  <div class="text-xs text-gray-600 dark:text-gray-400">
+                    {{ variation.photoCount }}ポーズ
+                  </div>
+                </div>
+                <div class="text-success font-semibold">
+                  ¥{{ variation.price.toLocaleString() }}
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+
         <!-- Cart Section -->
         <div class="mb-6 p-4 bg-primary/5 rounded-lg border border-primary/20">
           <div class="flex items-center justify-between mb-3">
@@ -145,7 +175,7 @@ import {
   ChevronRightIcon 
 } from '@heroicons/vue/24/solid';
 import { getCategoryDisplayName } from '../assets/categories';
-import { useCartStore } from '../stores';
+import { useCartStore, useProductsStore } from '../stores';
 import { Analytics } from '../utils';
 import type { ProductType } from '../types';
 
@@ -161,6 +191,7 @@ const emit = defineEmits<{
 }>();
 
 const cartStore = useCartStore();
+const productsStore = useProductsStore();
 
 // Computed properties
 const currentIndex = computed(() => {
@@ -171,6 +202,26 @@ const currentIndex = computed(() => {
 const currentProduct = computed(() => {
   if (currentIndex.value === -1) return null;
   return props.productList[currentIndex.value];
+});
+
+// Check if current product has variations (same name + category)
+const availableVariations = computed(() => {
+  if (!currentProduct.value) return [];
+  
+  return props.productList.filter(product => 
+    product.name === currentProduct.value!.name && 
+    product.categoryId === currentProduct.value!.categoryId
+  ).sort((a, b) => {
+    // Sort by variation name, putting items without variation first
+    if (!a.variation && b.variation) return -1;
+    if (a.variation && !b.variation) return 1;
+    if (!a.variation && !b.variation) return 0;
+    return a.variation!.localeCompare(b.variation!, 'ja');
+  });
+});
+
+const hasMultipleVariations = computed(() => {
+  return availableVariations.value.length > 1;
 });
 
 const currentCartQuantity = computed(() => {
@@ -185,6 +236,10 @@ const hasNext = computed(() => currentIndex.value < props.productList.length - 1
 // Methods
 const closeModal = () => {
   emit('close');
+};
+
+const selectVariation = (variationId: string | number) => {
+  emit('update:productId', variationId);
 };
 
 const addToCart = () => {

@@ -4,6 +4,15 @@ import type { ProductType, CartItemType } from '../types';
 import { Analytics } from '../utils';
 import { useProductsStore } from './products';
 
+// Interface for grouped cart items display
+export interface GroupedCartItemType {
+  name: string;
+  categoryId: string;
+  items: CartItemType[];
+  totalQuantity: number;
+  totalPrice: number;
+}
+
 export const useCartStore = defineStore('cart', () => {
   // State
   const cart = ref<CartItemType[]>([]);
@@ -19,6 +28,41 @@ export const useCartStore = defineStore('cart', () => {
 
   const isEmpty = computed(() => {
     return cart.value.length === 0;
+  });
+
+  // Grouped cart items for display purposes
+  const groupedCartItems = computed((): GroupedCartItemType[] => {
+    const groups = new Map<string, CartItemType[]>();
+    
+    // Group cart items by name + categoryId
+    cart.value.forEach(item => {
+      const groupKey = `${item.name}|${item.categoryId}`;
+      if (!groups.has(groupKey)) {
+        groups.set(groupKey, []);
+      }
+      groups.get(groupKey)!.push(item);
+    });
+    
+    // Convert to grouped cart items
+    return Array.from(groups.entries()).map(([groupKey, items]) => {
+      const baseItem = items[0];
+      const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
+      const totalPrice = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      
+      return {
+        name: baseItem.name,
+        categoryId: baseItem.categoryId,
+        items: items.sort((a, b) => {
+          // Sort by variation name, putting items without variation first
+          if (!a.variation && b.variation) return -1;
+          if (a.variation && !b.variation) return 1;
+          if (!a.variation && !b.variation) return 0;
+          return a.variation!.localeCompare(b.variation!, 'ja');
+        }),
+        totalQuantity,
+        totalPrice
+      };
+    }).sort((a, b) => a.name.localeCompare(b.name, 'ja'));
   });
 
   // Actions
@@ -104,6 +148,7 @@ export const useCartStore = defineStore('cart', () => {
     cartItemsCount,
     cartTotal,
     isEmpty,
+    groupedCartItems,
     // Actions
     addToCart,
     removeFromCart,

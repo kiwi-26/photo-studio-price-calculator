@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 import { products as productsData } from '../assets/products';
 import { getAllCategoriesForDisplay, getSubCategoryIds } from '../assets/categories';
-import type { ProductType } from '../types';
+import type { ProductType, GroupedProductType, ProductVariationType, DisplayProductType } from '../types';
 
 export interface PoseCountFilter {
   id: string;
@@ -149,6 +149,103 @@ export const useProductsStore = defineStore('products', () => {
     return sorted;
   });
 
+  // Helper function to group products by name and category
+  const groupProductsByVariation = (products: ProductType[]): DisplayProductType[] => {
+    const productGroups = new Map<string, ProductType[]>();
+    
+    // Group products by name + categoryId
+    products.forEach(product => {
+      const groupKey = `${product.name}|${product.categoryId}`;
+      if (!productGroups.has(groupKey)) {
+        productGroups.set(groupKey, []);
+      }
+      productGroups.get(groupKey)!.push(product);
+    });
+    
+    const result: DisplayProductType[] = [];
+    
+    productGroups.forEach((groupProducts, groupKey) => {
+      if (groupProducts.length === 1) {
+        // Single product, no variations
+        result.push(groupProducts[0]);
+      } else {
+        // Multiple variations, create grouped product
+        const baseProduct = groupProducts[0];
+        const variations: ProductVariationType[] = groupProducts.map(product => ({
+          id: product.id,
+          variation: product.variation || 'デフォルト',
+          price: product.price,
+          photoCount: product.photoCount,
+          description: product.description !== baseProduct.description ? product.description : undefined
+        }));
+        
+        // Calculate base values
+        const prices = groupProducts.map(p => p.price);
+        const photoCounts = groupProducts.map(p => p.photoCount);
+        const basePrice = Math.min(...prices);
+        
+        // Use most common photo count, or first one if all different
+        const photoCountFreq = new Map<number, number>();
+        photoCounts.forEach(count => {
+          photoCountFreq.set(count, (photoCountFreq.get(count) || 0) + 1);
+        });
+        const basePhotoCount = Array.from(photoCountFreq.entries())
+          .sort((a, b) => b[1] - a[1])[0][0];
+        
+        const groupedProduct: GroupedProductType = {
+          name: baseProduct.name,
+          categoryId: baseProduct.categoryId,
+          description: baseProduct.description,
+          basePhotoCount,
+          basePrice,
+          variations,
+          hasMultipleVariations: true
+        };
+        
+        result.push(groupedProduct);
+      }
+    });
+    
+    return result;
+  };
+
+  // Computed property for grouped products
+  const groupedProducts = computed(() => {
+    return groupProductsByVariation(filteredProducts.value);
+  });
+
+  // Helper function to check if a display product is grouped
+  const isGroupedProduct = (product: DisplayProductType): product is GroupedProductType => {
+    return 'hasMultipleVariations' in product && product.hasMultipleVariations;
+  };
+
+  // Helper function to get all individual products from grouped display
+  const getAllIndividualProducts = (displayProducts: DisplayProductType[]): ProductType[] => {
+    const result: ProductType[] = [];
+    
+    displayProducts.forEach(displayProduct => {
+      if (isGroupedProduct(displayProduct)) {
+        // Convert variations back to individual products
+        displayProduct.variations.forEach(variation => {
+          const individualProduct: ProductType = {
+            id: variation.id,
+            name: displayProduct.name,
+            categoryId: displayProduct.categoryId,
+            description: variation.description || displayProduct.description,
+            photoCount: variation.photoCount,
+            price: variation.price,
+            variation: variation.variation
+          };
+          result.push(individualProduct);
+        });
+      } else {
+        result.push(displayProduct);
+      }
+    });
+    
+    return result;
+  });
+
   // Helper function to determine if character design fee applies to a product
   const isCharacterDesignApplicable = (product: ProductType): boolean => {
     // Character design fee applies to print products (categoryId: 'print')
@@ -203,6 +300,7 @@ export const useProductsStore = defineStore('products', () => {
     sortOptions,
     priceFilters,
     filteredProducts,
+    groupedProducts,
     // Actions
     setSelectedCategory,
     setSelectedPoseCountFilter,
@@ -211,6 +309,10 @@ export const useProductsStore = defineStore('products', () => {
     setCharacterDesignFee,
     getProductById,
     getEffectivePrice,
-    isCharacterDesignApplicable
+    isCharacterDesignApplicable,
+    // New helper functions
+    isGroupedProduct,
+    getAllIndividualProducts,
+    groupProductsByVariation
   };
 });
