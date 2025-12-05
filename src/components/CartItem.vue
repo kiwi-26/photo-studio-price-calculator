@@ -3,6 +3,12 @@
     <div class="flex-1">
       <h4 class="text-base mb-1">{{ item.name }}</h4>
       <p class="text-sm opacity-70 mb-2">{{ getCategoryDisplayName(item.categoryId) }}</p>
+      
+      <!-- Variation if exists -->
+      <div v-if="item.variation" class="mb-2 p-1 bg-blue-50 dark:bg-blue-900/20 rounded border-l-2 border-blue-400">
+        <span class="text-xs text-blue-700 dark:text-blue-300 font-medium">{{ item.variation }}</span>
+      </div>
+      
       <div class="flex justify-between text-sm mb-2">
         <span>{{ item.photoCount }} ポーズ</span>
         <span class="text-success font-semibold">¥{{ item.price.toLocaleString() }}</span>

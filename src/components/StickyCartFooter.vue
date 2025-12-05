@@ -34,11 +34,10 @@
       <div class="border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-950">
         <!-- Cart Items -->
         <div class="max-h-64 overflow-y-auto p-2">
-          <CartItem 
-            v-for="(item, index) in cart" 
-            :key="item.id" 
-            :item="item"
-            :index="index"
+          <GroupedCartItem 
+            v-for="groupedItem in groupedCartItems" 
+            :key="`${groupedItem.name}-${groupedItem.categoryId}`"
+            :grouped-item="groupedItem"
             @remove-item="$emit('remove-from-cart', $event)"
             @update-quantity="(index: number, quantity: number) => $emit('update-quantity', index, quantity)"
             class="mb-2 last:mb-0"
@@ -71,9 +70,11 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import CartItem from './CartItem.vue';
+import GroupedCartItem from './GroupedCartItem.vue';
 import CartSummary from './CartSummary.vue';
 import { ShoppingCartIcon, ChevronUpIcon } from '@heroicons/vue/24/solid';
 import { Analytics } from '../utils';
+import { useCartStore } from '../stores';
 import type { CartItemType } from '../types';
 
 const props = defineProps<{
@@ -86,6 +87,8 @@ const emit = defineEmits<{
   (e: 'clear-cart'): void;
 }>();
 
+const cartStore = useCartStore();
+
 const isExpanded = ref(false);
 const toggleExpanded = () => {
   isExpanded.value = !isExpanded.value;
@@ -95,6 +98,10 @@ const toggleExpanded = () => {
     Analytics.trackViewCart(props.cart);
   }
 };
+
+const groupedCartItems = computed(() => {
+  return cartStore.groupedCartItems;
+});
 
 const totalPrice = computed(() => {
   return props.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
