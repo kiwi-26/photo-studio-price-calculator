@@ -89,286 +89,255 @@ export const products: ProductType[] = [
     "photoCount": 0,
     "price": 8800
   },
-  // Album Print Fuedegi - All variations of "アルバムプリント 増えデジ"
   {
     "id": 13,
     "categoryId": "album-print-fuedegi",
-    "name": "アルバムプリント 増えデジ",
-    "description": "増えデジアルバムプリント",
+    "name": "1ポーズタイプ",
+    "description": "1ポーズタイプのアルバムプリント",
     "photoCount": 1,
-    "price": 7590,
-    "variation": "1ポーズタイプ"
+    "price": 7590
   },
   {
     "id": 14,
     "categoryId": "album-print-fuedegi",
-    "name": "アルバムプリント 増えデジ",
-    "description": "増えデジアルバムプリント",
+    "name": "2ポーズAタイプ",
+    "description": "2ポーズAタイプのアルバムプリント",
     "photoCount": 2,
-    "price": 9790,
-    "variation": "2ポーズAタイプ"
+    "price": 9790
   },
   {
     "id": 15,
     "categoryId": "album-print-fuedegi",
-    "name": "アルバムプリント 増えデジ",
-    "description": "増えデジアルバムプリント",
+    "name": "2ポーズBタイプ",
+    "description": "2ポーズBタイプのアルバムプリント",
     "photoCount": 2,
-    "price": 14190,
-    "variation": "2ポーズBタイプ"
+    "price": 14190
   },
   {
     "id": 16,
     "categoryId": "album-print-fuedegi",
-    "name": "アルバムプリント 増えデジ",
-    "description": "増えデジアルバムプリント",
+    "name": "3ポーズAタイプ",
+    "description": "3ポーズAタイプのアルバムプリント",
     "photoCount": 3,
-    "price": 16390,
-    "variation": "3ポーズAタイプ"
+    "price": 16390
   },
   {
     "id": 17,
     "categoryId": "album-print-fuedegi",
-    "name": "アルバムプリント 増えデジ",
-    "description": "増えデジアルバムプリント",
+    "name": "3ポーズBタイプ",
+    "description": "3ポーズBタイプのアルバムプリント",
     "photoCount": 3,
-    "price": 20790,
-    "variation": "3ポーズBタイプ"
+    "price": 20790
   },
   {
     "id": 18,
     "categoryId": "album-print-fuedegi",
-    "name": "アルバムプリント 増えデジ",
-    "description": "増えデジアルバムプリント",
+    "name": "4ポーズAタイプ",
+    "description": "4ポーズAタイプのアルバムプリント",
     "photoCount": 4,
-    "price": 21890,
-    "variation": "4ポーズAタイプ"
+    "price": 21890
   },
   {
     "id": 19,
     "categoryId": "album-print-fuedegi",
-    "name": "アルバムプリント 増えデジ",
-    "description": "増えデジアルバムプリント",
+    "name": "4ポーズBタイプ",
+    "description": "4ポーズBタイプのアルバムプリント",
     "photoCount": 4,
-    "price": 26290,
-    "variation": "4ポーズBタイプ"
+    "price": 26290
   },
   {
     "id": 20,
     "categoryId": "album-print-fuedegi",
-    "name": "アルバムプリント 増えデジ",
-    "description": "増えデジアルバムプリント",
+    "name": "5ポーズAタイプ",
+    "description": "5ポーズAタイプのアルバムプリント",
     "photoCount": 5,
-    "price": 27390,
-    "variation": "5ポーズAタイプ"
+    "price": 27390
   },
   {
     "id": 21,
     "categoryId": "album-print-fuedegi",
-    "name": "アルバムプリント 増えデジ",
-    "description": "増えデジアルバムプリント",
+    "name": "5ポーズBタイプ",
+    "description": "5ポーズBタイプのアルバムプリント",
     "photoCount": 5,
-    "price": 30690,
-    "variation": "5ポーズBタイプ"
+    "price": 30690
   },
   {
     "id": 22,
     "categoryId": "album-print-fuedegi",
-    "name": "アルバムプリント 増えデジ",
-    "description": "増えデジアルバムプリント",
+    "name": "6ポーズAタイプ",
+    "description": "6ポーズAタイプのアルバムプリント",
     "photoCount": 6,
-    "price": 31790,
-    "variation": "6ポーズAタイプ"
+    "price": 31790
   },
   {
     "id": 23,
     "categoryId": "album-print-fuedegi",
-    "name": "アルバムプリント 増えデジ",
-    "description": "増えデジアルバムプリント",
+    "name": "6ポーズBタイプ",
+    "description": "6ポーズBタイプのアルバムプリント",
     "photoCount": 6,
-    "price": 37290,
-    "variation": "6ポーズBタイプ"
+    "price": 37290
   },
   {
     "id": 24,
     "categoryId": "album-print-fuedegi",
-    "name": "アルバムプリント 増えデジ",
-    "description": "増えデジアルバムプリント",
+    "name": "7ポーズAタイプ",
+    "description": "7ポーズAタイプのアルバムプリント",
     "photoCount": 7,
-    "price": 38390,
-    "variation": "7ポーズAタイプ"
+    "price": 38390
   },
   {
     "id": 25,
     "categoryId": "album-print-fuedegi",
-    "name": "アルバムプリント 増えデジ",
-    "description": "増えデジアルバムプリント",
+    "name": "8ポーズAタイプ",
+    "description": "8ポーズAタイプのアルバムプリント",
     "photoCount": 8,
-    "price": 41690,
-    "variation": "8ポーズAタイプ"
+    "price": 41690
   },
   {
     "id": 26,
     "categoryId": "album-print-fuedegi",
-    "name": "アルバムプリント 増えデジ",
-    "description": "増えデジアルバムプリント",
+    "name": "9ポーズAタイプ",
+    "description": "9ポーズAタイプのアルバムプリント",
     "photoCount": 9,
-    "price": 44990,
-    "variation": "9ポーズAタイプ"
+    "price": 44990
   },
   {
     "id": 27,
     "categoryId": "album-print-fuedegi",
-    "name": "アルバムプリント 増えデジ",
-    "description": "増えデジアルバムプリント",
+    "name": "10ポーズAタイプ",
+    "description": "10ポーズAタイプのアルバムプリント",
     "photoCount": 10,
-    "price": 48290,
-    "variation": "10ポーズAタイプ"
+    "price": 48290
   },
   {
     "id": 28,
     "categoryId": "album-print-fuedegi",
-    "name": "アルバムプリント 増えデジ",
-    "description": "増えデジアルバムプリント",
+    "name": "11ポーズAタイプ",
+    "description": "11ポーズAタイプのアルバムプリント",
     "photoCount": 11,
-    "price": 51590,
-    "variation": "11ポーズAタイプ"
+    "price": 51590
   },
   {
     "id": 29,
     "categoryId": "album-print-fuedegi",
-    "name": "アルバムプリント 増えデジ",
-    "description": "増えデジアルバムプリント",
+    "name": "12ポーズAタイプ",
+    "description": "12ポーズAタイプのアルバムプリント",
     "photoCount": 12,
-    "price": 54890,
-    "variation": "12ポーズAタイプ"
+    "price": 54890
   },
-  // Album Print Basic - All variations of "アルバムプリント ベーシック"
   {
     "id": 30,
     "categoryId": "album-print-basic",
-    "name": "アルバムプリント ベーシック",
-    "description": "ベーシックアルバムプリント",
+    "name": "四切 1枚",
+    "description": "四切サイズ 1枚のアルバムプリント",
     "photoCount": 1,
     "price": 6490,
-    "variation": "四切 1枚"
+    "variation": "1枚～6枚は単価×枚数"
   },
   {
     "id": 31,
     "categoryId": "album-print-basic",
-    "name": "アルバムプリント ベーシック",
-    "description": "ベーシックアルバムプリント",
+    "name": "六切 1枚",
+    "description": "六切サイズ 1枚のアルバムプリント",
     "photoCount": 1,
     "price": 5390,
-    "variation": "六切 1枚"
+    "variation": "1枚～6枚は単価×枚数"
   },
   {
     "id": 32,
     "categoryId": "album-print-basic",
-    "name": "アルバムプリント ベーシック",
-    "description": "ベーシックアルバムプリント",
+    "name": "四切 7枚",
+    "description": "四切サイズ 7枚のアルバムプリント",
     "photoCount": 7,
-    "price": 42130,
-    "variation": "四切 7枚"
+    "price": 42130
   },
   {
     "id": 33,
     "categoryId": "album-print-basic",
-    "name": "アルバムプリント ベーシック",
-    "description": "ベーシックアルバムプリント",
+    "name": "六切 7枚",
+    "description": "六切サイズ 7枚のアルバムプリント",
     "photoCount": 7,
-    "price": 35530,
-    "variation": "六切 7枚"
+    "price": 35530
   },
   {
     "id": 34,
     "categoryId": "album-print-basic",
-    "name": "アルバムプリント ベーシック",
-    "description": "ベーシックアルバムプリント",
+    "name": "四切 8枚",
+    "description": "四切サイズ 8枚のアルバムプリント",
     "photoCount": 8,
-    "price": 45320,
-    "variation": "四切 8枚"
+    "price": 45320
   },
   {
     "id": 35,
     "categoryId": "album-print-basic",
-    "name": "アルバムプリント ベーシック",
-    "description": "ベーシックアルバムプリント",
+    "name": "六切 8枚",
+    "description": "六切サイズ 8枚のアルバムプリント",
     "photoCount": 8,
-    "price": 38720,
-    "variation": "六切 8枚"
+    "price": 38720
   },
   {
     "id": 36,
     "categoryId": "album-print-basic",
-    "name": "アルバムプリント ベーシック",
-    "description": "ベーシックアルバムプリント",
+    "name": "四切 9枚",
+    "description": "四切サイズ 9枚のアルバムプリント",
     "photoCount": 9,
-    "price": 48510,
-    "variation": "四切 9枚"
+    "price": 48510
   },
   {
     "id": 37,
     "categoryId": "album-print-basic",
-    "name": "アルバムプリント ベーシック",
-    "description": "ベーシックアルバムプリント",
+    "name": "六切 9枚",
+    "description": "六切サイズ 9枚のアルバムプリント",
     "photoCount": 9,
-    "price": 41910,
-    "variation": "六切 9枚"
+    "price": 41910
   },
   {
     "id": 38,
     "categoryId": "album-print-basic",
-    "name": "アルバムプリント ベーシック",
-    "description": "ベーシックアルバムプリント",
+    "name": "四切 10枚",
+    "description": "四切サイズ 10枚のアルバムプリント",
     "photoCount": 10,
-    "price": 51700,
-    "variation": "四切 10枚"
+    "price": 51700
   },
   {
     "id": 39,
     "categoryId": "album-print-basic",
-    "name": "アルバムプリント ベーシック",
-    "description": "ベーシックアルバムプリント",
+    "name": "六切 10枚",
+    "description": "六切サイズ 10枚のアルバムプリント",
     "photoCount": 10,
-    "price": 45100,
-    "variation": "六切 10枚"
+    "price": 45100
   },
   {
     "id": 40,
     "categoryId": "album-print-basic",
-    "name": "アルバムプリント ベーシック",
-    "description": "ベーシックアルバムプリント",
+    "name": "四切 11枚",
+    "description": "四切サイズ 11枚のアルバムプリント",
     "photoCount": 11,
-    "price": 54890,
-    "variation": "四切 11枚"
+    "price": 54890
   },
   {
     "id": 41,
     "categoryId": "album-print-basic",
-    "name": "アルバムプリント ベーシック",
-    "description": "ベーシックアルバムプリント",
+    "name": "六切 11枚",
+    "description": "六切サイズ 11枚のアルバムプリント",
     "photoCount": 11,
-    "price": 48290,
-    "variation": "六切 11枚"
+    "price": 48290
   },
   {
     "id": 42,
     "categoryId": "album-print-basic",
-    "name": "アルバムプリント ベーシック",
-    "description": "ベーシックアルバムプリント",
+    "name": "四切 12枚",
+    "description": "四切サイズ 12枚のアルバムプリント",
     "photoCount": 12,
-    "price": 58080,
-    "variation": "四切 12枚"
+    "price": 58080
   },
   {
     "id": 43,
     "categoryId": "album-print-basic",
-    "name": "アルバムプリント ベーシック",
-    "description": "ベーシックアルバムプリント",
+    "name": "六切 12枚",
+    "description": "六切サイズ 12枚のアルバムプリント",
     "photoCount": 12,
-    "price": 51480,
-    "variation": "六切 12枚"
+    "price": 51480
   },
   {
     "id": 44,
@@ -610,3 +579,368 @@ export const products: ProductType[] = [
     "photoCount": 2,
     "price": 21780
   },
+  {
+    "name": "フォトパネ シンプル 1カット キャビネ",
+    "categoryId": "display-item",
+    "description": "キャビネサイズのパネル",
+    "price": 7000,
+    "photoCount": 1,
+    "id": 74
+  },
+  {
+    "name": "フォトパネ シンプル 1カット 半切",
+    "categoryId": "display-item",
+    "description": "半切サイズのパネル",
+    "price": 14000,
+    "photoCount": 1,
+    "id": 75
+  },
+  {
+    "name": "フォトパネ シンプル 1カット 全紙",
+    "categoryId": "display-item",
+    "description": "全紙サイズのパネル",
+    "price": 19000,
+    "photoCount": 1,
+    "id": 76
+  },
+  {
+    "name": "フォトパネ シンプル 3カット ワイド",
+    "categoryId": "display-item",
+    "description": "ワイドサイズのパネル",
+    "price": 14000,
+    "photoCount": 3,
+    "id": 77
+  },
+  {
+    "name": "フォトパネ シンプル 3カット 半切",
+    "categoryId": "display-item",
+    "description": "半切サイズのパネル",
+    "price": 19000,
+    "photoCount": 3,
+    "id": 78
+  },
+  {
+    "name": "フォトパネ シンプル 3カット 全紙",
+    "categoryId": "display-item",
+    "description": "全紙サイズのパネル",
+    "price": 26000,
+    "photoCount": 3,
+    "id": 79
+  },
+  {
+    "name": "フォトパネ 七五三専用 17カット 手形付き",
+    "categoryId": "display-item",
+    "description": "七五三専用 17カット 手形付き オリジナル全紙サイズのパネル",
+    "price": 38000,
+    "photoCount": 17,
+    "id": 80
+  },
+  {
+    "name": "フォトパネブロック ファーストイヤー 3個タイプ",
+    "categoryId": "display-item",
+    "description": "0歳～1歳までの赤ちゃんの写真を来店ごとに追加可能\n1回目（本体代＋写真1枚＋足形）と2回目・3回目（写真1枚＋足形）で値段が異なる",
+    "price": 11800,
+    "photoCount": 1,
+    "variation": "初回",
+    "id": 81
+  },
+  {
+    "name": "フォトパネブロック ファーストイヤー 3個タイプ",
+    "categoryId": "display-item",
+    "description": "0歳～1歳までの赤ちゃんの写真を来店ごとに追加可能\n1回目（本体代＋写真1枚＋足形）と2回目・3回目（写真1枚＋足形）で値段が異なる",
+    "price": 1800,
+    "photoCount": 1,
+    "variation": "2回目以降",
+    "id": 82
+  },
+  {
+    "name": "フォトパネ シンプル3C",
+    "categoryId": "display-item",
+    "description": "フォトパネ赤ちゃん専用デザイン 足形付 半切サイズ",
+    "price": 19000,
+    "photoCount": 3,
+    "id": 83
+  },
+  {
+    "name": "デザインフォト",
+    "categoryId": "display-item",
+    "description": "３カットデザインタイプの写真フレーム",
+    "price": 9800,
+    "photoCount": 3,
+    "id": 84
+  },
+  {
+    "name": "デザインフォト ファーストイヤーフレーム",
+    "categoryId": "display-item",
+    "description": "1歳までの赤ちゃんの写真を最大4枚、来店ごとに追加できる\n1回目（本体代込み）と2回目以降で金額が異なる",
+    "price": 7800,
+    "photoCount": 1,
+    "variation": "初回",
+    "id": 85
+  },
+  {
+    "name": "デザインフォト ファーストイヤーフレーム",
+    "categoryId": "display-item",
+    "description": "1歳までの赤ちゃんの写真を最大4枚、来店ごとに追加できる\n1回目（本体代込み）と2回目以降で金額が異なる",
+    "price": 1000,
+    "photoCount": 1,
+    "variation": "2回目以降",
+    "id": 86
+  },
+  {
+    "name": "成長記念デザインフォトフレーム",
+    "categoryId": "display-item",
+    "description": "0歳～1歳までの間の赤ちゃん専用の『体重計』撮影の購入者限定の特別なデザインフォト\n「体重計」撮影を3回以上購入すると、好きなタイミングで「成長記念デザインフォト」が注文可能",
+    "price": 5600,
+    "photoCount": 1,
+    "variation": "3カット・4カット（ワイドフレーム）",
+    "id": 87
+  },
+  {
+    "name": "成長記念デザインフォトフレーム",
+    "categoryId": "display-item",
+    "description": "0歳～1歳までの間の赤ちゃん専用の『体重計』撮影の購入者限定の特別なデザインフォト\n「体重計」撮影を3回以上購入すると、好きなタイミングで「成長記念デザインフォト」が注文可能",
+    "price": 6500,
+    "photoCount": 1,
+    "variation": "5カット・6カット（四切フレーム）",
+    "id": 88
+  },
+  {
+    "name": "成長記念デザインフォトフレーム",
+    "categoryId": "display-item",
+    "description": "0歳～1歳までの間の赤ちゃん専用の『体重計』撮影の購入者限定の特別なデザインフォト\n「体重計」撮影を3回以上購入すると、好きなタイミングで「成長記念デザインフォト」が注文可能",
+    "price": 8800,
+    "photoCount": 1,
+    "variation": "7〜12カット（OHフレーム）",
+    "id": 89
+  },
+  {
+    "name": "デザインフォト ネームインポエム入り",
+    "categoryId": "display-item",
+    "description": "子どもの名前を織り込んで作るポエム入りのデザインフォト。足形あり・なしのデザインあり",
+    "price": 14800,
+    "photoCount": 2,
+    "id": 90
+  },
+  {
+    "name": "フォトジャケット（ハニカム/スクエア）",
+    "categoryId": "display-item",
+    "description": "レコードジャケットのように飾れるパネル",
+    "price": 5400,
+    "photoCount": 1,
+    "variation": "Sサイズ",
+    "id": 91
+  },
+  {
+    "name": "フォトジャケット（ハニカム/スクエア）",
+    "categoryId": "display-item",
+    "description": "レコードジャケットのように飾れるパネル",
+    "price": 6400,
+    "photoCount": 1,
+    "variation": "Lサイズ",
+    "id": 92
+  },
+  {
+    "name": "フォトジャケット 専用木製スタンド",
+    "categoryId": "display-item",
+    "description": "フォトジャケットの専用スタンド",
+    "price": 600,
+    "photoCount": 0,
+    "id": 93
+  },
+  {
+    "name": "フォトジャケット（ハニカム/スクエア）3枚セット",
+    "categoryId": "display-item",
+    "description": "レコードジャケットのように飾れるパネル",
+    "price": 14800,
+    "photoCount": 3,
+    "variation": "Lサイズ",
+    "id": 94
+  },
+  {
+    "name": "ジョイントパネル",
+    "categoryId": "display-item",
+    "description": "縦や横に連結できるフレーム",
+    "price": 4800,
+    "photoCount": 1,
+    "id": 95
+  },
+  {
+    "name": "木製フレーム",
+    "categoryId": "display-item",
+    "description": "木製のフレーム",
+    "price": 3300,
+    "photoCount": 0,
+    "variation": "半切・本体価格",
+    "id": 96
+  },
+  {
+    "name": "木製フレーム",
+    "categoryId": "display-item",
+    "description": "木製のフレーム",
+    "price": 12800,
+    "photoCount": 1,
+    "variation": "半切・写真代込",
+    "id": 97
+  },
+  {
+    "name": "アルミフレーム",
+    "categoryId": "display-item",
+    "description": "アルミ製のフレーム",
+    "price": 3300,
+    "photoCount": 0,
+    "variation": "半切・本体価格",
+    "id": 98
+  },
+  {
+    "name": "アルミフレーム",
+    "categoryId": "display-item",
+    "description": "アルミ製のフレーム",
+    "price": 12800,
+    "photoCount": 1,
+    "variation": "半切・写真代込",
+    "id": 99
+  },
+  {
+    "name": "アルミフレーム",
+    "categoryId": "display-item",
+    "description": "アルミ製のフレーム",
+    "price": 4450,
+    "photoCount": 0,
+    "variation": "全紙・本体価格",
+    "id": 100
+  },
+  {
+    "name": "アルミフレーム",
+    "categoryId": "display-item",
+    "description": "アルミ製のフレーム",
+    "price": 17800,
+    "photoCount": 1,
+    "variation": "全紙・写真代込",
+    "id": 101
+  },
+  {
+    "name": "ウッドフレーム（ナチュラル/ホワイト）",
+    "categoryId": "display-item",
+    "description": "木製のフレーム",
+    "price": 1920,
+    "photoCount": 0,
+    "variation": "キャビネ・本体価格",
+    "id": 102
+  },
+  {
+    "name": "ウッドフレーム（ナチュラル/ホワイト）",
+    "categoryId": "display-item",
+    "description": "木製のフレーム",
+    "price": 5400,
+    "photoCount": 1,
+    "variation": "キャビネ・写真代込",
+    "id": 103
+  },
+  {
+    "name": "ウッドフレーム（ナチュラル）",
+    "categoryId": "display-item",
+    "description": "木製のフレーム",
+    "price": 2900,
+    "photoCount": 0,
+    "variation": "六切・本体価格",
+    "id": 104
+  },
+  {
+    "name": "ウッドフレーム（ナチュラル）",
+    "categoryId": "display-item",
+    "description": "木製のフレーム",
+    "price": 7800,
+    "photoCount": 1,
+    "variation": "六切・写真代込",
+    "id": 105
+  },
+  {
+    "name": "ウッドフレーム（ナチュラル）",
+    "categoryId": "display-item",
+    "description": "木製のフレーム",
+    "price": 3500,
+    "photoCount": 0,
+    "variation": "四切・本体価格",
+    "id": 106
+  },
+  {
+    "name": "ウッドフレーム（ナチュラル）",
+    "categoryId": "display-item",
+    "description": "木製のフレーム",
+    "price": 9400,
+    "photoCount": 1,
+    "variation": "四切・写真代込",
+    "id": 107
+  },
+  {
+    "name": "エコラフレーム",
+    "categoryId": "display-item",
+    "description": "地球環境に配慮した木材を使用し、余白を多く設けた木製のフレーム",
+    "price": 2420,
+    "photoCount": 0,
+    "variation": "キャビネ・本体価格",
+    "id": 108
+  },
+  {
+    "name": "エコラフレーム",
+    "categoryId": "display-item",
+    "description": "地球環境に配慮した木材を使用し、余白を多く設けた木製のフレーム",
+    "price": 5900,
+    "photoCount": 1,
+    "variation": "キャビネ・写真代込",
+    "id": 109
+  },
+  {
+    "name": "ペアフレーム/スクエア",
+    "categoryId": "display-item",
+    "description": "キャビネプリントが2枚入る、置いて飾るフレーム",
+    "price": 2840,
+    "photoCount": 0,
+    "variation": "本体価格",
+    "id": 110
+  },
+  {
+    "name": "ペアフレーム/スクエア",
+    "categoryId": "display-item",
+    "description": "キャビネプリントが2枚入る、置いて飾るフレーム",
+    "price": 9800,
+    "photoCount": 2,
+    "variation": "写真代込",
+    "id": 111
+  },
+  {
+    "name": "プリズマフォトフレーム",
+    "categoryId": "display-item",
+    "description": "華やかなフレーム",
+    "price": 5400,
+    "photoCount": 1,
+    "id": 112
+  },
+  {
+    "name": "3面フレーム",
+    "categoryId": "display-item",
+    "description": "ハーフキャビネサイズのプリントが3カット入るフレーム",
+    "price": 4860,
+    "photoCount": 0,
+    "variation": "本体価格",
+    "id": 113
+  },
+  {
+    "name": "3面フレーム",
+    "categoryId": "display-item",
+    "description": "ハーフキャビネサイズのプリントが3カット入るフレーム",
+    "price": 10800,
+    "photoCount": 3,
+    "variation": "写真代込",
+    "id": 114
+  },
+  {
+    "name": "ミッフィージュエルフレーム",
+    "categoryId": "display-item",
+    "description": "立体的に浮き出たミッフィーのモチーフがかわいいフォトフレーム",
+    "price": 5400,
+    "photoCount": 1,
+    "id": 115
+  }
+];
