@@ -92,7 +92,7 @@ export const products: ProductType[] = [
   // Album Print Fuedegi - All variations of "アルバムプリント 増えデジ"
   {
     "id": 13,
-    "categoryId": "album-print-fuedegi",
+    "categoryId": "album-print",
     "name": "アルバムプリント 増えデジ",
     "description": "増えデジアルバムプリント",
     "photoCount": 1,
@@ -101,7 +101,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 14,
-    "categoryId": "album-print-fuedegi",
+    "categoryId": "album-print",
     "name": "アルバムプリント 増えデジ",
     "description": "増えデジアルバムプリント",
     "photoCount": 2,
@@ -110,7 +110,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 15,
-    "categoryId": "album-print-fuedegi",
+    "categoryId": "album-print",
     "name": "アルバムプリント 増えデジ",
     "description": "増えデジアルバムプリント",
     "photoCount": 2,
@@ -119,7 +119,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 16,
-    "categoryId": "album-print-fuedegi",
+    "categoryId": "album-print",
     "name": "アルバムプリント 増えデジ",
     "description": "増えデジアルバムプリント",
     "photoCount": 3,
@@ -128,7 +128,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 17,
-    "categoryId": "album-print-fuedegi",
+    "categoryId": "album-print",
     "name": "アルバムプリント 増えデジ",
     "description": "増えデジアルバムプリント",
     "photoCount": 3,
@@ -137,7 +137,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 18,
-    "categoryId": "album-print-fuedegi",
+    "categoryId": "album-print",
     "name": "アルバムプリント 増えデジ",
     "description": "増えデジアルバムプリント",
     "photoCount": 4,
@@ -146,7 +146,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 19,
-    "categoryId": "album-print-fuedegi",
+    "categoryId": "album-print",
     "name": "アルバムプリント 増えデジ",
     "description": "増えデジアルバムプリント",
     "photoCount": 4,
@@ -155,7 +155,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 20,
-    "categoryId": "album-print-fuedegi",
+    "categoryId": "album-print",
     "name": "アルバムプリント 増えデジ",
     "description": "増えデジアルバムプリント",
     "photoCount": 5,
@@ -164,7 +164,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 21,
-    "categoryId": "album-print-fuedegi",
+    "categoryId": "album-print",
     "name": "アルバムプリント 増えデジ",
     "description": "増えデジアルバムプリント",
     "photoCount": 5,
@@ -173,7 +173,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 22,
-    "categoryId": "album-print-fuedegi",
+    "categoryId": "album-print",
     "name": "アルバムプリント 増えデジ",
     "description": "増えデジアルバムプリント",
     "photoCount": 6,
@@ -182,7 +182,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 23,
-    "categoryId": "album-print-fuedegi",
+    "categoryId": "album-print",
     "name": "アルバムプリント 増えデジ",
     "description": "増えデジアルバムプリント",
     "photoCount": 6,
@@ -191,7 +191,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 24,
-    "categoryId": "album-print-fuedegi",
+    "categoryId": "album-print",
     "name": "アルバムプリント 増えデジ",
     "description": "増えデジアルバムプリント",
     "photoCount": 7,
@@ -200,7 +200,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 25,
-    "categoryId": "album-print-fuedegi",
+    "categoryId": "album-print",
     "name": "アルバムプリント 増えデジ",
     "description": "増えデジアルバムプリント",
     "photoCount": 8,
@@ -209,7 +209,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 26,
-    "categoryId": "album-print-fuedegi",
+    "categoryId": "album-print",
     "name": "アルバムプリント 増えデジ",
     "description": "増えデジアルバムプリント",
     "photoCount": 9,
@@ -218,7 +218,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 27,
-    "categoryId": "album-print-fuedegi",
+    "categoryId": "album-print",
     "name": "アルバムプリント 増えデジ",
     "description": "増えデジアルバムプリント",
     "photoCount": 10,
@@ -227,7 +227,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 28,
-    "categoryId": "album-print-fuedegi",
+    "categoryId": "album-print",
     "name": "アルバムプリント 増えデジ",
     "description": "増えデジアルバムプリント",
     "photoCount": 11,
@@ -236,7 +236,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 29,
-    "categoryId": "album-print-fuedegi",
+    "categoryId": "album-print",
     "name": "アルバムプリント 増えデジ",
     "description": "増えデジアルバムプリント",
     "photoCount": 12,
@@ -246,7 +246,7 @@ export const products: ProductType[] = [
   // Album Print Basic - All variations of "アルバムプリント ベーシック"
   {
     "id": 30,
-    "categoryId": "album-print-basic",
+    "categoryId": "album-print",
     "name": "アルバムプリント ベーシック",
     "description": "ベーシックアルバムプリント",
     "photoCount": 1,
@@ -255,7 +255,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 31,
-    "categoryId": "album-print-basic",
+    "categoryId": "album-print",
     "name": "アルバムプリント ベーシック",
     "description": "ベーシックアルバムプリント",
     "photoCount": 1,
@@ -264,7 +264,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 32,
-    "categoryId": "album-print-basic",
+    "categoryId": "album-print",
     "name": "アルバムプリント ベーシック",
     "description": "ベーシックアルバムプリント",
     "photoCount": 7,
@@ -273,7 +273,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 33,
-    "categoryId": "album-print-basic",
+    "categoryId": "album-print",
     "name": "アルバムプリント ベーシック",
     "description": "ベーシックアルバムプリント",
     "photoCount": 7,
@@ -282,7 +282,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 34,
-    "categoryId": "album-print-basic",
+    "categoryId": "album-print",
     "name": "アルバムプリント ベーシック",
     "description": "ベーシックアルバムプリント",
     "photoCount": 8,
@@ -291,7 +291,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 35,
-    "categoryId": "album-print-basic",
+    "categoryId": "album-print",
     "name": "アルバムプリント ベーシック",
     "description": "ベーシックアルバムプリント",
     "photoCount": 8,
@@ -300,7 +300,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 36,
-    "categoryId": "album-print-basic",
+    "categoryId": "album-print",
     "name": "アルバムプリント ベーシック",
     "description": "ベーシックアルバムプリント",
     "photoCount": 9,
@@ -309,7 +309,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 37,
-    "categoryId": "album-print-basic",
+    "categoryId": "album-print",
     "name": "アルバムプリント ベーシック",
     "description": "ベーシックアルバムプリント",
     "photoCount": 9,
@@ -318,7 +318,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 38,
-    "categoryId": "album-print-basic",
+    "categoryId": "album-print",
     "name": "アルバムプリント ベーシック",
     "description": "ベーシックアルバムプリント",
     "photoCount": 10,
@@ -327,7 +327,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 39,
-    "categoryId": "album-print-basic",
+    "categoryId": "album-print",
     "name": "アルバムプリント ベーシック",
     "description": "ベーシックアルバムプリント",
     "photoCount": 10,
@@ -336,7 +336,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 40,
-    "categoryId": "album-print-basic",
+    "categoryId": "album-print",
     "name": "アルバムプリント ベーシック",
     "description": "ベーシックアルバムプリント",
     "photoCount": 11,
@@ -345,7 +345,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 41,
-    "categoryId": "album-print-basic",
+    "categoryId": "album-print",
     "name": "アルバムプリント ベーシック",
     "description": "ベーシックアルバムプリント",
     "photoCount": 11,
@@ -354,7 +354,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 42,
-    "categoryId": "album-print-basic",
+    "categoryId": "album-print",
     "name": "アルバムプリント ベーシック",
     "description": "ベーシックアルバムプリント",
     "photoCount": 12,
@@ -363,7 +363,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 43,
-    "categoryId": "album-print-basic",
+    "categoryId": "album-print",
     "name": "アルバムプリント ベーシック",
     "description": "ベーシックアルバムプリント",
     "photoCount": 12,
