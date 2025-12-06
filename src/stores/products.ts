@@ -165,12 +165,15 @@ export const useProductsStore = defineStore('products', () => {
     const result: DisplayProductType[] = [];
     
     productGroups.forEach((groupProducts, groupKey) => {
+      if (groupProducts.length === 0) return;
+      const baseProduct = groupProducts[0];
+      if (!baseProduct) return;
+
       if (groupProducts.length === 1) {
         // Single product, no variations
-        result.push(groupProducts[0]);
+        result.push(baseProduct);
       } else {
         // Multiple variations, create grouped product
-        const baseProduct = groupProducts[0];
         const variations: ProductVariationType[] = groupProducts.map(product => ({
           id: product.id,
           variation: product.variation || 'デフォルト',
@@ -189,14 +192,15 @@ export const useProductsStore = defineStore('products', () => {
         photoCounts.forEach(count => {
           photoCountFreq.set(count, (photoCountFreq.get(count) || 0) + 1);
         });
-        const basePhotoCount = Array.from(photoCountFreq.entries())
-          .sort((a, b) => b[1] - a[1])[0][0];
+        const sortedEntries = Array.from(photoCountFreq.entries())
+          .sort((a, b) => b[1] - a[1]);
+        const basePhotoCount = sortedEntries.length > 0 ? (sortedEntries[0] ? sortedEntries[0][0] : 0) : photoCounts[0];
         
         const groupedProduct: GroupedProductType = {
           name: baseProduct.name,
           categoryId: baseProduct.categoryId,
           description: baseProduct.description,
-          basePhotoCount,
+          basePhotoCount: basePhotoCount ?? 0,
           basePrice,
           variations,
           hasMultipleVariations: true
@@ -244,7 +248,7 @@ export const useProductsStore = defineStore('products', () => {
     });
     
     return result;
-  });
+  };
 
   // Helper function to determine if character design fee applies to a product
   const isCharacterDesignApplicable = (product: ProductType): boolean => {
