@@ -89,255 +89,286 @@ export const products: ProductType[] = [
     "photoCount": 0,
     "price": 8800
   },
+  // Album Print Fuedegi - All variations of "アルバムプリント 増えデジ"
   {
     "id": 13,
-    "categoryId": "album-print-fuedegi",
-    "name": "1ポーズタイプ",
-    "description": "1ポーズタイプのアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント 増えデジ",
+    "description": "増えデジアルバムプリント",
     "photoCount": 1,
-    "price": 7590
+    "price": 7590,
+    "variation": "1ポーズタイプ"
   },
   {
     "id": 14,
-    "categoryId": "album-print-fuedegi",
-    "name": "2ポーズAタイプ",
-    "description": "2ポーズAタイプのアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント 増えデジ",
+    "description": "増えデジアルバムプリント",
     "photoCount": 2,
-    "price": 9790
+    "price": 9790,
+    "variation": "2ポーズAタイプ"
   },
   {
     "id": 15,
-    "categoryId": "album-print-fuedegi",
-    "name": "2ポーズBタイプ",
-    "description": "2ポーズBタイプのアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント 増えデジ",
+    "description": "増えデジアルバムプリント",
     "photoCount": 2,
-    "price": 14190
+    "price": 14190,
+    "variation": "2ポーズBタイプ"
   },
   {
     "id": 16,
-    "categoryId": "album-print-fuedegi",
-    "name": "3ポーズAタイプ",
-    "description": "3ポーズAタイプのアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント 増えデジ",
+    "description": "増えデジアルバムプリント",
     "photoCount": 3,
-    "price": 16390
+    "price": 16390,
+    "variation": "3ポーズAタイプ"
   },
   {
     "id": 17,
-    "categoryId": "album-print-fuedegi",
-    "name": "3ポーズBタイプ",
-    "description": "3ポーズBタイプのアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント 増えデジ",
+    "description": "増えデジアルバムプリント",
     "photoCount": 3,
-    "price": 20790
+    "price": 20790,
+    "variation": "3ポーズBタイプ"
   },
   {
     "id": 18,
-    "categoryId": "album-print-fuedegi",
-    "name": "4ポーズAタイプ",
-    "description": "4ポーズAタイプのアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント 増えデジ",
+    "description": "増えデジアルバムプリント",
     "photoCount": 4,
-    "price": 21890
+    "price": 21890,
+    "variation": "4ポーズAタイプ"
   },
   {
     "id": 19,
-    "categoryId": "album-print-fuedegi",
-    "name": "4ポーズBタイプ",
-    "description": "4ポーズBタイプのアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント 増えデジ",
+    "description": "増えデジアルバムプリント",
     "photoCount": 4,
-    "price": 26290
+    "price": 26290,
+    "variation": "4ポーズBタイプ"
   },
   {
     "id": 20,
-    "categoryId": "album-print-fuedegi",
-    "name": "5ポーズAタイプ",
-    "description": "5ポーズAタイプのアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント 増えデジ",
+    "description": "増えデジアルバムプリント",
     "photoCount": 5,
-    "price": 27390
+    "price": 27390,
+    "variation": "5ポーズAタイプ"
   },
   {
     "id": 21,
-    "categoryId": "album-print-fuedegi",
-    "name": "5ポーズBタイプ",
-    "description": "5ポーズBタイプのアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント 増えデジ",
+    "description": "増えデジアルバムプリント",
     "photoCount": 5,
-    "price": 30690
+    "price": 30690,
+    "variation": "5ポーズBタイプ"
   },
   {
     "id": 22,
-    "categoryId": "album-print-fuedegi",
-    "name": "6ポーズAタイプ",
-    "description": "6ポーズAタイプのアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント 増えデジ",
+    "description": "増えデジアルバムプリント",
     "photoCount": 6,
-    "price": 31790
+    "price": 31790,
+    "variation": "6ポーズAタイプ"
   },
   {
     "id": 23,
-    "categoryId": "album-print-fuedegi",
-    "name": "6ポーズBタイプ",
-    "description": "6ポーズBタイプのアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント 増えデジ",
+    "description": "増えデジアルバムプリント",
     "photoCount": 6,
-    "price": 37290
+    "price": 37290,
+    "variation": "6ポーズBタイプ"
   },
   {
     "id": 24,
-    "categoryId": "album-print-fuedegi",
-    "name": "7ポーズAタイプ",
-    "description": "7ポーズAタイプのアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント 増えデジ",
+    "description": "増えデジアルバムプリント",
     "photoCount": 7,
-    "price": 38390
+    "price": 38390,
+    "variation": "7ポーズAタイプ"
   },
   {
     "id": 25,
-    "categoryId": "album-print-fuedegi",
-    "name": "8ポーズAタイプ",
-    "description": "8ポーズAタイプのアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント 増えデジ",
+    "description": "増えデジアルバムプリント",
     "photoCount": 8,
-    "price": 41690
+    "price": 41690,
+    "variation": "8ポーズAタイプ"
   },
   {
     "id": 26,
-    "categoryId": "album-print-fuedegi",
-    "name": "9ポーズAタイプ",
-    "description": "9ポーズAタイプのアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント 増えデジ",
+    "description": "増えデジアルバムプリント",
     "photoCount": 9,
-    "price": 44990
+    "price": 44990,
+    "variation": "9ポーズAタイプ"
   },
   {
     "id": 27,
-    "categoryId": "album-print-fuedegi",
-    "name": "10ポーズAタイプ",
-    "description": "10ポーズAタイプのアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント 増えデジ",
+    "description": "増えデジアルバムプリント",
     "photoCount": 10,
-    "price": 48290
+    "price": 48290,
+    "variation": "10ポーズAタイプ"
   },
   {
     "id": 28,
-    "categoryId": "album-print-fuedegi",
-    "name": "11ポーズAタイプ",
-    "description": "11ポーズAタイプのアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント 増えデジ",
+    "description": "増えデジアルバムプリント",
     "photoCount": 11,
-    "price": 51590
+    "price": 51590,
+    "variation": "11ポーズAタイプ"
   },
   {
     "id": 29,
-    "categoryId": "album-print-fuedegi",
-    "name": "12ポーズAタイプ",
-    "description": "12ポーズAタイプのアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント 増えデジ",
+    "description": "増えデジアルバムプリント",
     "photoCount": 12,
-    "price": 54890
+    "price": 54890,
+    "variation": "12ポーズAタイプ"
   },
+  // Album Print Basic - All variations of "アルバムプリント ベーシック"
   {
     "id": 30,
-    "categoryId": "album-print-basic",
-    "name": "四切 1枚",
-    "description": "四切サイズ 1枚のアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント ベーシック",
+    "description": "ベーシックアルバムプリント",
     "photoCount": 1,
     "price": 6490,
-    "variation": "1枚～6枚は単価×枚数"
+    "variation": "四切 1枚"
   },
   {
     "id": 31,
-    "categoryId": "album-print-basic",
-    "name": "六切 1枚",
-    "description": "六切サイズ 1枚のアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント ベーシック",
+    "description": "ベーシックアルバムプリント",
     "photoCount": 1,
     "price": 5390,
-    "variation": "1枚～6枚は単価×枚数"
+    "variation": "六切 1枚"
   },
   {
     "id": 32,
-    "categoryId": "album-print-basic",
-    "name": "四切 7枚",
-    "description": "四切サイズ 7枚のアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント ベーシック",
+    "description": "ベーシックアルバムプリント",
     "photoCount": 7,
-    "price": 42130
+    "price": 42130,
+    "variation": "四切 7枚"
   },
   {
     "id": 33,
-    "categoryId": "album-print-basic",
-    "name": "六切 7枚",
-    "description": "六切サイズ 7枚のアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント ベーシック",
+    "description": "ベーシックアルバムプリント",
     "photoCount": 7,
-    "price": 35530
+    "price": 35530,
+    "variation": "六切 7枚"
   },
   {
     "id": 34,
-    "categoryId": "album-print-basic",
-    "name": "四切 8枚",
-    "description": "四切サイズ 8枚のアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント ベーシック",
+    "description": "ベーシックアルバムプリント",
     "photoCount": 8,
-    "price": 45320
+    "price": 45320,
+    "variation": "四切 8枚"
   },
   {
     "id": 35,
-    "categoryId": "album-print-basic",
-    "name": "六切 8枚",
-    "description": "六切サイズ 8枚のアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント ベーシック",
+    "description": "ベーシックアルバムプリント",
     "photoCount": 8,
-    "price": 38720
+    "price": 38720,
+    "variation": "六切 8枚"
   },
   {
     "id": 36,
-    "categoryId": "album-print-basic",
-    "name": "四切 9枚",
-    "description": "四切サイズ 9枚のアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント ベーシック",
+    "description": "ベーシックアルバムプリント",
     "photoCount": 9,
-    "price": 48510
+    "price": 48510,
+    "variation": "四切 9枚"
   },
   {
     "id": 37,
-    "categoryId": "album-print-basic",
-    "name": "六切 9枚",
-    "description": "六切サイズ 9枚のアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント ベーシック",
+    "description": "ベーシックアルバムプリント",
     "photoCount": 9,
-    "price": 41910
+    "price": 41910,
+    "variation": "六切 9枚"
   },
   {
     "id": 38,
-    "categoryId": "album-print-basic",
-    "name": "四切 10枚",
-    "description": "四切サイズ 10枚のアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント ベーシック",
+    "description": "ベーシックアルバムプリント",
     "photoCount": 10,
-    "price": 51700
+    "price": 51700,
+    "variation": "四切 10枚"
   },
   {
     "id": 39,
-    "categoryId": "album-print-basic",
-    "name": "六切 10枚",
-    "description": "六切サイズ 10枚のアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント ベーシック",
+    "description": "ベーシックアルバムプリント",
     "photoCount": 10,
-    "price": 45100
+    "price": 45100,
+    "variation": "六切 10枚"
   },
   {
     "id": 40,
-    "categoryId": "album-print-basic",
-    "name": "四切 11枚",
-    "description": "四切サイズ 11枚のアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント ベーシック",
+    "description": "ベーシックアルバムプリント",
     "photoCount": 11,
-    "price": 54890
+    "price": 54890,
+    "variation": "四切 11枚"
   },
   {
     "id": 41,
-    "categoryId": "album-print-basic",
-    "name": "六切 11枚",
-    "description": "六切サイズ 11枚のアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント ベーシック",
+    "description": "ベーシックアルバムプリント",
     "photoCount": 11,
-    "price": 48290
+    "price": 48290,
+    "variation": "六切 11枚"
   },
   {
     "id": 42,
-    "categoryId": "album-print-basic",
-    "name": "四切 12枚",
-    "description": "四切サイズ 12枚のアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント ベーシック",
+    "description": "ベーシックアルバムプリント",
     "photoCount": 12,
-    "price": 58080
+    "price": 58080,
+    "variation": "四切 12枚"
   },
   {
     "id": 43,
-    "categoryId": "album-print-basic",
-    "name": "六切 12枚",
-    "description": "六切サイズ 12枚のアルバムプリント",
+    "categoryId": "album-print",
+    "name": "アルバムプリント ベーシック",
+    "description": "ベーシックアルバムプリント",
     "photoCount": 12,
-    "price": 51480
+    "price": 51480,
+    "variation": "六切 12枚"
   },
   {
     "id": 44,

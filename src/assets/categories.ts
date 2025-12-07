@@ -68,20 +68,6 @@ export const categories: Map<string, Category> = new Map([
 
 // Subcategories
 export const subCategories: Map<string, SubCategory> = new Map([
-  ['album-print-fuedegi', {
-    id: 'album-print-fuedegi',
-    name: '増えデジ',
-    parentCategoryId: 'album-print',
-    icon: BookOpenIcon,
-    shortName: '増えデジ'
-  }],
-  ['album-print-basic', {
-    id: 'album-print-basic',
-    name: 'ベーシック',
-    parentCategoryId: 'album-print',
-    icon: BookOpenIcon,
-    shortName: 'ベーシック'
-  }],
   ['photo-mount-premium', {
     id: 'photo-mount-premium',
     name: 'プレミア',
