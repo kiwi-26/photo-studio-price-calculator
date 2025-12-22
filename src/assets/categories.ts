@@ -8,7 +8,8 @@ import {
   GiftIcon,
   SparklesIcon,
   RectangleGroupIcon,
-  PrinterIcon
+  PrinterIcon,
+  CalendarDaysIcon
 } from '@heroicons/vue/24/outline';
 
 export interface Category {
@@ -63,6 +64,12 @@ export const categories: Map<string, Category> = new Map([
     name: 'ディスプレイアイテム',
     icon: RectangleGroupIcon,
     shortName: 'ディスプレイ'
+  }],
+  ['calendar', {
+    id: 'calendar',
+    name: 'カレンダー',
+    icon: CalendarDaysIcon,
+    shortName: 'カレンダー'
   }]
 ]);
 
@@ -176,5 +183,6 @@ export const categoryStringToIdMap: Record<string, string> = {
   '写真台紙 プレミア': 'photo-mount-premium',
   '写真台紙 プレミア キャラクター': 'photo-mount-premium-character',
   '写真台紙 ギフト': 'photo-mount-gift',
-  '写真台紙 デザイン ポエム付き': 'photo-mount-design-poem'
+  '写真台紙 デザイン ポエム付き': 'photo-mount-design-poem',
+  'カレンダー': 'calendar'
 };

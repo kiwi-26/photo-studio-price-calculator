@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 import { products as productsData } from '../assets/products';
+import { calendarProducts } from '../assets/calendar-products';
 import { getAllCategoriesForDisplay, getSubCategoryIds } from '../assets/categories';
 import type { ProductType, GroupedProductType, ProductVariationType, DisplayProductType } from '../types';
 
@@ -24,8 +25,11 @@ export interface PriceFilter {
 }
 
 export const useProductsStore = defineStore('products', () => {
+  // Merge all products during initialization
+  const allProducts = [...productsData, ...calendarProducts] as ProductType[];
+  
   // State
-  const products = ref<ProductType[]>(productsData as ProductType[]);
+  const products = ref<ProductType[]>(allProducts);
   const selectedCategory = ref<string>('');
   const selectedPoseCountFilter = ref<string>('all');
   const selectedSortOrder = ref<string>('id');
