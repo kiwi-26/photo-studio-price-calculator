@@ -979,7 +979,7 @@ export const products: ProductType[] = [
     "categoryId": "postcard",
     "description": "ポストカードプリント代 ハガキ代別途",
     "price": 1000,
-    "photoCount": 1,
+    "photoCount": 0,
     "id": 116,
     "variation": "10〜30枚 10枚あたり"
   },
@@ -1004,19 +1004,28 @@ export const products: ProductType[] = [
   {
     "name": "ポストカード デザイン料",
     "categoryId": "postcard",
-    "description": "ポストカードのデザイン料（2カット〜）",
-    "price": 1200,
+    "description": "ポストカードのデザイン料（2カット〜有料）",
+    "price": 0,
     "photoCount": 1,
     "id": 119,
+    "variation": "1カットタイプ"
+  },
+  {
+    "name": "ポストカード デザイン料",
+    "categoryId": "postcard",
+    "description": "ポストカードのデザイン料（2カット〜有料）",
+    "price": 1200,
+    "photoCount": 2,
+    "id": 120,
     "variation": "2カットタイプ"
   },
   {
     "name": "ポストカード デザイン料",
     "categoryId": "postcard",
-    "description": "ポストカードのデザイン料（2カット〜）",
+    "description": "ポストカードのデザイン料（2カット〜有料）",
     "price": 1700,
-    "photoCount": 2,
-    "id": 120,
+    "photoCount": 3,
+    "id": 121,
     "variation": "3カットタイプ"
   },
   {
@@ -1025,7 +1034,7 @@ export const products: ProductType[] = [
     "description": "ポストカードのオプション料金",
     "price": 1480,
     "photoCount": 0,
-    "id": 120,
+    "id": 122,
     "variation": "文字入れ料（差出人住所、氏名、電話番号）"
   },
   {
@@ -1034,7 +1043,7 @@ export const products: ProductType[] = [
     "description": "ポストカードのオプション料金",
     "price": 300,
     "photoCount": 0,
-    "id": 121,
+    "id": 123,
     "variation": "文字入れ料（Eメール）"
   }
 ];
