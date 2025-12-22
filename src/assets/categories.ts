@@ -9,7 +9,8 @@ import {
   SparklesIcon,
   RectangleGroupIcon,
   PrinterIcon,
-  CalendarDaysIcon
+  CalendarDaysIcon,
+  PaperAirplaneIcon
 } from '@heroicons/vue/24/outline';
 
 export interface Category {
@@ -76,6 +77,12 @@ export const categories: Map<string, Category> = new Map([
     name: 'アクセサリー',
     icon: SparklesIcon,
     shortName: 'アクセサリー'
+  }],
+  ['postcard', {
+    id: 'postcard',
+    name: 'ポストカード',
+    icon: PaperAirplaneIcon,
+    shortName: 'ポストカード'
   }]
 ]);
 
