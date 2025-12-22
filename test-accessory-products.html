@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessory Products Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .product { border: 1px solid #ccc; margin: 10px 0; padding: 10px; }
+        .category { background-color: #f0f0f0; padding: 5px; margin: 5px 0; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Accessory Products Implementation Test</h1>
+    <div id="results"></div>
+
+    <script type="module">
+        async function testAccessoryProducts() {
+            const resultsDiv = document.getElementById('results');
+            
+            try {
+                // Test importing accessory products
+                const { accessoryProducts } = await import('./src/assets/accessory-products.ts');
+                resultsDiv.innerHTML += '<p class="success">✅ Successfully imported accessory products</p>';
+                
+                // Test product count
+                resultsDiv.innerHTML += `<p class="success">✅ Found ${accessoryProducts.length} accessory products</p>`;
+                
+                // Test categories import
+                const { categories } = await import('./src/assets/categories.ts');
+                const accessoryCategory = categories.get('accessory');
+                
+                if (accessoryCategory) {
+                    resultsDiv.innerHTML += '<p class="success">✅ Accessory category found in categories</p>';
+                    resultsDiv.innerHTML += `<div class="category">Category: ${accessoryCategory.name} (${accessoryCategory.id})</div>`;
+                } else {
+                    resultsDiv.innerHTML += '<p class="error">❌ Accessory category not found</p>';
+                }
+                
+                // Display some sample products
+                resultsDiv.innerHTML += '<h2>Sample Accessory Products:</h2>';
+                accessoryProducts.slice(0, 5).forEach(product => {
+                    resultsDiv.innerHTML += `
+                        <div class="product">
+                            <strong>${product.name}</strong> (ID: ${product.id})<br>
+                            Category: ${product.categoryId}<br>
+                            Price: ¥${product.price.toLocaleString()}<br>
+                            Photo Count: ${product.photoCount}<br>
+                            ${product.variation ? `Variation: ${product.variation}<br>` : ''}
+                            Description: ${product.description}
+                        </div>
+                    `;
+                });
+                
+                // Test products store integration
+                const { useProductsStore } = await import('./src/stores/products.ts');
+                resultsDiv.innerHTML += '<p class="success">✅ Products store imported successfully</p>';
+                
+            } catch (error) {
+                resultsDiv.innerHTML += `<p class="error">❌ Error: ${error.message}</p>`;
+                console.error('Test error:', error);
+            }
+        }
+        
+        testAccessoryProducts();
+    </script>
+</body>
+</html>

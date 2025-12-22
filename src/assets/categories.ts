@@ -70,6 +70,12 @@ export const categories: Map<string, Category> = new Map([
     name: 'カレンダー',
     icon: CalendarDaysIcon,
     shortName: 'カレンダー'
+  }],
+  ['accessory', {
+    id: 'accessory',
+    name: 'アクセサリー',
+    icon: SparklesIcon,
+    shortName: 'アクセサリー'
   }]
 ]);
 
