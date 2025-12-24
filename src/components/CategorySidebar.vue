@@ -130,7 +130,6 @@ const props = defineProps<{
   selectedPoseCountFilter?: string;
   selectedSortOrder?: string;
   selectedPriceFilter?: string;
-  characterDesignFee?: boolean;
 }>();
 
 const emit = defineEmits<{
@@ -162,10 +161,6 @@ const activeFiltersCount = computed(() => {
     count++;
   }
   
-  if (props.characterDesignFee) {
-    count++;
-  }
-  
   return count;
 });
 
@@ -183,10 +178,6 @@ const filterSummary = computed(() => {
   
   if (props.selectedPriceFilter && props.selectedPriceFilter !== 'all') {
     summaryParts.push('価格');
-  }
-  
-  if (props.characterDesignFee) {
-    summaryParts.push('キャラデザ');
   }
   
   return summaryParts.length > 0 ? `適用中: ${summaryParts.join(', ')}` : '';
