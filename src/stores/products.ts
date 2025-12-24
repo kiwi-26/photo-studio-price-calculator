@@ -3,6 +3,7 @@ import { ref, computed } from 'vue';
 import { products as productsData } from '../assets/products';
 import { calendarProducts } from '../assets/calendar-products';
 import { accessoryProducts } from '../assets/accessory-products';
+import { photoProcessingProducts } from '../assets/photo-processing-products';
 import { getAllCategoriesForDisplay, getSubCategoryIds } from '../assets/categories';
 import type { ProductType, GroupedProductType, ProductVariationType, DisplayProductType } from '../types';
 
@@ -27,7 +28,7 @@ export interface PriceFilter {
 
 export const useProductsStore = defineStore('products', () => {
   // Merge all products during initialization
-  const allProducts = [...productsData, ...calendarProducts, ...accessoryProducts] as ProductType[];
+  const allProducts = [...productsData, ...calendarProducts, ...accessoryProducts, ...photoProcessingProducts] as ProductType[];
   
   // State
   const products = ref<ProductType[]>(allProducts);

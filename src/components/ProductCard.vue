@@ -33,6 +33,16 @@
       <div v-if="product.variation" class="text-center pt-1 border-t border-primary/20">
         <span class="text-sm opacity-75">{{ product.variation }}</span>
       </div>
+      
+      <!-- Quantity Limit Info -->
+      <div v-if="hasQuantityLimit" class="text-center pt-1 border-t border-primary/20">
+        <span class="text-xs text-yellow-600 dark:text-yellow-400">
+          最大{{ product.maxQuantity }}個まで
+          <span v-if="remainingQuantity !== null" class="block">
+            残り{{ remainingQuantity }}個
+          </span>
+        </span>
+      </div>
     </div>
     
     <!-- Action Buttons -->
@@ -44,10 +54,17 @@
         詳細
       </button>
       <button 
-        @click="$emit('add-to-cart', product)" 
-        class="flex-1 bg-primary text-white border-none py-1.5 sm:py-2 text-xs sm:text-sm font-semibold rounded transition-colors duration-200 hover:bg-primary-hover"
+        @click="handleAddToCart" 
+        :disabled="!canAddToCart"
+        :class="[
+          'flex-1 border-none py-1.5 sm:py-2 text-xs sm:text-sm font-semibold rounded transition-colors duration-200',
+          canAddToCart 
+            ? 'bg-primary text-white hover:bg-primary-hover' 
+            : 'bg-gray-400 text-gray-200 cursor-not-allowed'
+        ]"
       >
-        追加
+        <span v-if="canAddToCart">追加</span>
+        <span v-else>上限</span>
       </button>
     </div>
   </div>
@@ -57,7 +74,7 @@
 import { computed } from 'vue';
 import { CameraIcon } from '@heroicons/vue/24/solid';
 import { getCategoryDisplayName } from '../assets/categories';
-import { useProductsStore } from '../stores';
+import { useProductsStore, useCartStore } from '../stores';
 import type { ProductType } from '../types';
 
 const props = defineProps<{ product: ProductType }>();
@@ -67,6 +84,7 @@ defineEmits<{
 }>();
 
 const productsStore = useProductsStore();
+const cartStore = useCartStore();
 
 const effectivePrice = computed(() => {
   return productsStore.getEffectivePrice(props.product);
@@ -75,4 +93,22 @@ const effectivePrice = computed(() => {
 const hasCharacterDesignFee = computed(() => {
   return productsStore.characterDesignFee && productsStore.isCharacterDesignApplicable(props.product);
 });
+
+const hasQuantityLimit = computed(() => {
+  return props.product.maxQuantity !== undefined;
+});
+
+const canAddToCart = computed(() => {
+  return cartStore.canAddToCart(props.product);
+});
+
+const remainingQuantity = computed(() => {
+  return cartStore.getRemainingQuantity(props.product);
+});
+
+const handleAddToCart = () => {
+  if (canAddToCart.value) {
+    cartStore.addToCart(props.product);
+  }
+};
 </script>

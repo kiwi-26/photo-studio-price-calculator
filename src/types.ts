@@ -6,6 +6,7 @@ export interface ProductType {
   photoCount: number;
   price: number;
   variation?: string;
+  maxQuantity?: number; // Maximum quantity that can be purchased (undefined = unlimited)
 }
 
 export interface CartItemType extends ProductType {
