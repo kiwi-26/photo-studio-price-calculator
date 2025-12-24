@@ -41,6 +41,16 @@
           @update:selected-category="productsStore.setSelectedCategory"
           @show-detail="handleShowDetail"
         />
+        
+        <!-- About This Site Link -->
+        <div class="text-center py-4">
+          <button
+            @click="openAboutModal"
+            class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline text-sm transition-colors"
+          >
+            このサイトについて
+          </button>
+        </div>
       </div>
 
       <!-- Sticky Cart Footer - Always visible -->
@@ -76,6 +86,12 @@
       @close="closeFilterModal"
       @apply-filters="applyFilters"
     />
+
+    <!-- About Site Modal -->
+    <AboutSiteModal
+      :is-open="aboutModalState.isOpen"
+      @close="closeAboutModal"
+    />
   </div>
 </template>
 
@@ -87,6 +103,7 @@ import ProductsList from './components/ProductsList.vue';
 import StickyCartFooter from './components/StickyCartFooter.vue';
 import ProductDetailModal from './components/ProductDetailModal.vue';
 import ProductFilterModal from './components/ProductFilterModal.vue';
+import AboutSiteModal from './components/AboutSiteModal.vue';
 import ProductEditor from './components/ProductEditor.vue';
 import { useProductsStore, useCartStore, useProductEditorStore } from './stores';
 import type { ProductType } from './types';
@@ -111,6 +128,11 @@ const modalState = ref({
 
 // Filter modal state management
 const filterModalState = ref({
+  isOpen: false
+});
+
+// About modal state management
+const aboutModalState = ref({
   isOpen: false
 });
 
@@ -151,5 +173,14 @@ const applyFilters = (filters: {
   productsStore.setSelectedSortOrder(filters.sortOrder);
   productsStore.setSelectedPriceFilter(filters.priceFilter);
   productsStore.setCharacterDesignFee(filters.characterDesignFee);
+};
+
+// About modal methods
+const openAboutModal = () => {
+  aboutModalState.value.isOpen = true;
+};
+
+const closeAboutModal = () => {
+  aboutModalState.value.isOpen = false;
 };
 </script>
