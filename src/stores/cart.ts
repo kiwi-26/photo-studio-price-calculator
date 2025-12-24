@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 import type { ProductType, CartItemType } from '../types';
-import { Analytics } from '../utils';
+import { Analytics, TaxUtils } from '../utils';
 import { useProductsStore } from './products';
 
 // Interface for grouped cart items display
@@ -27,13 +27,14 @@ export const useCartStore = defineStore('cart', () => {
   });
 
   // Calculate total excluding image data products (for 50k threshold calculation)
+  // This uses tax-inclusive prices as per business requirements
   const nonDataProductTotal = computed(() => {
     return cart.value
       .filter(item => item.categoryId !== 'image-data')
-      .reduce((total, item) => total + (item.price * item.quantity), 0);
+      .reduce((total, item) => total + (TaxUtils.toTaxInclusive(item.price) * item.quantity), 0);
   });
 
-  // Check if 50k threshold is met (excluding data products)
+  // Check if 50k threshold is met (excluding data products, using tax-inclusive prices)
   const isThresholdMet = computed(() => {
     return nonDataProductTotal.value >= 50000;
   });
@@ -196,6 +197,17 @@ export const useCartStore = defineStore('cart', () => {
     return currentQuantity < product.maxQuantity;
   };
 
+  // Helper function to get remaining quantity that can be added
+  const getRemainingQuantity = (product: ProductType): number | null => {
+    if (product.maxQuantity === undefined) {
+      return null; // No limit
+    }
+    
+    const existingItem = cart.value.find(item => item.id === product.id);
+    const currentQuantity = existingItem ? existingItem.quantity : 0;
+    return Math.max(0, product.maxQuantity - currentQuantity);
+  };
+
   // Helper function to check if a data product can be ordered based on business rules
   const canOrderDataProduct = (product: ProductType): boolean => {
     // If it's not an image data product, no special rules apply
@@ -220,17 +232,6 @@ export const useCartStore = defineStore('cart', () => {
   // Combined check for product availability
   const isProductAvailable = (product: ProductType): boolean => {
     return canAddToCart(product) && canOrderDataProduct(product);
-  };
-
-  // Helper function to get remaining quantity that can be added
-  const getRemainingQuantity = (product: ProductType): number | null => {
-    if (product.maxQuantity === undefined) {
-      return null; // No limit
-    }
-    
-    const existingItem = cart.value.find(item => item.id === product.id);
-    const currentQuantity = existingItem ? existingItem.quantity : 0;
-    return Math.max(0, product.maxQuantity - currentQuantity);
   };
 
   return {

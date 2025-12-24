@@ -8,6 +8,37 @@ declare global {
 }
 
 /**
+ * Tax calculation constants and utilities
+ */
+export const TAX_RATE = 0.10; // Japan consumption tax rate (10%)
+
+/**
+ * Tax calculation utility functions
+ */
+export class TaxUtils {
+  /**
+   * Convert tax-exclusive price to tax-inclusive price
+   */
+  static toTaxInclusive(taxExclusivePrice: number): number {
+    return Math.floor(taxExclusivePrice * (1 + TAX_RATE));
+  }
+
+  /**
+   * Convert tax-inclusive price to tax-exclusive price
+   */
+  static toTaxExclusive(taxInclusivePrice: number): number {
+    return Math.floor(taxInclusivePrice / (1 + TAX_RATE));
+  }
+
+  /**
+   * Calculate tax amount from tax-exclusive price
+   */
+  static getTaxAmount(taxExclusivePrice: number): number {
+    return Math.floor(taxExclusivePrice * TAX_RATE);
+  }
+}
+
+/**
  * GA4 Analytics utility functions
  */
 export class Analytics {
