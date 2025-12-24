@@ -10,7 +10,8 @@ import {
   RectangleGroupIcon,
   PrinterIcon,
   CalendarDaysIcon,
-  PaperAirplaneIcon
+  PaperAirplaneIcon,
+  CloudArrowDownIcon
 } from '@heroicons/vue/24/outline';
 
 export interface Category {
@@ -89,6 +90,12 @@ export const categories: Map<string, Category> = new Map([
     name: '写真加工',
     icon: PaintBrushIcon,
     shortName: '写真加工'
+  }],
+  ['image-data', {
+    id: 'image-data',
+    name: '画像データ',
+    icon: CloudArrowDownIcon,
+    shortName: '画像データ'
   }]
 ]);
 

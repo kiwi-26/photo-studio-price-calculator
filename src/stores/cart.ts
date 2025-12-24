@@ -26,6 +26,18 @@ export const useCartStore = defineStore('cart', () => {
     return cart.value.reduce((total, item) => total + (item.price * item.quantity), 0);
   });
 
+  // Calculate total excluding image data products (for 50k threshold calculation)
+  const nonDataProductTotal = computed(() => {
+    return cart.value
+      .filter(item => item.categoryId !== 'image-data')
+      .reduce((total, item) => total + (item.price * item.quantity), 0);
+  });
+
+  // Check if 50k threshold is met (excluding data products)
+  const isThresholdMet = computed(() => {
+    return nonDataProductTotal.value >= 50000;
+  });
+
   const isEmpty = computed(() => {
     return cart.value.length === 0;
   });
@@ -69,6 +81,12 @@ export const useCartStore = defineStore('cart', () => {
   const addToCart = (product: ProductType) => {
     const productsStore = useProductsStore();
     const effectivePrice = productsStore.getEffectivePrice(product);
+    
+    // Check if product is available based on business rules
+    if (!isProductAvailable(product)) {
+      console.warn(`Cannot add ${product.name} - product is not available based on current cart state`);
+      return false;
+    }
     
     // Check if product has a maximum quantity limit
     if (product.maxQuantity !== undefined) {
@@ -178,6 +196,32 @@ export const useCartStore = defineStore('cart', () => {
     return currentQuantity < product.maxQuantity;
   };
 
+  // Helper function to check if a data product can be ordered based on business rules
+  const canOrderDataProduct = (product: ProductType): boolean => {
+    // If it's not an image data product, no special rules apply
+    if (product.categoryId !== 'image-data') {
+      return true;
+    }
+
+    // Products that require threshold: only available when threshold is met
+    if (product.requiresThreshold) {
+      return isThresholdMet.value;
+    }
+
+    // Products that become unavailable when threshold is met
+    if (product.unavailableWhenThresholdMet) {
+      return !isThresholdMet.value;
+    }
+
+    // Other data products (like 1-year later) are always available
+    return true;
+  };
+
+  // Combined check for product availability
+  const isProductAvailable = (product: ProductType): boolean => {
+    return canAddToCart(product) && canOrderDataProduct(product);
+  };
+
   // Helper function to get remaining quantity that can be added
   const getRemainingQuantity = (product: ProductType): number | null => {
     if (product.maxQuantity === undefined) {
@@ -195,6 +239,8 @@ export const useCartStore = defineStore('cart', () => {
     // Getters
     cartItemsCount,
     cartTotal,
+    nonDataProductTotal,
+    isThresholdMet,
     isEmpty,
     groupedCartItems,
     // Actions
@@ -207,6 +253,8 @@ export const useCartStore = defineStore('cart', () => {
     getCartItemById,
     isInCart,
     canAddToCart,
+    canOrderDataProduct,
+    isProductAvailable,
     getRemainingQuantity
   };
 });

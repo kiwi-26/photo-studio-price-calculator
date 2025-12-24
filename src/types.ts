@@ -7,6 +7,8 @@ export interface ProductType {
   price: number;
   variation?: string;
   maxQuantity?: number; // Maximum quantity that can be purchased (undefined = unlimited)
+  requiresThreshold?: boolean; // Requires 50k threshold to be orderable
+  unavailableWhenThresholdMet?: boolean; // Becomes unavailable when 50k threshold is met
 }
 
 export interface CartItemType extends ProductType {
