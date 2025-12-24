@@ -83,6 +83,12 @@ export const categories: Map<string, Category> = new Map([
     name: 'ポストカード',
     icon: PaperAirplaneIcon,
     shortName: 'ポストカード'
+  }],
+  ['photo-processing', {
+    id: 'photo-processing',
+    name: '写真加工',
+    icon: PaintBrushIcon,
+    shortName: '写真加工'
   }]
 ]);
 

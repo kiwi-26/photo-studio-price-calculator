@@ -53,7 +53,20 @@
           </div>
           <div class="text-center">
             <div class="text-sm text-gray-600 dark:text-gray-300 mb-1">価格</div>
-            <span class="text-lg font-semibold text-success">¥{{ currentProduct.price.toLocaleString() }}</span>
+            <span class="text-lg font-semibold text-success">¥{{ effectivePrice.toLocaleString() }}</span>
+            <div v-if="hasCharacterDesignFee" class="text-xs text-orange-600 dark:text-orange-400">
+              キャラデザ料込み
+            </div>
+          </div>
+        </div>
+
+        <!-- Quantity Limit Information -->
+        <div v-if="hasQuantityLimit" class="mb-4 p-2 bg-yellow-50 dark:bg-yellow-900/20 rounded border-l-4 border-yellow-400">
+          <div class="text-sm text-yellow-700 dark:text-yellow-300">
+            <span class="font-medium">購入制限:</span> 最大{{ currentProduct.maxQuantity }}個まで
+            <span v-if="remainingQuantity !== null" class="block text-xs mt-1">
+              残り{{ remainingQuantity }}個追加可能
+            </span>
           </div>
         </div>
 
@@ -115,7 +128,8 @@
             
             <button 
               @click="incrementQuantity"
-              class="w-10 h-10 rounded-full bg-primary text-white hover:bg-primary-hover transition-colors flex items-center justify-center"
+              :disabled="!canAddToCart"
+              class="w-10 h-10 rounded-full bg-primary text-white hover:bg-primary-hover disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors flex items-center justify-center"
             >
               <PlusIcon class="w-4 h-4" />
             </button>
@@ -124,9 +138,12 @@
           <!-- Quick Add Button -->
           <button 
             @click="addToCart"
-            class="w-full mt-3 bg-primary text-white py-2 px-4 rounded-lg font-semibold hover:bg-primary-hover transition-colors"
+            :disabled="!canAddToCart"
+            class="w-full mt-3 bg-primary text-white py-2 px-4 rounded-lg font-semibold hover:bg-primary-hover disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
           >
-            カートに追加
+            <span v-if="canAddToCart">カートに追加</span>
+            <span v-else-if="hasQuantityLimit">購入上限に達しました</span>
+            <span v-else>カートに追加</span>
           </button>
         </div>
       </div>
@@ -230,6 +247,30 @@ const currentCartQuantity = computed(() => {
   return cartItem ? cartItem.quantity : 0;
 });
 
+// Quantity limit related computed properties
+const canAddToCart = computed(() => {
+  if (!currentProduct.value) return false;
+  return cartStore.canAddToCart(currentProduct.value);
+});
+
+const remainingQuantity = computed(() => {
+  if (!currentProduct.value) return null;
+  return cartStore.getRemainingQuantity(currentProduct.value);
+});
+
+const hasQuantityLimit = computed(() => {
+  return currentProduct.value?.maxQuantity !== undefined;
+});
+
+const effectivePrice = computed(() => {
+  if (!currentProduct.value) return 0;
+  return productsStore.getEffectivePrice(currentProduct.value);
+});
+
+const hasCharacterDesignFee = computed(() => {
+  return currentProduct.value && productsStore.characterDesignFee && productsStore.isCharacterDesignApplicable(currentProduct.value);
+});
+
 const hasPrevious = computed(() => currentIndex.value > 0);
 const hasNext = computed(() => currentIndex.value < props.productList.length - 1);
 
@@ -253,7 +294,11 @@ const incrementQuantity = () => {
     if (currentCartQuantity.value === 0) {
       cartStore.addToCart(currentProduct.value);
     } else {
-      cartStore.updateQuantityById(currentProduct.value.id, currentCartQuantity.value + 1);
+      // Check if we can increase quantity (respects maxQuantity)
+      const newQuantity = currentCartQuantity.value + 1;
+      if (currentProduct.value.maxQuantity === undefined || newQuantity <= currentProduct.value.maxQuantity) {
+        cartStore.updateQuantityById(currentProduct.value.id, newQuantity);
+      }
     }
   }
 };
