@@ -35,9 +35,6 @@
       <div v-if="hasQuantityLimit" class="text-center pt-1 border-t border-primary/20">
         <span class="text-xs text-yellow-600 dark:text-yellow-400">
           最大{{ product.maxQuantity }}個まで
-          <span v-if="remainingQuantity !== null" class="block">
-            残り{{ remainingQuantity }}個
-          </span>
         </span>
       </div>
       
