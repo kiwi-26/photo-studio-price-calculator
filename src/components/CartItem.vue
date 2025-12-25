@@ -47,7 +47,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue';
 import { getCategoryDisplayName } from '../assets/categories';
 import type { CartItemType } from '../types';
 

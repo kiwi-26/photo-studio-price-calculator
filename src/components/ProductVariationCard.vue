@@ -34,11 +34,11 @@
       <div 
         v-for="variation in product.variations" 
         :key="variation.id"
-        class="flex items-center justify-between p-2 bg-white/50 rounded border border-primary/10"
+        class="flex items-center justify-between p-2 bg-white/50 dark:bg-black/50 rounded border border-primary/10"
       >
         <div class="flex-1 min-w-0">
-          <div class="text-xs font-medium text-gray-700 truncate">{{ variation.variation }}</div>
-          <div class="flex items-center gap-2 text-xs text-gray-600">
+          <div class="text-xs font-medium text-gray-700 dark:text-gray-300 truncate">{{ variation.variation }}</div>
+          <div class="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400">
             <span class="flex items-center">
               <CameraIcon class="w-2.5 h-2.5 mr-1" />
               {{ variation.photoCount }}
@@ -59,7 +59,7 @@
     <div class="flex gap-2">
       <button 
         @click="$emit('show-detail', getFirstVariationAsProduct())" 
-        class="flex-1 bg-pink-100 dark:bg-pink-600 bg-opacity-50 text-gray-700 dark:text-gray-300 border border-pink-200 dark:border-pink-600 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold rounded transition-colors duration-200 hover:bg-pink-100 dark:hover:bg-pink-500"
+        class="flex-1 bg-pink-100 dark:bg-pink-950 bg-opacity-50 text-gray-700 dark:text-gray-300 border border-pink-200 dark:border-pink-700 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold rounded transition-colors duration-200 hover:bg-pink-100 dark:hover:bg-pink-800"
       >
         詳細
       </button>

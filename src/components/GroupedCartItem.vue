@@ -4,7 +4,7 @@
     <div class="mb-3">
       <h4 class="text-base font-semibold mb-1">{{ groupedItem.name }}</h4>
       <p class="text-sm opacity-70">{{ getCategoryDisplayName(groupedItem.categoryId) }}</p>
-      <div class="text-sm text-gray-600 mt-1">
+      <div class="text-sm text-gray-600 dark:text-gray-300 mt-1">
         <span class="font-medium">合計: {{ groupedItem.totalQuantity }}個</span>
         <span class="ml-3 text-success font-semibold">¥{{ groupedItem.totalPrice.toLocaleString() }}</span>
       </div>
@@ -15,7 +15,7 @@
       <div 
         v-for="(item, index) in groupedItem.items" 
         :key="item.id"
-        class="flex justify-between items-start p-3 bg-white/50 rounded border border-primary/10"
+        class="flex justify-between items-start p-3 bg-white/50 dark:bg-black/50 rounded border border-primary/10"
       >
         <div class="flex-1">
           <!-- Variation Name -->
@@ -23,7 +23,7 @@
             <span class="text-sm font-medium text-blue-700 dark:text-blue-300">{{ item.variation }}</span>
           </div>
           <div v-else class="mb-1">
-            <span class="text-sm font-medium text-gray-600">標準</span>
+            <span class="text-sm font-medium text-gray-600 dark:text-gray-300">標準</span>
           </div>
           
           <!-- Item Details -->
@@ -50,7 +50,7 @@
                 +
               </button>
             </div>
-            <span class="text-sm text-gray-600 ml-auto">
+            <span class="text-sm text-gray-600 dark:text-gray-300 ml-auto">
               小計: ¥{{ (item.price * item.quantity).toLocaleString() }}
             </span>
           </div>

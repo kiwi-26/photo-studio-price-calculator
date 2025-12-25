@@ -56,7 +56,7 @@
     <div class="flex gap-2">
       <button 
         @click="$emit('show-detail', product)" 
-        class="flex-1 bg-pink-100 dark:bg-pink-600 bg-opacity-50 text-gray-700 dark:text-gray-300 border border-pink-200 dark:border-pink-600 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold rounded transition-colors duration-200 hover:bg-pink-100 dark:hover:bg-pink-500"
+        class="flex-1 bg-pink-100 dark:bg-pink-950 bg-opacity-50 text-gray-700 dark:text-gray-300 border border-pink-200 dark:border-pink-700 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold rounded transition-colors duration-200 hover:bg-pink-100 dark:hover:bg-pink-800"
       >
         詳細
       </button>
