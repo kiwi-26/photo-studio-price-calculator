@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { createTestPinia } from '../utils';
-import { useProductsStore } from '../../src/stores/products';
-import type { ProductType } from '../../src/types';
+import { createTestPinia } from '../../utils';
+import { useProductsStore } from '../../../src/stores/products';
+import type { ProductType } from '../../../src/types';
 
 describe('Products Store', () => {
   let store: ReturnType<typeof useProductsStore>;

@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { mountWithPinia } from '../../utils';
 import ProductCard from '../../../src/components/ProductCard.vue';
 import type { ProductType } from '../../../src/types';
