@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permalink Functionality Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .success {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+        .error {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+        .code {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 3px;
+            font-family: monospace;
+            margin: 10px 0;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Permalink Functionality Test</h1>
+    
+    <div class="test-section">
+        <h2>Test 1: URL Encoding/Decoding</h2>
+        <p>Testing the UrlUtils class functions for encoding and decoding cart data.</p>
+        <div id="test1-result"></div>
+        <button onclick="runTest1()">Run Test 1</button>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 2: URL Generation</h2>
+        <p>Testing URL generation with sample cart data.</p>
+        <div id="test2-result"></div>
+        <button onclick="runTest2()">Run Test 2</button>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 3: URL Parameter Parsing</h2>
+        <p>Testing URL parameter parsing from current URL.</p>
+        <div id="test3-result"></div>
+        <button onclick="runTest3()">Run Test 3</button>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 4: Manual URL Test</h2>
+        <p>Click the button below to generate a test URL and navigate to it:</p>
+        <div id="test4-result"></div>
+        <button onclick="runTest4()">Generate Test URL</button>
+    </div>
+
+    <script type="module">
+        // Import the UrlUtils class (simulated for testing)
+        class UrlUtils {
+            static encodeCartToUrl(cart) {
+                if (cart.length === 0) {
+                    return '';
+                }
+                
+                return cart
+                    .map(item => `${item.id}:${item.quantity}`)
+                    .join(',');
+            }
+
+            static decodeUrlToCartData(urlParam) {
+                if (!urlParam || urlParam.trim() === '') {
+                    return [];
+                }
+
+                try {
+                    return urlParam
+                        .split(',')
+                        .map(pair => {
+                            const [id, qty] = pair.split(':');
+                            if (!id || !qty) {
+                                throw new Error(`Invalid pair format: ${pair}`);
+                            }
+                            
+                            const quantity = parseInt(qty, 10);
+                            if (isNaN(quantity) || quantity <= 0) {
+                                throw new Error(`Invalid quantity: ${qty}`);
+                            }
+
+                            const parsedId = isNaN(Number(id)) ? id : Number(id);
+                            
+                            return { id: parsedId, quantity };
+                        })
+                        .filter(item => item.id !== null && item.id !== undefined);
+                } catch (error) {
+                    console.warn('Failed to decode URL cart data:', error);
+                    return [];
+                }
+            }
+
+            static generateShareableUrl(cart) {
+                const baseUrl = window.location.origin + window.location.pathname;
+                const cartParam = this.encodeCartToUrl(cart);
+                
+                if (cartParam === '') {
+                    return baseUrl;
+                }
+                
+                const url = new URL(baseUrl);
+                url.searchParams.set('items', cartParam);
+                return url.toString();
+            }
+
+            static getCartDataFromUrl() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const itemsParam = urlParams.get('items');
+                
+                if (!itemsParam) {
+                    return [];
+                }
+                
+                return this.decodeUrlToCartData(itemsParam);
+            }
+        }
+
+        // Test functions
+        window.runTest1 = function() {
+            const testCart = [
+                { id: 1, quantity: 2 },
+                { id: 'abc', quantity: 1 },
+                { id: 42, quantity: 5 }
+            ];
+
+            const encoded = UrlUtils.encodeCartToUrl(testCart);
+            const decoded = UrlUtils.decodeUrlToCartData(encoded);
+
+            const result = document.getElementById('test1-result');
+            
+            if (encoded === '1:2,abc:1,42:5' && decoded.length === 3) {
+                result.innerHTML = `
+                    <div class="success">
+                        <strong>✓ Test 1 PASSED</strong><br>
+                        <div class="code">Encoded: ${encoded}</div>
+                        <div class="code">Decoded: ${JSON.stringify(decoded)}</div>
+                    </div>
+                `;
+            } else {
+                result.innerHTML = `
+                    <div class="error">
+                        <strong>✗ Test 1 FAILED</strong><br>
+                        <div class="code">Expected: 1:2,abc:1,42:5</div>
+                        <div class="code">Got: ${encoded}</div>
+                        <div class="code">Decoded: ${JSON.stringify(decoded)}</div>
+                    </div>
+                `;
+            }
+        };
+
+        window.runTest2 = function() {
+            const testCart = [
+                { id: 1, quantity: 2 },
+                { id: 2, quantity: 1 }
+            ];
+
+            const url = UrlUtils.generateShareableUrl(testCart);
+            const result = document.getElementById('test2-result');
+            
+            if (url.includes('items=1:2,2:1')) {
+                result.innerHTML = `
+                    <div class="success">
+                        <strong>✓ Test 2 PASSED</strong><br>
+                        <div class="code">Generated URL: ${url}</div>
+                    </div>
+                `;
+            } else {
+                result.innerHTML = `
+                    <div class="error">
+                        <strong>✗ Test 2 FAILED</strong><br>
+                        <div class="code">Generated URL: ${url}</div>
+                    </div>
+                `;
+            }
+        };
+
+        window.runTest3 = function() {
+            const cartData = UrlUtils.getCartDataFromUrl();
+            const result = document.getElementById('test3-result');
+            
+            result.innerHTML = `
+                <div class="success">
+                    <strong>Current URL Cart Data:</strong><br>
+                    <div class="code">${JSON.stringify(cartData, null, 2)}</div>
+                    <p>If the URL contains ?items=1:2,2:1, you should see cart data above.</p>
+                </div>
+            `;
+        };
+
+        window.runTest4 = function() {
+            const testUrl = window.location.origin + window.location.pathname + '?items=1:2,2:1,3:3';
+            const result = document.getElementById('test4-result');
+            
+            result.innerHTML = `
+                <div class="success">
+                    <strong>Test URL Generated:</strong><br>
+                    <div class="code">${testUrl}</div>
+                    <p><a href="${testUrl}" target="_blank">Click here to test the URL</a></p>
+                    <p>The new page should show cart data when you run Test 3.</p>
+                </div>
+            `;
+        };
+
+        // Auto-run Test 3 on page load to show current URL state
+        window.addEventListener('load', () => {
+            runTest3();
+        });
+    </script>
+</body>
+</html>

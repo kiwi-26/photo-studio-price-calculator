@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 import type { ProductType, CartItemType } from '../types';
-import { Analytics, TaxUtils } from '../utils';
+import { Analytics, TaxUtils, UrlUtils } from '../utils';
 import { useProductsStore } from './products';
 
 // Interface for grouped cart items display
@@ -223,6 +223,83 @@ export const useCartStore = defineStore('cart', () => {
     return canAddToCart(product) && canOrderDataProduct(product);
   };
 
+  // Permalink and sharing functionality
+  const generateShareableUrl = (): string => {
+    return UrlUtils.generateShareableUrl(cart.value);
+  };
+
+  const loadCartFromUrl = (): boolean => {
+    try {
+      const cartData = UrlUtils.getCartDataFromUrl();
+      if (cartData.length === 0) {
+        return false; // No cart data in URL
+      }
+
+      const productsStore = useProductsStore();
+      const validItems: CartItemType[] = [];
+
+      // Validate and convert cart data to cart items
+      for (const item of cartData) {
+        const product = productsStore.getProductById(item.id);
+        if (product) {
+          // Respect max quantity limits
+          let quantity = item.quantity;
+          if (product.maxQuantity !== undefined && quantity > product.maxQuantity) {
+            quantity = product.maxQuantity;
+            console.warn(`Quantity for ${product.name} reduced to maximum allowed: ${product.maxQuantity}`);
+          }
+
+          validItems.push({
+            ...product,
+            quantity
+          });
+        } else {
+          console.warn(`Product with ID ${item.id} not found, skipping`);
+        }
+      }
+
+      if (validItems.length > 0) {
+        // Clear current cart and load new items
+        cart.value = validItems;
+        
+        // Track analytics for loaded cart
+        Analytics.trackEvent('load_cart_from_url', {
+          total_items: validItems.length,
+          total_quantity: validItems.reduce((sum, item) => sum + item.quantity, 0)
+        });
+        
+        return true;
+      }
+      
+      return false;
+    } catch (error) {
+      console.error('Failed to load cart from URL:', error);
+      return false;
+    }
+  };
+
+  const shareEstimate = async (): Promise<{ success: boolean; url?: string; error?: string }> => {
+    try {
+      if (cart.value.length === 0) {
+        return { success: false, error: '見積もりが空です' };
+      }
+
+      const shareableUrl = generateShareableUrl();
+      const copySuccess = await UrlUtils.copyToClipboard(shareableUrl);
+      
+      if (copySuccess) {
+        // Track share event
+        Analytics.trackShareEstimate(cart.value);
+        return { success: true, url: shareableUrl };
+      } else {
+        return { success: false, error: 'クリップボードへのコピーに失敗しました', url: shareableUrl };
+      }
+    } catch (error) {
+      console.error('Failed to share estimate:', error);
+      return { success: false, error: 'リンクの生成に失敗しました' };
+    }
+  };
+
   return {
     // State
     cart,
@@ -245,6 +322,10 @@ export const useCartStore = defineStore('cart', () => {
     canAddToCart,
     canOrderDataProduct,
     isProductAvailable,
-    getRemainingQuantity
+    getRemainingQuantity,
+    // Permalink and sharing functionality
+    generateShareableUrl,
+    loadCartFromUrl,
+    shareEstimate
   };
 });
