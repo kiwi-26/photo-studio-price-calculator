@@ -40,6 +40,16 @@
           </span>
         </span>
       </div>
+      
+      <!-- Data Product Status Info -->
+      <div v-if="isDataProduct && dataProductStatus !== 'available'" class="text-center pt-1 border-t border-primary/20">
+        <span v-if="dataProductStatus === 'requires-threshold'" class="text-xs text-blue-600 dark:text-blue-400">
+          データ商品以外で税込50,000円以上購入時に注文可能
+        </span>
+        <span v-else-if="dataProductStatus === 'unavailable-threshold-met'" class="text-xs text-red-600 dark:text-red-400">
+          50,000円以上購入時は選択不可
+        </span>
+      </div>
     </div>
     
     <!-- Action Buttons -->
@@ -61,7 +71,10 @@
         ]"
       >
         <span v-if="canAddToCart">追加</span>
-        <span v-else>上限</span>
+        <span v-else-if="hasQuantityLimit && remainingQuantity === 0">上限</span>
+        <span v-else-if="dataProductStatus === 'requires-threshold'">条件未達</span>
+        <span v-else-if="dataProductStatus === 'unavailable-threshold-met'">選択不可</span>
+        <span v-else>追加不可</span>
       </button>
     </div>
   </div>
@@ -88,7 +101,25 @@ const hasQuantityLimit = computed(() => {
 });
 
 const canAddToCart = computed(() => {
-  return cartStore.canAddToCart(props.product);
+  return cartStore.isProductAvailable(props.product);
+});
+
+const isDataProduct = computed(() => {
+  return props.product.categoryId === 'image-data';
+});
+
+const dataProductStatus = computed(() => {
+  if (!isDataProduct.value) return null;
+  
+  if (props.product.requiresThreshold) {
+    return cartStore.isThresholdMet ? 'available' : 'requires-threshold';
+  }
+  
+  if (props.product.unavailableWhenThresholdMet) {
+    return cartStore.isThresholdMet ? 'unavailable-threshold-met' : 'available';
+  }
+  
+  return 'available';
 });
 
 const remainingQuantity = computed(() => {

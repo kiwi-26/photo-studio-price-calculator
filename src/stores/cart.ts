@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 import type { ProductType, CartItemType } from '../types';
-import { Analytics } from '../utils';
+import { Analytics, TaxUtils } from '../utils';
 import { useProductsStore } from './products';
 
 // Interface for grouped cart items display
@@ -24,6 +24,19 @@ export const useCartStore = defineStore('cart', () => {
 
   const cartTotal = computed(() => {
     return cart.value.reduce((total, item) => total + (item.price * item.quantity), 0);
+  });
+
+  // Calculate total excluding image data products (for 50k threshold calculation)
+  // This uses tax-inclusive prices as per business requirements
+  const nonDataProductTotal = computed(() => {
+    return cart.value
+      .filter(item => item.categoryId !== 'image-data')
+      .reduce((total, item) => total + (TaxUtils.toTaxInclusive(item.price) * item.quantity), 0);
+  });
+
+  // Check if 50k threshold is met (excluding data products, using tax-inclusive prices)
+  const isThresholdMet = computed(() => {
+    return nonDataProductTotal.value >= 50000;
   });
 
   const isEmpty = computed(() => {
@@ -184,12 +197,40 @@ export const useCartStore = defineStore('cart', () => {
     return Math.max(0, product.maxQuantity - currentQuantity);
   };
 
+  // Helper function to check if a data product can be ordered based on business rules
+  const canOrderDataProduct = (product: ProductType): boolean => {
+    // If it's not an image data product, no special rules apply
+    if (product.categoryId !== 'image-data') {
+      return true;
+    }
+
+    // Products that require threshold: only available when threshold is met
+    if (product.requiresThreshold) {
+      return isThresholdMet.value;
+    }
+
+    // Products that become unavailable when threshold is met
+    if (product.unavailableWhenThresholdMet) {
+      return !isThresholdMet.value;
+    }
+
+    // Other data products (like 1-year later) are always available
+    return true;
+  };
+
+  // Combined check for product availability
+  const isProductAvailable = (product: ProductType): boolean => {
+    return canAddToCart(product) && canOrderDataProduct(product);
+  };
+
   return {
     // State
     cart,
     // Getters
     cartItemsCount,
     cartTotal,
+    nonDataProductTotal,
+    isThresholdMet,
     isEmpty,
     groupedCartItems,
     // Actions
@@ -202,6 +243,8 @@ export const useCartStore = defineStore('cart', () => {
     getCartItemById,
     isInCart,
     canAddToCart,
+    canOrderDataProduct,
+    isProductAvailable,
     getRemainingQuantity
   };
 });
