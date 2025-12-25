@@ -1,6 +1,16 @@
 <template>
   <!-- Only show the footer if there are items in the cart -->
   <div v-if="cart.length > 0" class="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-gray-950 border-t-2 border-primary shadow-lg">
+    <!-- Share Notification Toast -->
+    <div 
+      v-if="shareNotification.show"
+      :class="[
+        'absolute -top-16 left-1/2 transform -translate-x-1/2 px-4 py-2 rounded-lg text-white text-sm font-medium shadow-lg transition-all duration-300 z-10',
+        shareNotification.type === 'success' ? 'bg-green-600' : 'bg-red-600'
+      ]"
+    >
+      {{ shareNotification.message }}
+    </div>
     <!-- Collapsed Footer - Always Visible -->
     <div 
       @click="toggleExpanded"
@@ -55,6 +65,14 @@
 
           <div class="flex justify-end gap-2">
             <button 
+              @click="handleShare"
+              :disabled="cart.length === 0"
+              class="bg-blue-600 text-white border-none px-4 py-2 font-semibold rounded-lg transition-colors duration-200 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center gap-2"
+            >
+              <ShareIcon class="w-4 h-4" />
+              共有
+            </button>
+            <button 
               @click="$emit('clear-cart')" 
               class="bg-danger text-white border-none px-4 py-2 font-semibold rounded-lg transition-colors duration-200 hover:bg-danger-hover"
             >
@@ -72,7 +90,7 @@ import { ref, computed } from 'vue';
 import CartItem from './CartItem.vue';
 import GroupedCartItem from './GroupedCartItem.vue';
 import CartSummary from './CartSummary.vue';
-import { ShoppingCartIcon, ChevronUpIcon } from '@heroicons/vue/24/solid';
+import { ShoppingCartIcon, ChevronUpIcon, ShareIcon } from '@heroicons/vue/24/solid';
 import { Analytics } from '../utils';
 import { useCartStore } from '../stores';
 import type { CartItemType } from '../types';
@@ -90,6 +108,12 @@ const emit = defineEmits<{
 const cartStore = useCartStore();
 
 const isExpanded = ref(false);
+const shareNotification = ref<{ show: boolean; message: string; type: 'success' | 'error' }>({
+  show: false,
+  message: '',
+  type: 'success'
+});
+
 const toggleExpanded = () => {
   isExpanded.value = !isExpanded.value;
   
@@ -97,6 +121,29 @@ const toggleExpanded = () => {
   if (isExpanded.value && props.cart.length > 0) {
     Analytics.trackViewCart(props.cart);
   }
+};
+
+const handleShare = async () => {
+  const result = await cartStore.shareEstimate();
+  
+  if (result.success) {
+    shareNotification.value = {
+      show: true,
+      message: 'リンクをクリップボードにコピーしました！',
+      type: 'success'
+    };
+  } else {
+    shareNotification.value = {
+      show: true,
+      message: result.error || 'リンクのコピーに失敗しました',
+      type: 'error'
+    };
+  }
+  
+  // Hide notification after 3 seconds
+  setTimeout(() => {
+    shareNotification.value.show = false;
+  }, 3000);
 };
 
 const groupedCartItems = computed(() => {

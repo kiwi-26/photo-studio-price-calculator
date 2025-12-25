@@ -94,7 +94,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import AppHeader from './components/AppHeader.vue';
 import CategorySidebar from './components/CategorySidebar.vue';
 import ProductsList from './components/ProductsList.vue';
@@ -115,6 +115,15 @@ const editorStore = useProductEditorStore();
 // Check if running on localhost
 const isLocalhost = computed(() => {
   return window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+});
+
+// Load cart from URL parameters on app initialization
+onMounted(() => {
+  // Try to load cart from URL parameters
+  const loaded = cartStore.loadCartFromUrl();
+  if (loaded) {
+    console.log('Cart loaded from URL parameters');
+  }
 });
 
 // Modal state management
