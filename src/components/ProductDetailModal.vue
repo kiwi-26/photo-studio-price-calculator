@@ -53,10 +53,7 @@
           </div>
           <div class="text-center">
             <div class="text-sm text-gray-600 dark:text-gray-300 mb-1">価格</div>
-            <span class="text-lg font-semibold text-success">¥{{ effectivePrice.toLocaleString() }}</span>
-            <div v-if="hasCharacterDesignFee" class="text-xs text-orange-600 dark:text-orange-400">
-              キャラデザ料込み
-            </div>
+            <span class="text-lg font-semibold text-success">¥{{ currentProduct.price.toLocaleString() }}</span>
           </div>
         </div>
 
