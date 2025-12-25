@@ -89,20 +89,7 @@
             </select>
           </div>
 
-          <!-- Character Design Fee Section -->
-          <div>
-            <label class="flex items-center">
-              <input
-                type="checkbox"
-                v-model="tempFilters.characterDesignFee"
-                class="rounded border-gray-300 dark:border-gray-600 text-blue-600 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 dark:bg-gray-700"
-              />
-              <span class="ml-2 text-sm text-gray-900 dark:text-white">
-                キャラクターデザイン衣装<br>
-                <span class="text-xs text-gray-600 dark:text-gray-400">(+1,000円)</span>
-              </span>
-            </label>
-          </div>
+
         </div>
 
         <!-- Modal Footer -->
@@ -140,7 +127,6 @@ interface TempFilters {
   poseCountFilter: string;
   sortOrder: string;
   priceFilter: string;
-  characterDesignFee: boolean;
 }
 
 const props = defineProps<{
@@ -151,7 +137,6 @@ const props = defineProps<{
   selectedSortOrder: string;
   priceFilters: PriceFilter[];
   selectedPriceFilter: string;
-  characterDesignFee: boolean;
 }>();
 
 const emit = defineEmits<{
@@ -163,8 +148,7 @@ const emit = defineEmits<{
 const tempFilters = ref<TempFilters>({
   poseCountFilter: props.selectedPoseCountFilter,
   sortOrder: props.selectedSortOrder,
-  priceFilter: props.selectedPriceFilter,
-  characterDesignFee: props.characterDesignFee
+  priceFilter: props.selectedPriceFilter
 });
 
 // Watch for prop changes to update temp filters when modal opens
@@ -174,8 +158,7 @@ watch(() => props.isOpen, (isOpen) => {
     tempFilters.value = {
       poseCountFilter: props.selectedPoseCountFilter,
       sortOrder: props.selectedSortOrder,
-      priceFilter: props.selectedPriceFilter,
-      characterDesignFee: props.characterDesignFee
+      priceFilter: props.selectedPriceFilter
     };
   }
 });
@@ -197,8 +180,7 @@ const resetFilters = () => {
   tempFilters.value = {
     poseCountFilter: 'all',
     sortOrder: 'id',
-    priceFilter: 'all',
-    characterDesignFee: false
+    priceFilter: 'all'
   };
 };
 </script>

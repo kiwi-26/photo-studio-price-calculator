@@ -36,7 +36,6 @@ export const useProductsStore = defineStore('products', () => {
   const selectedPoseCountFilter = ref<string>('all');
   const selectedSortOrder = ref<string>('id');
   const selectedPriceFilter = ref<string>('all');
-  const characterDesignFee = ref<boolean>(false);
 
   // Getters
   const categories = computed(() => {
@@ -111,12 +110,7 @@ export const useProductsStore = defineStore('products', () => {
       const priceFilter = priceFilters.value.find(f => f.id === selectedPriceFilter.value);
       if (priceFilter) {
         filtered = filtered.filter(product => {
-          let productPrice = product.price;
-          
-          // Add character design fee if applicable and enabled
-          if (characterDesignFee.value && isCharacterDesignApplicable(product)) {
-            productPrice += 1000;
-          }
+          const productPrice = product.price;
           
           if (priceFilter.max === null) {
             return productPrice >= priceFilter.min;
@@ -129,14 +123,8 @@ export const useProductsStore = defineStore('products', () => {
 
     // Sort the filtered products
     const sorted = [...filtered].sort((a, b) => {
-      let aPrice = a.price;
-      let bPrice = b.price;
-      
-      // Add character design fee if applicable and enabled
-      if (characterDesignFee.value) {
-        if (isCharacterDesignApplicable(a)) aPrice += 1000;
-        if (isCharacterDesignApplicable(b)) bPrice += 1000;
-      }
+      const aPrice = a.price;
+      const bPrice = b.price;
       
       switch (selectedSortOrder.value) {
         case 'price':
@@ -256,11 +244,6 @@ export const useProductsStore = defineStore('products', () => {
     return result;
   };
 
-  // Helper function to determine if character design fee applies to a product
-  const isCharacterDesignApplicable = (product: ProductType): boolean => {
-    // Character design fee applies to print products (categoryId: 'print')
-    return product.categoryId === 'print';
-  };
 
   // Actions
   const setSelectedCategory = (categoryId: string) => {
@@ -279,21 +262,8 @@ export const useProductsStore = defineStore('products', () => {
     selectedPriceFilter.value = filterId;
   };
 
-  const setCharacterDesignFee = (enabled: boolean) => {
-    characterDesignFee.value = enabled;
-  };
-
   const getProductById = (id: number | string): ProductType | undefined => {
     return products.value.find(product => product.id === id);
-  };
-
-  // Helper function to get effective price (including character design fee if applicable)
-  const getEffectivePrice = (product: ProductType): number => {
-    let price = product.price;
-    if (characterDesignFee.value && isCharacterDesignApplicable(product)) {
-      price += 1000;
-    }
-    return price;
   };
 
   return {
@@ -303,7 +273,6 @@ export const useProductsStore = defineStore('products', () => {
     selectedPoseCountFilter,
     selectedSortOrder,
     selectedPriceFilter,
-    characterDesignFee,
     // Getters
     categories,
     poseCountFilters,
@@ -316,10 +285,7 @@ export const useProductsStore = defineStore('products', () => {
     setSelectedPoseCountFilter,
     setSelectedSortOrder,
     setSelectedPriceFilter,
-    setCharacterDesignFee,
     getProductById,
-    getEffectivePrice,
-    isCharacterDesignApplicable,
     // New helper functions
     isGroupedProduct,
     getAllIndividualProducts,
