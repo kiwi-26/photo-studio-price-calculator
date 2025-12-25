@@ -53,10 +53,7 @@
           </div>
           <div class="text-center">
             <div class="text-sm text-gray-600 dark:text-gray-300 mb-1">価格</div>
-            <span class="text-lg font-semibold text-success">¥{{ effectivePrice.toLocaleString() }}</span>
-            <div v-if="hasCharacterDesignFee" class="text-xs text-orange-600 dark:text-orange-400">
-              キャラデザ料込み
-            </div>
+            <span class="text-lg font-semibold text-success">¥{{ currentProduct.price.toLocaleString() }}</span>
           </div>
         </div>
 
@@ -260,15 +257,6 @@ const remainingQuantity = computed(() => {
 
 const hasQuantityLimit = computed(() => {
   return currentProduct.value?.maxQuantity !== undefined;
-});
-
-const effectivePrice = computed(() => {
-  if (!currentProduct.value) return 0;
-  return productsStore.getEffectivePrice(currentProduct.value);
-});
-
-const hasCharacterDesignFee = computed(() => {
-  return currentProduct.value && productsStore.characterDesignFee && productsStore.isCharacterDesignApplicable(currentProduct.value);
 });
 
 const hasPrevious = computed(() => currentIndex.value > 0);

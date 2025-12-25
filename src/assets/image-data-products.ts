@@ -10,7 +10,8 @@ export const imageDataProducts: ProductType[] = [
     "photoCount": 0,
     "price": 3000,
     "variation": "ダウンロード",
-    "requiresThreshold": true
+    "requiresThreshold": true,
+    "maxQuantity": 1
   },
   
   // 商品購入したすべての写真の画像データ - CD
@@ -22,7 +23,8 @@ export const imageDataProducts: ProductType[] = [
     "photoCount": 0,
     "price": 5000,
     "variation": "CD",
-    "requiresThreshold": true
+    "requiresThreshold": true,
+    "maxQuantity": 1
   },
   
   // 商品購入した写真から1カットずつ購入 - ダウンロード
@@ -31,7 +33,7 @@ export const imageDataProducts: ProductType[] = [
     "categoryId": "image-data",
     "name": "商品購入した写真から1カットずつ購入",
     "description": "撮影した写真から1カットずつ選んでデータでお渡しします。データ商品以外で税込50,000円以上購入した場合は選択不可となります。",
-    "photoCount": 1,
+    "photoCount": 0,
     "price": 5000,
     "variation": "ダウンロード",
     "unavailableWhenThresholdMet": true
@@ -43,7 +45,7 @@ export const imageDataProducts: ProductType[] = [
     "categoryId": "image-data",
     "name": "商品購入した写真から1カットずつ購入",
     "description": "撮影した写真から1カットずつ選んでCDでお渡しします。データ商品以外で税込50,000円以上購入した場合は選択不可となります。",
-    "photoCount": 1,
+    "photoCount": 0,
     "price": 5000,
     "variation": "CD",
     "unavailableWhenThresholdMet": true
@@ -57,7 +59,8 @@ export const imageDataProducts: ProductType[] = [
     "description": "撮影から1年後にデータを作成してお渡しします。",
     "photoCount": 0,
     "price": 400,
-    "variation": "ダウンロード"
+    "variation": "ダウンロード",
+    "maxQuantity": 1
   },
   
   // 1年後データ作成 - CD
@@ -68,6 +71,7 @@ export const imageDataProducts: ProductType[] = [
     "description": "撮影から1年後にデータを作成してCDでお渡しします。",
     "photoCount": 0,
     "price": 600,
-    "variation": "CD"
+    "variation": "CD",
+    "maxQuantity": 1
   }
 ];
