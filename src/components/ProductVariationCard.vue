@@ -19,10 +19,7 @@
           {{ product.basePhotoCount }}
         </span>
         <div class="text-right">
-          <span class="font-semibold text-success">¥{{ effectiveBasePrice.toLocaleString() }}〜</span>
-          <div v-if="hasCharacterDesignFee" class="text-xs text-orange-600 dark:text-orange-400">
-            キャラデザ料込み
-          </div>
+          <span class="font-semibold text-success">¥{{ product.basePrice.toLocaleString() }}〜</span>
         </div>
       </div>
       
@@ -46,7 +43,7 @@
               <CameraIcon class="w-2.5 h-2.5 mr-1" />
               {{ variation.photoCount }}
             </span>
-            <span class="font-semibold text-success">¥{{ getVariationEffectivePrice(variation).toLocaleString() }}</span>
+            <span class="font-semibold text-success">¥{{ variation.price.toLocaleString() }}</span>
           </div>
         </div>
         <button 
@@ -71,10 +68,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
 import { CameraIcon } from '@heroicons/vue/24/solid';
 import { getCategoryDisplayName } from '../assets/categories';
-import { useProductsStore } from '../stores';
 import type { GroupedProductType, ProductType, ProductVariationType } from '../types';
 
 const props = defineProps<{ product: GroupedProductType }>();
@@ -82,55 +77,6 @@ defineEmits<{
   (e: 'add-to-cart', product: ProductType): void;
   (e: 'show-detail', product: ProductType): void;
 }>();
-
-const productsStore = useProductsStore();
-
-const effectiveBasePrice = computed(() => {
-  // Calculate effective price for the lowest priced variation
-  const lowestPriceVariation = props.product.variations.reduce((min, variation) => 
-    variation.price < min.price ? variation : min
-  );
-  
-  const tempProduct: ProductType = {
-    id: lowestPriceVariation.id,
-    name: props.product.name,
-    categoryId: props.product.categoryId,
-    description: props.product.description,
-    photoCount: lowestPriceVariation.photoCount,
-    price: lowestPriceVariation.price,
-    variation: lowestPriceVariation.variation
-  };
-  
-  return productsStore.getEffectivePrice(tempProduct);
-});
-
-const hasCharacterDesignFee = computed(() => {
-  const tempProduct: ProductType = {
-    id: props.product.variations[0].id,
-    name: props.product.name,
-    categoryId: props.product.categoryId,
-    description: props.product.description,
-    photoCount: props.product.variations[0].photoCount,
-    price: props.product.variations[0].price,
-    variation: props.product.variations[0].variation
-  };
-  
-  return productsStore.characterDesignFee && productsStore.isCharacterDesignApplicable(tempProduct);
-});
-
-const getVariationEffectivePrice = (variation: ProductVariationType): number => {
-  const tempProduct: ProductType = {
-    id: variation.id,
-    name: props.product.name,
-    categoryId: props.product.categoryId,
-    description: variation.description || props.product.description,
-    photoCount: variation.photoCount,
-    price: variation.price,
-    variation: variation.variation
-  };
-  
-  return productsStore.getEffectivePrice(tempProduct);
-};
 
 const getVariationAsProduct = (variation: ProductVariationType): ProductType => {
   return {

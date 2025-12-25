@@ -262,15 +262,6 @@ const hasQuantityLimit = computed(() => {
   return currentProduct.value?.maxQuantity !== undefined;
 });
 
-const effectivePrice = computed(() => {
-  if (!currentProduct.value) return 0;
-  return productsStore.getEffectivePrice(currentProduct.value);
-});
-
-const hasCharacterDesignFee = computed(() => {
-  return currentProduct.value && productsStore.characterDesignFee && productsStore.isCharacterDesignApplicable(currentProduct.value);
-});
-
 const hasPrevious = computed(() => currentIndex.value > 0);
 const hasNext = computed(() => currentIndex.value < props.productList.length - 1);
 
