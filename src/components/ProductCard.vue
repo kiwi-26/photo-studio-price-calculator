@@ -22,10 +22,7 @@
           {{ product.photoCount }}
         </span>
         <div class="text-right">
-          <span class="font-semibold text-success">¥{{ effectivePrice.toLocaleString() }}</span>
-          <div v-if="hasCharacterDesignFee" class="text-xs text-orange-600 dark:text-orange-400">
-            キャラデザ料込み
-          </div>
+          <span class="font-semibold text-success">¥{{ product.price.toLocaleString() }}</span>
         </div>
       </div>
       
@@ -98,14 +95,6 @@ defineEmits<{
 
 const productsStore = useProductsStore();
 const cartStore = useCartStore();
-
-const effectivePrice = computed(() => {
-  return productsStore.getEffectivePrice(props.product);
-});
-
-const hasCharacterDesignFee = computed(() => {
-  return productsStore.characterDesignFee && productsStore.isCharacterDesignApplicable(props.product);
-});
 
 const hasQuantityLimit = computed(() => {
   return props.product.maxQuantity !== undefined;

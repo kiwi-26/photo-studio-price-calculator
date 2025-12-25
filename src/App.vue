@@ -22,7 +22,6 @@
       :selected-pose-count-filter="productsStore.selectedPoseCountFilter"
       :selected-sort-order="productsStore.selectedSortOrder"
       :selected-price-filter="productsStore.selectedPriceFilter"
-      :character-design-fee="productsStore.characterDesignFee"
       @update:selected-category="productsStore.setSelectedCategory"
       @open-filter-modal="openFilterModal"
     />
@@ -72,7 +71,6 @@
       :selected-sort-order="productsStore.selectedSortOrder"
       :price-filters="productsStore.priceFilters"
       :selected-price-filter="productsStore.selectedPriceFilter"
-      :character-design-fee="productsStore.characterDesignFee"
       @close="closeFilterModal"
       @apply-filters="applyFilters"
     />
@@ -144,12 +142,10 @@ const applyFilters = (filters: {
   poseCountFilter: string;
   sortOrder: string;
   priceFilter: string;
-  characterDesignFee: boolean;
 }) => {
   // Apply all filters at once
   productsStore.setSelectedPoseCountFilter(filters.poseCountFilter);
   productsStore.setSelectedSortOrder(filters.sortOrder);
   productsStore.setSelectedPriceFilter(filters.priceFilter);
-  productsStore.setCharacterDesignFee(filters.characterDesignFee);
 };
 </script>
