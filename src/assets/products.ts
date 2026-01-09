@@ -1057,7 +1057,7 @@ export const products: ProductType[] = [
   },
   {
     "id": 125,
-    "categoryId": "photo-mount-matanity",
+    "categoryId": "photo-mount-maternity",
     "name": "マタニティ専用台紙",
     "description": "マタニティフォト専用台紙",
     "photoCount": 1,
