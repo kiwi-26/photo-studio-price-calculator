@@ -128,6 +128,13 @@ export const subCategories: Map<string, SubCategory> = new Map([
     parentCategoryId: 'photo-mount',
     icon: SparklesIcon,
     shortName: 'ポエム'
+  }],
+  ['photo-mount-matanity', {
+    id: 'photo-mount-matanity',
+    name: 'デザイン マタニティ専用',
+    parentCategoryId: 'photo-mount',
+    icon: SparklesIcon,
+    shortName: 'マタニティ'
   }]
 ]);
 
