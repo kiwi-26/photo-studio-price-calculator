@@ -1045,5 +1045,40 @@ export const products: ProductType[] = [
     "photoCount": 0,
     "id": 123,
     "variation": "文字入れ料（Eメール）"
+  },
+  {
+    "id": 124,
+    "categoryId": "photo-mount-maternity",
+    "name": "マタニティ専用台紙",
+    "description": "マタニティフォト専用台紙",
+    "photoCount": 2,
+    "price": 7500,
+    "variation": "1ページ/2カット エコーなし"
+  },
+  {
+    "id": 125,
+    "categoryId": "photo-mount-maternity",
+    "name": "マタニティ専用台紙",
+    "description": "マタニティフォト専用台紙",
+    "photoCount": 1,
+    "price": 7500,
+    "variation": "1ページ/1カット+エコー"
+  },
+  {
+    "id": 126,
+    "categoryId": "photo-mount-maternity",
+    "name": "マタニティ専用台紙",
+    "description": "マタニティフォト専用台紙",
+    "photoCount": 3,
+    "price": 14900,
+    "variation": "2ページ/3カット+エコー"
+  },
+  {
+    "id": 127,
+    "categoryId": "display-item",
+    "name": "マタニティ専用フレーム",
+    "description": "アフターマタニティの写真を後から追加できるフレーム",
+    "photoCount": 1,
+    "price": 6320
   }
 ];
