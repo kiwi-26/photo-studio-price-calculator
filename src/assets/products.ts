@@ -1074,11 +1074,11 @@ export const products: ProductType[] = [
     "variation": "2ページ/3カット+エコー"
   },
   {
-    "name": "マタニティ専用フレーム",
+    "id": 127,
     "categoryId": "display-item",
+    "name": "マタニティ専用フレーム",
     "description": "アフターマタニティの写真を後から追加できるフレーム",
-    "price": 6320,
     "photoCount": 1,
-    "id": 127
+    "price": 6320
   }
 ];
