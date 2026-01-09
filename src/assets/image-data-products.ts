@@ -3,7 +3,7 @@ import type { ProductType } from "../types";
 export const imageDataProducts: ProductType[] = [
   // 商品購入したすべての写真の画像データ - ダウンロード
   {
-    "id": 300,
+    "id": 600,
     "categoryId": "image-data",
     "name": "商品購入したすべての写真の画像データ",
     "description": "撮影したすべての写真をデータでお渡しします。データ商品以外で税込50,000円以上購入した場合に注文可能です。",
@@ -16,7 +16,7 @@ export const imageDataProducts: ProductType[] = [
   
   // 商品購入したすべての写真の画像データ - CD
   {
-    "id": 301,
+    "id": 601,
     "categoryId": "image-data",
     "name": "商品購入したすべての写真の画像データ",
     "description": "撮影したすべての写真をCDでお渡しします。データ商品以外で税込50,000円以上購入した場合に注文可能です。",
@@ -29,7 +29,7 @@ export const imageDataProducts: ProductType[] = [
   
   // 商品購入した写真から1カットずつ購入 - ダウンロード
   {
-    "id": 302,
+    "id": 602,
     "categoryId": "image-data",
     "name": "商品購入した写真から1カットずつ購入",
     "description": "撮影した写真から1カットずつ選んでデータでお渡しします。データ商品以外で税込50,000円以上購入した場合は選択不可となります。",
@@ -41,7 +41,7 @@ export const imageDataProducts: ProductType[] = [
   
   // 商品購入した写真から1カットずつ購入 - CD
   {
-    "id": 303,
+    "id": 603,
     "categoryId": "image-data",
     "name": "商品購入した写真から1カットずつ購入",
     "description": "撮影した写真から1カットずつ選んでCDでお渡しします。データ商品以外で税込50,000円以上購入した場合は選択不可となります。",
@@ -53,7 +53,7 @@ export const imageDataProducts: ProductType[] = [
   
   // 1年後データ作成 - ダウンロード
   {
-    "id": 304,
+    "id": 604,
     "categoryId": "image-data",
     "name": "1年後データ作成",
     "description": "撮影から1年後にデータを作成してお渡しします。",
@@ -65,7 +65,7 @@ export const imageDataProducts: ProductType[] = [
   
   // 1年後データ作成 - CD
   {
-    "id": 305,
+    "id": 605,
     "categoryId": "image-data",
     "name": "1年後データ作成",
     "description": "撮影から1年後にデータを作成してCDでお渡しします。",
