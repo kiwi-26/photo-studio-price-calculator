@@ -3,7 +3,7 @@ import type { ProductType } from "../types";
 export const photoProcessingProducts: ProductType[] = [
   // マスク日焼け修整 (Mask Tan Correction)
   {
-    "id": 300,
+    "id": 500,
     "categoryId": "photo-processing",
     "name": "マスク日焼け修整",
     "description": "購入した全画像に対してマスク日焼けを修整します",
@@ -15,7 +15,7 @@ export const photoProcessingProducts: ProductType[] = [
   
   // 日焼け肌修整 (Tan Skin Correction)
   {
-    "id": 301,
+    "id": 501,
     "categoryId": "photo-processing",
     "name": "日焼け肌修整",
     "description": "購入した全画像に対して日焼け肌を修整します",
@@ -27,7 +27,7 @@ export const photoProcessingProducts: ProductType[] = [
   
   // 抜け歯修整 (Missing Tooth Correction)
   {
-    "id": 302,
+    "id": 502,
     "categoryId": "photo-processing",
     "name": "抜け歯修整",
     "description": "1カットあたりの抜け歯修整サービスです",
@@ -38,7 +38,7 @@ export const photoProcessingProducts: ProductType[] = [
   
   // 美肌プリント (Beauty Print) - 1画像
   {
-    "id": 303,
+    "id": 503,
     "categoryId": "photo-processing",
     "name": "美肌プリント",
     "description": "美肌効果を施したプリントサービスです",
@@ -49,7 +49,7 @@ export const photoProcessingProducts: ProductType[] = [
   
   // 美肌プリント (Beauty Print) - 全画像
   {
-    "id": 304,
+    "id": 504,
     "categoryId": "photo-processing",
     "name": "美肌プリント",
     "description": "美肌効果を施したプリントサービスです",
@@ -60,7 +60,7 @@ export const photoProcessingProducts: ProductType[] = [
   
   // プレミアム美肌プリント シニア撮影向け (Premium Beauty Print for Senior Photography) - 1画像
   {
-    "id": 305,
+    "id": 505,
     "categoryId": "photo-processing",
     "name": "プレミアム美肌プリント シニア撮影向け",
     "description": "シニア撮影に特化したプレミアム美肌効果を施したプリントサービスです",
@@ -71,7 +71,7 @@ export const photoProcessingProducts: ProductType[] = [
   
   // プレミアム美肌プリント シニア撮影向け (Premium Beauty Print for Senior Photography) - 2画像以上
   {
-    "id": 306,
+    "id": 506,
     "categoryId": "photo-processing",
     "name": "プレミアム美肌プリント シニア撮影向け",
     "description": "シニア撮影に特化したプレミアム美肌効果を施したプリントサービスです",
@@ -82,7 +82,7 @@ export const photoProcessingProducts: ProductType[] = [
   
   // 撥水コーティング (Water-Repellent Coating)
   {
-    "id": 307,
+    "id": 507,
     "categoryId": "photo-processing",
     "name": "撥水コーティング",
     "description": "ハーフキャビネ/キャビネ/八切/六切/四切/半切/全紙サイズのプリントに撥水コーティングを施します",
@@ -93,7 +93,7 @@ export const photoProcessingProducts: ProductType[] = [
   
   // パウチ加工 (Pouch Processing)
   {
-    "id": 308,
+    "id": 508,
     "categoryId": "photo-processing",
     "name": "パウチ加工",
     "description": "ハーフキャビネサイズのプリントにパウチ加工を施します",
